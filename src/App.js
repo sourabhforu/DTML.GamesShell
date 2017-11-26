@@ -3,14 +3,13 @@
 // Website content and configuration is provided in gamelist.json file
 //-----------------------------------------------------------------------------------------------------------------
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom'
 import Social from './social.js';
 import list from './gamelist.json';
 import Rater from 'react-rater'
 import './App.css';
 
 // Main application class 
-//class App extends Component {
+class App extends Component {
    componentDidMount() {
     document.title = "Distance Teaching and Mobile Learning | Free educational Games online";
   }
@@ -33,7 +32,7 @@ class LeftNav extends Component {
     return (
         <ul>
           {this.props.data.map(function(listValue, i){
-            return <li><a href='#' class={listValue.active ? 'notactiveClass' : 'activeClass'} onClick={() => {that.props.click(i)}}>{listValue.name}</a></li>;
+            return <li><a href='#' class={listValue.active ? 'notactiveClass navLink' : 'activeClass navLink'} onClick={() => {that.props.click(i)}}>{listValue.name}</a></li>;
           })}
         </ul>
       )
@@ -64,7 +63,7 @@ class Body extends Component {
   updateState(index){
     this.setState({displayCode: false}); 
     this.setState({currentLesson: index});
-    this.props.list.map(function(item, i){item.active = false;});        
+    this.props.list.map(function(item, i){item.active = false; return true;});        
     this.props.list[index].active = true;	  
    };
    
@@ -84,7 +83,7 @@ class Body extends Component {
 		  <p>{this.props.list[this.state.currentLesson].description}</p>
 		  <Social />
 		  <div id="framecontainer" ref="framecontainer">
-		  <iframe class='gameframe' src={this.props.list[this.state.currentLesson].url} width='100%' height="600" frameborder='0'></iframe>
+		  <iframe class='gameframe' title={this.props.list[this.state.currentLesson].title} src={this.props.list[this.state.currentLesson].url} width='100%' height="600" frameborder='0'></iframe>
 		  </div>
 		  <div>
 		  <span>Rate this game </span>
@@ -101,7 +100,9 @@ class Body extends Component {
  	</div>
 	<div class="col-sm-2 col-md-2 right">
 		<section class='d-none d-lg-block'>
-		<img src='https://dtml.org/images/ad2.png' />
+		<a href="https://dtml.org/home/donate">
+		<img src='https://dtml.org/images/ad2.png' alt="Sponsored Link" />
+		</a>
         </section>
 	</div>
 	</div>
@@ -146,6 +147,7 @@ class Header extends Component {
   }
 }
 
+// DTML footer with social links and DTML logo
 class Footer extends Component {
   render() {
     return (
@@ -161,11 +163,11 @@ class Footer extends Component {
                         </p>
                     </div>
                     <ul class="nav blog-social my-lg-auto ml-lg-auto justify-content-center">
-                        <li><a class="item-fb" data-toggle="tooltip" title="follow on Facebook" target="_blank" href="https://www.facebook.com/distantteaching/" rel="external nofollow"><i class="fa fa-facebook"></i></a></li>
-                        <li><a class="item-tw" data-toggle="tooltip" title="follow on Twitter" target="_blank" href="https://twitter.com/DistantTeaching" rel="external nofollow"><i class="fa fa-twitter"></i></a></li>
-                        <li><a class="item-li" data-toggle="tooltip" title="follow on Linkedin" target="_blank" href="https://www.linkedin.com/company/distant-teaching-and-mobile-learning/" rel="external nofollow"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a class="item-yt" data-toggle="tooltip" title="follow on YouTube" target="_blank" href="https://www.youtube.com/channel/UCwF13kloyxnifaNCHQUL2rQ/featured" rel="external nofollow"><i class="fa fa-youtube"></i></a></li>
-                        <li><a class="item-up" data-toggle="tooltip" title="Back up" id="back-up" target="_blank" href="#"><i class="fa fa-chevron-up"></i></a></li>
+                        <li><a class="item-fb" data-toggle="tooltip" title="follow on Facebook" target="_blank" href="https://www.facebook.com/distantteaching/" rel="external nofollow noopener noreferrer"><i class="fa fa-facebook"></i></a></li>
+                        <li><a class="item-tw" data-toggle="tooltip" title="follow on Twitter" target="_blank" href="https://twitter.com/DistantTeaching" rel="external nofollow noopener noreferrer"><i class="fa fa-twitter"></i></a></li>
+                        <li><a class="item-li" data-toggle="tooltip" title="follow on Linkedin" target="_blank" href="https://www.linkedin.com/company/distant-teaching-and-mobile-learning/" rel="external nofollow noopener noreferrer"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a class="item-yt" data-toggle="tooltip" title="follow on YouTube" target="_blank" href="https://www.youtube.com/channel/UCwF13kloyxnifaNCHQUL2rQ/featured" rel="external nofollow noopener noreferrer"><i class="fa fa-youtube"></i></a></li>
+                        <li><a class="item-up" data-toggle="tooltip" title="Back up" id="back-up" target="_blank" rel="noopener noreferrer" href="http://blog.dtml.org"><i class="fa fa-chevron-up"></i></a></li>
                     </ul>
                 </div>
             </div>
@@ -175,3 +177,6 @@ class Footer extends Component {
 }
 
 export default App;
+export  {Header};
+export  {Footer};
+export  {Body};
