@@ -1,0 +1,154 @@
+@import "http://blog.dtml.org/Custom/Themes/Clean/src/css/bootstrap.min.css";
+@import "http://blog.dtml.org/Custom/Themes/Clean/src/css/styles.min.css";
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.activeClass
+{
+	color:#00ff;
+}
+
+.notactiveClass
+{
+	color:#ef7117;
+}
+
+.arrow-right {
+  width: 0; 
+  height: 0; 
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid green;
+}
+.react-rater {
+  display: inline-block;
+  line-height: normal; }
+  .react-rater > * {
+    display: inline-block; }
+
+.react-rater-star {
+  cursor: pointer;
+  color: #ccc;
+  font-size:40px;
+  position: relative; }
+  .react-rater-star.will-be-active {
+    color: #ffdd99; }
+  .react-rater-star.is-active {
+    color: #fc6; }
+  .react-rater-star.is-active-half:before {
+    color: #fc6;
+    content: '\2605';
+    position: absolute;
+    left: 0;
+    width: 50%;
+    overflow: hidden; }
+  .react-rater-star.is-disabled {
+    cursor: default; }
+
+
+
+.Social_container
+{
+	padding:20px;
+}
+
+ .Demo__some-network {
+        vertical-align: top;
+        display: inline-block;
+        margin-right: 30px;
+        text-align: center;
+      }
+
+.Demo__some-network__share-count {
+        margin-top: 3px;
+        font-size: 12px;
+      }
+
+
+      .Demo__some-network__share-button {
+
+        cursor: pointer;
+
+      }
+
+
+
+      .Demo__some-network__share-button:hover:not(:active) {
+
+        opacity: 0.75
+	  }
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.getcode
+{
+	margin-top:20px;
+	padding-top:10px;
+	margin-bottom:10px;
+	margin-right:10px;
+	
+}
+.codearea
+{
+	width:100%;	
+	max-width:800px;
+	margin-top:20px;
+	min-height:100px;
+	display:block;
+}
+
+.gameframe
+{
+	max-width:800px;
+    min-width:300px;
+}
+
+.bodyContainer
+{
+	margin-top:15px;
+}
+
+.main
+{
+ padding-left:30px;	
+}
+
+.right
+{
+	padding-right:15px;
+	min-width:100px;
+	padding-left:15px;	
+	float:right;
+}
+
+.right>img
+{
+	width:400px
+}
+
+.nav
+{
+	min-width:200px;
+	border-right:1px solid #ddd;
+    padding-left:30px;	
+}
