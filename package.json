@@ -7,11 +7,9 @@
     "prop-types": "^15.6.0",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
-    "react-ga": "^2.3.5",
-    "react-modal-dialog": "^4.0.7",
     "react-rater": "^0.4.7",
     "react-scripts": "1.0.17",
-    "react-treebeard": "^2.1.0"
+    "react-share": "^1.17.0"
   },
   "scripts": {
     "start": "react-scripts start",
