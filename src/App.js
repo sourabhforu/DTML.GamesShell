@@ -1,3 +1,7 @@
+// Distance Teaching and Mobile Learning
+// ReactJS Three column shell layout SPA website
+// Website content and configuration is provided in gamelist.json file
+//-----------------------------------------------------------------------------------------------------------------
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom'
 import Social from './social.js';
@@ -5,21 +9,24 @@ import list from './gamelist.json';
 import Rater from 'react-rater'
 import './App.css';
 
-class App extends Component {
+// Main application class 
+//class App extends Component {
    componentDidMount() {
     document.title = "Distance Teaching and Mobile Learning | Free educational Games online";
   }
   render() {
     return (
 	 <div>
-     <Header/> 
-     <Body list={list}/> 
-	 <Footer/>
-	 </div>
+            <Header/> 
+            <Body list={list}/> 
+	    <Footer/>	 
+	  </div>
     );
+   }
   }
-}
 
+// Navigational pane. 
+// Links are generated from gamelist.json file 
 class LeftNav extends Component {
     render() {
 	var that = this;
@@ -33,31 +40,32 @@ class LeftNav extends Component {
     }
   };
 
+// Main content area with three column layout
 class Body extends Component {
       constructor(props) {
       super(props);
       this.state = {
          currentLesson: 0,
-		 displayCode: false
-      }
-	  
+	 displayCode: false
+      }	  
 	  this.updateState = this.updateState.bind(this);
 	  this.toggleCode = this.toggleCode.bind(this);
   };
   
-  toggleCode()
-  {        
+  // Enent handler for getCode button click, to display textarea with IFrame code	
+  toggleCode() {        
     var domNode = this.refs.framecontainer;
-		var frameCode = domNode.innerHTML+"<div><a href='http://dtml.org'>Game provided by dtml.org</a></div>";
+    var frameCode = domNode.innerHTML+"<div><a href='http://dtml.org'>Game provided by dtml.org</a></div>";
     this.setState({displayCode: true});
-		this.setState({frameText: frameCode});		
+    this.setState({frameText: frameCode});		
   }
-   
-    updateState(index) {
+  
+  // Navigation Link Click. Game area is updated with the new game	
+  updateState(index){
     this.setState({displayCode: false}); 
-   	this.setState({currentLesson: index});
-	  this.props.list.map(function(item, i){item.active = false;});        
-	  this.props.list[index].active = true;	  
+    this.setState({currentLesson: index});
+    this.props.list.map(function(item, i){item.active = false;});        
+    this.props.list[index].active = true;	  
    };
    
   render() {
@@ -87,17 +95,14 @@ class Body extends Component {
 			{this.state.displayCode ? 
 			<textarea id='codeArea' class='codearea'>{this.state.frameText}</textarea>		
 			: null
-			}
-			
-			<button onClick={() => {window.location.href='http://blog.dtml.org/contact'}} type="button" class="btn btn-info getcode	">Contribute</button>
-			
+			}	
+                <button onClick={() => {window.location.href='http://blog.dtml.org/contact'}} type="button" class="btn btn-info getcode	">Contribute</button>
 	</section>
-	
-	</div>
+ 	</div>
 	<div class="col-sm-2 col-md-2 right">
 		<section class='d-none d-lg-block'>
 		<img src='https://dtml.org/images/ad2.png' />
-		</section>
+        </section>
 	</div>
 	</div>
 	</div>
@@ -105,6 +110,7 @@ class Body extends Component {
   }
 }
 
+ // Header with DTML logo and main site links
 class Header extends Component {
   render() {
     return (
@@ -112,8 +118,9 @@ class Header extends Component {
             <div class="container">
                 <nav class="d-flex">
                     <h1 class="blog-logo my-auto">
-                        <a href="http://blog.dtml.org/">
-                            <img src="http://blog.dtml.org/Custom/Themes/clean/src/img/logo.png" alt="Distance Teaching and Mobile Learning" />
+                         <a href="http://blog.dtml.org/">
+
+	    <img src="http://blog.dtml.org/Custom/Themes/clean/src/img/logo.png" alt="Distance Teaching and Mobile Learning" />
                         </a>
                     </h1>
                     <ul class="blog-nav ml-lg-auto d-lg-block d-lg-flex my-lg-auto">
