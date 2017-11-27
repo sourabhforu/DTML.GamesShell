@@ -8,11 +8,18 @@ import list from './gamelist.json';
 import Rater from 'react-rater'
 import './App.css';
 
+let rankingURL = 'https://dtml.org/api/RatingService/rank';
+
 // Main application class 
 class App extends Component {
    componentDidMount() {
     document.title = "Distance Teaching and Mobile Learning | Free educational Games online";
   }
+  loadCommentsFromServer() {
+    fetch(this.props.url).then(function(response){
+        // perform setState here
+    });
+}
   render() {
     return (
 	 <div>
@@ -43,13 +50,30 @@ class LeftNav extends Component {
 class Body extends Component {
       constructor(props) {
       super(props);
+	  	  
       this.state = {
          currentLesson: 0,
-	 displayCode: false
+	     displayCode: false,
+		 rating : 3
       }	  
+	  
 	  this.updateState = this.updateState.bind(this);
 	  this.toggleCode = this.toggleCode.bind(this);
   };
+  
+ // Enent handler for rating the game	
+   handleRate({ rating, type }) {
+    if (type === 'click') {
+      fetch(rankingURL, {
+        method: 'post',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify({
+        "key": this.props.list[this.state.currentLesson].title,
+	    "rank": rating
+        })
+        });
+       }
+   }
   
   // Enent handler for getCode button click, to display textarea with IFrame code	
   toggleCode() {        
@@ -65,6 +89,16 @@ class Body extends Component {
     this.setState({currentLesson: index});
     this.props.list.map(function(item, i){item.active = false; return true;});        
     this.props.list[index].active = true;	  
+	
+	fetch(rankingURL+'?key='+this.props.list[this.state.currentLesson].title, {
+        method: 'get',
+        headers: {'Content-Type':'application/json'}
+        }).then(response  => {
+        console.log(response);
+        this.setState({
+          rating: response
+        });
+      });
    };
    
   render() {
@@ -87,7 +121,7 @@ class Body extends Component {
 		  </div>
 		  <div>
 		  <span>Rate this game </span>
-	   	<Rater total={5} rating={2} />
+	   	<Rater total={5} rating={this.state.rating} onRate={this.handleRate.bind(this)} />
 		</div>
 		
 		<button onClick={() => {this.toggleCode()}} type="button" class="btn btn-info getcode	">&lt;/&gt; Embed</button>
