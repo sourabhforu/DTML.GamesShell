@@ -1,0 +1,92 @@
+#back-top {
+	position: fixed;
+	bottom:70px;
+	right:10px;
+	margin-left: 0;
+	z-index:999;
+	
+}
+
+#back-top a {
+	width:47px; height:47px; margin:0px auto 0px; font-family:'FontAwesome'; color:#000; font-size:34px; font-weight:700; text-transform:uppercase; transition: all 0.4s ease-in-out 0s; display:inline-table; line-height:47px; text-align:center; border:#fff solid 0px;
+	/* background color transition */
+	-webkit-transition: 1s;
+	-moz-transition: 1s;
+	transition: 1s;
+
+}
+#back-top a .fa{line-height:47px; -webkit-animation: floating-arrow 1.6s infinite ease-in-out 0s; -o-animation: floating-arrow 1.6s infinite ease-in-out 0s; animation: floating-arrow 1.6s infinite ease-in-out 0s;}
+
+
+
+#back-top a:hover {
+	color: #fff;
+}
+/* arrow icon (span tag) */
+#back-top span {
+	width: 108px;
+	height: 108px;
+	display: block;
+	margin-bottom: 7px;
+	background: #ddd url(up-arrow.png) no-repeat center center;
+	/* rounded corners */
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	/* background color transition */
+	-webkit-transition: 1s;
+	-moz-transition: 1s;
+	transition: 1s;
+}
+#back-top a:hover span {
+	background-color: #777;
+}
+
+
+
+#back-top01 {
+	position: fixed;
+	bottom: 40px;
+	right:20px;
+	margin-left: 0;
+	z-index:999;
+	
+}
+
+#back-top01 a {
+	width: 108px;
+	display: block;
+	text-align: center;
+	font: 11px/100% Arial, Helvetica, sans-serif;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: #bbb;
+	/* background color transition */
+	-webkit-transition: 1s;
+	-moz-transition: 1s;
+	transition: 1s;
+}
+
+
+#back-top01 a:hover {
+	color: #000;
+}
+/* arrow icon (span tag) */
+#back-top01 span {
+	width: 108px;
+	height: 108px;
+	display: block;
+	margin-bottom: 7px;
+	background: #ddd url(up-arrow.png) no-repeat center center;
+	/* rounded corners */
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	/* background color transition */
+	-webkit-transition: 1s;
+	-moz-transition: 1s;
+	transition: 1s;
+}
+#back-top01 a:hover span {
+	background-color: #777;
+}
