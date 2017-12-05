@@ -274,7 +274,7 @@ font-family:'Open Sans', sans-serif;}
 .ratesection-bottom{ width:100%; height:auto; padding:24px 0 0px 0; margin:0px auto; position:relative;}
 .ratesection-bottom01{ width:auto; float:left; height:auto; padding:0px; margin:0px;}
 .ratesection-bottom01 h5 a{ background:url(/images/backlist-btn.png) no-repeat; width:248px; height:56px; display:inline-block; text-align:right; color:#191b1d; font-size:16px; line-height:52px; font-weight:400; text-transform:uppercase; padding-right:26px;}
-.ratesection-bottom01 h5 a:hover{background: url(/images/backlist-btn-hover.png) no-repeat;}
+.ratesection-bottom01 h5 a:hover{background: url(/images/backlist-btn-hover.png) no-repeat; cursor: pointer;}
 .ratesection-bottom01 h5{ margin-top:28px;}
 
 
