@@ -9,10 +9,17 @@ class Gamecontent extends Component {
   	super(props)
   	this.state={
   		rating:3,
+  		frameText: "",
   	}
   }
   clickBack(){
   	this.props.Back(true)
+  }
+  toggleCode(){
+    var domNode = this.refs.framecontainer;
+    var frameCode = domNode.innerHTML+"<div><a href='http://dtml.org'>Game provided by dtml.org</a></div>";
+    this.setState({displayCode: true});
+    this.setState({frameText: frameCode});	
   }
   render() {
     return (
@@ -38,9 +45,14 @@ class Gamecontent extends Component {
 				    </div>
 				    
 				    <div className="gamesection01-top">
-				      <div className="imgsec"><img src={imageurl+"images/gamevideo-pic.jpg"} alt="" /></div>
+				     
+					  <div id="framecontainer" ref="framecontainer">
+					  	<iframe className='gameframe' title={this.props.gameContent.title} src={this.props.gameContent.url} width='100%' height="600" frameBorder='0'></iframe>
+					  </div>
 				    </div>
 				    
+
+
 				    <div className="ratesection">
 				      <div className="ratesection-top">
 				        <div className="ratesection-top-left">
@@ -55,13 +67,19 @@ class Gamecontent extends Component {
 				        </div>
 				       
 				       <div className="ratesection-top-right">
-				        <h6><a href="javascript:void(0)" className="embed-link"> &lt;/&gt; Embed</a></h6>
+				        <h6><a className="embed-link" onClick={this.toggleCode.bind(this)}> &lt;/&gt; Embed</a></h6>
+
+				
 				        <h6><a href="#">Contribute</a></h6>
 				        <div className="clr"></div>
 				       </div>
 				       <div className="clr"></div>
+						{this.state.displayCode ? 
+							
+							<textarea id='codeArea' className='codearea'>{this.state.frameText}</textarea>		
+							: null
+						}
 				       
-				       <textarea name="" cols="" rows="" placeholder="Embed Code" id="embed-code" style={{'display':'none'}}></textarea>
 				       
 				      </div>
 				      
