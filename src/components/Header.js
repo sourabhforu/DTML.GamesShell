@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import logo from '../images/logo-main.jpg';
 import '../css/style.css';
 
+const imageurl=process.env.PUBLIC_URL;
 class Header extends Component {
   render() {
  
@@ -9,7 +9,7 @@ class Header extends Component {
       <div>
 		 <div className="logosection">
 		   <div className="logosection-main">
-		     <div className="logosection-main-left"><a href="#"><img src={logo} alt="" /></a></div>
+		     <div className="logosection-main-left"><a href="#"><img src={imageurl + 'images/logo-main.jpg'} alt="" /></a></div>
 		     <div className="logosection-main-right">
 		      <div className="logosection-main-right01">
 		        <ul>

@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import '../css/style.css';
 import '../css/font-awesome.min.css';
+import '../css/responsive.css';
 
+const imageurl=process.env.PUBLIC_URL;
 class Footer extends Component {
   render() {
     return (
       <div>
-      
+      	 <div className="footertop-section"><img src={imageurl + 'images/footerbg-01.png'} alt="" /></div>
 		 <div className="footersecion">
 		  <div className="footersecion-main"> 
 		    <div className="footersecion-main-left">
