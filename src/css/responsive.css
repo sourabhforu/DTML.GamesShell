@@ -1,3 +1,7 @@
+.contentsection.gamecontent{
+	margin-bottom:-150px;
+}
+
 @media only screen and (min-width:761px) and (max-width:1199px) {
 img {max-width:100%; height:auto;}
 .logosection-main{ width:98%; margin:0px auto;}
@@ -89,10 +93,12 @@ img {max-width:100%; height:auto;}
 .ratesection-bottom01 h5{ margin-top:0px; text-align:center;}
 .ratesection-bottom02{ width:98%; float:none; margin:0px auto; text-align:center;}
 
+.contentsection.gamecontent{
+	margin-bottom:0px;
+}
 
 
 }
-
 
 
 

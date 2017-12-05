@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import list from '../gamelist.json';
-import '../css/style.css';
 
 const imageurl=process.env.PUBLIC_URL;
 class Gamelist extends Component {

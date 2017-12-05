@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../css/style.css';
 import '../css/font-awesome.min.css';
 import '../css/responsive.css';
 

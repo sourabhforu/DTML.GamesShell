@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Social from '../social.js';
 import Rater from 'react-rater'
-import '../css/style.css';
 
 
 const imageurl=process.env.PUBLIC_URL;
@@ -26,7 +25,7 @@ class Gamecontent extends Component {
 				</div>  
 			</div>
 
-			<div className="contentsection" style={{'marginBottom':'-150px'}}>
+			<div className="contentsection gamecontent">
 				<div className="contentsection-main">
 				 
 				  <div className="gamesection">
