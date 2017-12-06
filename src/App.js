@@ -10,7 +10,7 @@ import './css/font-awesome.min.css';
 import './css/responsive.css';
 
 
-const imageurl=process.env.PUBLIC_URL;
+const imageurl="http://blog.dtml.org/games/";
 class App extends Component {
 	constructor(){
 		super()

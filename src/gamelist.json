@@ -1,11 +1,5 @@
 
 [
-   {   
-      "title":"Learning English Alphabet",   
-      "description": "Game collect letters",
-      "image":"/images/homegame-picc01.jpg",
-      "url":"http://blog.dtml.org/games/body/index.html"
-   },
    { 
       "title":"Body Parts",   
       "description": "Play a word game to learn and practice parts of the body vocabulary",
@@ -13,64 +7,16 @@
       "url":"http://blog.dtml.org/games/body/index.html"
    },
    { 
-      "title":"Months of the Year",   
-      "description": "Exercise to learn English names for the months of the year",
-      "image":"/images/homegame-picc03.jpg",
-      "url":"http://blog.dtml.org/games/body/index.html"
-   },
-   { 
       "title":"Numbers up to 10",   
       "description": "Lean to count in English from 1 to 10",
       "image":"/images/homegame-picc04.jpg",
-      "url":"http://blog.dtml.org/games/body/index.html"
-   },
-   { 
-      "title":"Rainbow Colors",   
-      "description": "From outer to inner, the colors of a rainbow are red, orange, yellow, green, blue, indigo and violet. Play this game to learn and remember them all.",
-      "image":"/images/homegame-picc05.jpg",
-      "url":"http://blog.dtml.org/games/body/index.html"
+      "url":"http://blog.dtml.org/games/numbers/index.html"
    },
    { 
       "title":"Continents and Oceans",   
       "description": "Create the world: Put the shape of each continent in the correct place and then put the labels in each one of them then label the oceans.",
       "image":"/images/homegame-picc06.jpg",
-      "url":"http://blog.dtml.org/games/body/index.html"
-   },
-   { 
-      "title":"Emotions",   
-      "description": "Match words to emotions.",
-      "image":"/images/homegame-picc07.jpg",
-      "url":"http://blog.dtml.org/games/body/index.html"
-   },
-   { 
-      "title":"Days of the Week",   
-      "description": "Exercise to learn English names for the days of the week",
-      "image":"/images/homegame-picc08.jpg",
-      "url":"http://blog.dtml.org/games/body/index.html"
-   },
-   { 
-      "title":"Objects in the School",   
-      "description": "Show picture of a class room and ask student to find objects from the given list.",
-      "image":"/images/homegame-picc09.jpg",
-      "url":"http://blog.dtml.org/games/body/index.html"
-   },
-   { 
-      "title":"Pets",   
-      "description": "Learn the names of animals we have at home.",
-      "image":"/images/homegame-picc10.jpg",
-      "url":"http://blog.dtml.org/games/body/index.html"
-   },
-   { 
-      "title":"Greetings",   
-      "description": "How to greet someone in English. Learn that in this simple and interactive game.",
-      "image":"/images/homegame-picc11.jpg",
-      "url":"http://blog.dtml.org/games/body/index.html"
-   },
-   { 
-      "title":"Clothes",   
-      "description": "What do you wear? Learn names of different types of clothes.",
-      "image":"/images/homegame-picc12.jpg",
-      "url":"http://blog.dtml.org/games/body/index.html"
+      "url":"http://blog.dtml.org/games/Continents/index.html"
    }
 ]
 

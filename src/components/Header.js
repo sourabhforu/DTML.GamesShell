@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../css/style.css';
 
-const imageurl=process.env.PUBLIC_URL;
+const imageurl="http://blog.dtml.org/games/";
 class Header extends Component {
   render() {
  
@@ -13,13 +13,13 @@ class Header extends Component {
 		     <div className="logosection-main-right">
 		      <div className="logosection-main-right01">
 		        <ul>
-		            <li><a href="#">Home</a></li>            
-		            <li><a href="#">Games</a></li>            
-		            <li><a href="#">Blog</a></li>
+		            <li><a href="http://dtml.org">Home</a></li>            
+		            <li><a href="http://blog.dtml.org/games/index.html">Games</a></li>            
+		            <li><a href="http://blog.dtml.org">Blog</a></li>
 		        </ul>
 		        <div className="clr"></div>
 		      </div>
-		      <div className="logosection-main-right02"><h6><a href="#">Login</a></h6></div>
+		      <div className="logosection-main-right02"><h6><a href="https://dtml.org/Account/Login">Login</a></h6></div>
 		      <div className="clr"></div>
 		     </div>
 		     <div className="clr"></div>

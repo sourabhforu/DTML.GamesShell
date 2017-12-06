@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import list from '../gamelist.json';
 
-const imageurl=process.env.PUBLIC_URL;
+const imageurl="http://blog.dtml.org/games/";
 var listcontent=[];
 class Gamelist extends Component {
 	constructor(props){
@@ -73,7 +73,7 @@ class Gamelist extends Component {
 		    		<div className="clr"></div>
 				  </div>
 				  <div className="sponsors-setion">
-				 		<h6><a href="#">Our Sponsors</a></h6>
+				 		<h6><a href="https://dtml.org/Home/CorporateSponsor">Our Sponsors</a></h6>
 				  </div>
 				</div>
 			</div>

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../css/font-awesome.min.css';
 import '../css/responsive.css';
 
-const imageurl=process.env.PUBLIC_URL;
+const imageurl="http://blog.dtml.org/games/";
 class Footer extends Component {
   render() {
     return (
@@ -12,10 +12,10 @@ class Footer extends Component {
 		  <div className="footersecion-main"> 
 		    <div className="footersecion-main-left">
 		      <ul>
-		          <li><a href="#"><i className="fa fa-facebook" aria-hidden="true"></i></a></li>
-		          <li><a href="#"><i className="fa fa-twitter" aria-hidden="true"></i></a></li>
-		          <li><a href="#"><i className="fa fa-linkedin" aria-hidden="true"></i></a></li>
-		          <li><a href="#"><i className="fa fa-youtube" aria-hidden="true"></i></a></li>
+		          <li><a href="https://www.facebook.com/distantteaching/"><i className="fa fa-facebook" aria-hidden="true"></i></a></li>
+		          <li><a href="https://twitter.com/DistantTeaching"><i className="fa fa-twitter" aria-hidden="true"></i></a></li>
+		          <li><a href="https://www.linkedin.com/company/distant-teaching-and-mobile-learning"><i className="fa fa-linkedin" aria-hidden="true"></i></a></li>
+		          <li><a href="https://www.youtube.com/channel/UCwF13kloyxnifaNCHQUL2rQ/featured"><i className="fa fa-youtube" aria-hidden="true"></i></a></li>
 		      </ul>
 		      <div className="clr"></div>
 		    </div>

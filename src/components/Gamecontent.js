@@ -3,7 +3,8 @@ import Social from '../social.js';
 import Rater from 'react-rater'
 
 
-const imageurl=process.env.PUBLIC_URL;
+const imageurl="http://blog.dtml.org/games/";
+
 class Gamecontent extends Component {
   constructor(props){
   	super(props)
