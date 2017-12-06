@@ -20,7 +20,7 @@ class App extends Component {
 	    }
 	}
 	componentWillMount(){
-
+		
 	}
 	onSelectedGame(newdone, newContent){
 		this.setState({done: newdone})

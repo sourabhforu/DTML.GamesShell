@@ -37,8 +37,8 @@ class Gamecontent extends Component {
 				 
 				  <div className="gamesection">
 				    <div className="gamesection01">
-				      <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris fermentum dapibus ipsum, nec dignissim</h2>
-				      <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vivamus quis nisi dui. Quisque semper est nec dui pellentesque dictum. Cras convallis non urna luctus molestie. Cras dignissim lorem augue, a sodales dolor aliquet quis. Mauris at leo sit amet lacus ullamcorper auctor. Curabitur sodales sapien odio, id viverra nisl bibendum vel. Phasellus vestibulum ex et erat posuere, </p>
+				      <h2>{this.props.gameContent.title}</h2>
+				      <p>{this.props.gameContent.description}</p>
 				    
 				      <Social />
 				      <div className="clr"></div>
@@ -70,7 +70,7 @@ class Gamecontent extends Component {
 				        <h6><a className="embed-link" onClick={this.toggleCode.bind(this)}> &lt;/&gt; Embed</a></h6>
 
 				
-				        <h6><a href="#">Contribute</a></h6>
+				        <h6><a href="https://github.com/seattleuser/DTML.GamesShell ">Contribute</a></h6>
 				        <div className="clr"></div>
 				       </div>
 				       <div className="clr"></div>
@@ -79,8 +79,6 @@ class Gamecontent extends Component {
 							<textarea id='codeArea' className='codearea'>{this.state.frameText}</textarea>		
 							: null
 						}
-				       
-				       
 				      </div>
 				      
 				     
@@ -89,7 +87,7 @@ class Gamecontent extends Component {
 				         <h5><a onClick={this.clickBack.bind(this)}>Back to game List</a></h5>
 				       </div>
 				       <div className="ratesection-bottom02">
-				         <h6><a href="#"><img src={imageurl+"images/goto-pic.png"} alt="" /></a></h6>
+				         <h6><a href="http://dtml.org/Home/Edubot"><img src={imageurl+"images/goto-pic.png"} alt="" /></a></h6>
 				       </div>
 				       <div className="clr"></div>
 				     </div>				     			     
