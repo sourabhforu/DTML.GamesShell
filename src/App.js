@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import ScrollToTop from 'react-scroll-up';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -8,9 +7,13 @@ import Gamecontent from './components/Gamecontent';
 import './css/style.css';
 import './css/font-awesome.min.css';
 import './css/responsive.css';
+import ReactGA from 'react-ga';
+import detectBrowserLanguage from 'detect-browser-language'
 
-
+ReactGA.initialize('UA-80531313-1'); 
 const imageurl="http://blog.dtml.org/games/";
+const url = 'https://dtml.org/api/ConfigurationService/GetGamesList?mkt=';
+
 class App extends Component {
 	constructor(){
 		super()
@@ -18,14 +21,34 @@ class App extends Component {
 	      done: true,
 	      gameContent: [],
 	    }
-	}
-	componentWillMount(){
 		
+		ReactGA.pageview(window.location.hash);
 	}
+	
+	componentWillMount(){
+	document.title = "Distance Teaching and Mobile Learning - Educational Games";
+    this.setState({ userLanguage: detectBrowserLanguage() })
+     var that = this;
+	   fetch(url+detectBrowserLanguage())
+	   .then(function(response) {
+		if (response.status >= 400) {
+		  throw new Error("Bad response from server");
+		}		
+		return response.json();
+	  })
+	  .then(function(data) {
+		  that.setState({ config: data })
+	  });		
+	}
+	
 	onSelectedGame(newdone, newContent){
 		this.setState({done: newdone})
 		this.setState({gameContent: newContent})
 		window.scrollTo(0,0)
+		ReactGA.event({
+            category: 'Navigation',
+            action: 'Game selected',
+        });
 	}
 	onBack(newdone){
 		this.setState({done: newdone})
@@ -33,19 +56,25 @@ class App extends Component {
 	}
 	render() {
 		var condif = this.state.done
+		if (this.state.config != null)
+		{
 		return (
+
 		  <div >
 			<ScrollToTop showUnder={160} easing="linear">
-			  <img src={ imageurl+ 'images/backto-top.png'} alt="" className="back-top fa" />
+			  <img src={ imageurl+ 'images/backto-top.png'} alt="Back to top" className="back-top fa" />
 			</ScrollToTop>
-		    <Header />
+		    <Header config={this.state.config} />
 			{ condif ?
-				<Gamelist Selected={this.onSelectedGame.bind(this)}/> :
-				<Gamecontent Back={this.onBack.bind(this)} gameContent={this.state.gameContent}/>
+				<Gamelist Selected={this.onSelectedGame.bind(this)} config={this.state.config}/> :
+				<Gamecontent Back={this.onBack.bind(this)} gameContent={this.state.gameContent} config={this.state.config}/>
 			}
-		    <Footer />
+		    <Footer config={this.state.config} />
 		  </div>
 		);
+		}
+		 else
+			 return null;
 	}
 }
 

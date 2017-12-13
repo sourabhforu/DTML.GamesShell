@@ -1,19 +1,26 @@
 import React, { Component } from 'react';
-import list from '../gamelist.json';
+import detectBrowserLanguage from 'detect-browser-language'
 
 const imageurl="http://blog.dtml.org/games/";
+var url = 'https://dtml.org/api/ConfigurationService/GetGamesList?mkt=es&ll=';
 var listcontent=[];
+
 class Gamelist extends Component {
 	constructor(props){
 		super(props)
 		this.state={
 			searchstring: '',
 			listcounter: 10,
+			config : props.config
 		}
 	}
-	componentWillMount(){
-		
+	componentDidMount()
+	{
 	}
+	
+	componentWillMount() {
+	}
+	
 	gameSelected(listItem){
 		this.props.Selected(false, listItem)
 	}
@@ -24,41 +31,40 @@ class Gamelist extends Component {
 		this.setState({listcounter: this.state.listcounter+10})
 	}
 	render() {
-
-		var searchstring= this.state.searchstring
+		if (this.state.config != null)
+		{
 		var counter=0;
-		listcontent= list.map((listItem, i) => {
+        var that = this;		
+		  listcontent= this.state.config.games.map((listItem, i) => {
 			counter++;
-			if(counter<=this.state.listcounter){
-				if((listItem.title.indexOf(searchstring)!=-1)||(listItem.description.indexOf(searchstring)!=-1)){
+			if(counter<=that.state.listcounter){
+				if((listItem.title.indexOf(that.state.searchstring)!=-1) || (listItem.description.indexOf(that.state.searchstring)!=-1)){
 					return(
 				        <div className="contentsection-main-middle-box" key={i}>
-				           <div className="imgsec"><img src={imageurl + listItem.image} alt="" /></div>
+				           <div className="imgsec"><img src={imageurl + listItem.image} alt={this.state.config.playgame} /></div>
 				           <h3>{listItem.title}</h3>
 				           <p>{listItem.description}</p>
-				           <h6><a onClick={this.gameSelected.bind(this, listItem)}>play game</a></h6>
+				           <h6><a onClick={that.gameSelected.bind(that, listItem)}>{this.state.config.playgame}</a></h6>
 				        </div>
 					)
 				}
 			}
-
 		})
-
 		return (
 		  <div>
 			<div className="bannersection">
-			  <img src={imageurl + 'images/banner01.jpg'} alt="" />
+			  <img src={imageurl + 'images/banner01.jpg'} alt="Banner" />
 			</div>
 
 			<div className="contentsection">
 				<div className="contentsection-main">
 				  <div className="contentsection-main-top">
-				    <h6>Distance Teaching and Mobile Learning online Curriculum consists of e-lessons in English or Spanish and targets students from 1st to 5th grades. </h6>
+				    <h6>{this.state.config.title}</h6>
 				      <div className="contentsection-main-top01">
 				         <div className="contentsection-main-top01-main">
 				           <div className="contentsection-main-top01-mainin">
-				               <input name="" type="text" onKeyUp={this.searchChange.bind(this)} placeholder="Find Lesson" />
-				               <input name="" type="submit" value="Search" />
+				               <input name="" type="text" onKeyUp={this.searchChange.bind(this)} placeholder={this.state.config.findlesson} />
+				               <input name="" type="submit" value={this.state.config.search} />
 				           <div className="clr"></div>
 				           </div>
 				         </div>
@@ -69,18 +75,19 @@ class Gamelist extends Component {
 				  	{listcontent}
 
 
-		     	  	<h5><a onClick={this.showMore.bind(this)}>More Game</a></h5>
+		     	  	<h5><a onClick={this.showMore.bind(this)}>{this.state.config.more}</a></h5>
 		    		<div className="clr"></div>
 				  </div>
 				  <div className="sponsors-setion">
-				 		<h6><a href="https://dtml.org/Home/CorporateSponsor">Our Sponsors</a></h6>
+				 		<h6><a href="https://dtml.org/Home/CorporateSponsor">{this.state.config.sponsors}</a></h6>
 				  </div>
 				</div>
 			</div>
-
-
 		  </div>
 		);
+	}
+		 else
+		 return null;
 	}
 }
 

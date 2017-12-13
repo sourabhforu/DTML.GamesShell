@@ -4,6 +4,12 @@ import '../css/responsive.css';
 
 const imageurl="http://blog.dtml.org/games/";
 class Footer extends Component {
+		constructor(props){
+		super(props)
+		this.state={
+			config : props.config		
+		}
+		}
   render() {
     return (
       <div>
@@ -19,7 +25,7 @@ class Footer extends Component {
 		      </ul>
 		      <div className="clr"></div>
 		    </div>
-		    <div className="footersecion-main-right"><p>dtml.org &copy; 2017 All Rights Reserved </p></div>
+		    <div className="footersecion-main-right"><p>dtml.org &copy; 2017 All Rights Reserved | <a href='https://dtml.org/Home/TermsandConditions'>{this.props.config.terms}</a> </p></div>
 		    <div className="clr"></div>
 		  </div>
 		 </div>
