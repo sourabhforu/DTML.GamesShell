@@ -12,7 +12,7 @@ import detectBrowserLanguage from 'detect-browser-language'
 
 ReactGA.initialize('UA-80531313-1'); 
 const imageurl="http://blog.dtml.org/games/";
-const url = 'https://dtml.org/api/ConfigurationService/GetGamesList?mkt=';
+const url = 'https://dtml.org/api/ConfigurationService/GetGamesList?mkt=es&ll';
 
 class App extends Component {
 	constructor(){

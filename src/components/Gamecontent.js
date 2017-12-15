@@ -62,7 +62,7 @@ class Gamecontent extends Component {
     	<div>
 		
 			<div className="bannersection">
-				<img src={imageurl+"images/game-banner.png"} alt="Game banner" />
+				<img src={imageurl+"images/game-banner.png"} alt="{this.props.gameContent.title}" />
 				<div className="bannersection01">
 					<h2>{this.props.gameContent.title}</h2>
 				</div>  
@@ -103,7 +103,7 @@ class Gamecontent extends Component {
 				        <h6><a className="embed-link" onClick={this.toggleCode.bind(this)}> &lt;/&gt; {this.props.config.embed}</a></h6>
 
 				
-				        <h6><a href="https://github.com/seattleuser/DTML.GamesShell ">Contribute</a></h6>
+				        <h6><a href="https://github.com/seattleuser/DTML.GamesShell ">{this.props.config.contribute}</a></h6>
 				        <div className="clr"></div>
 				       </div>
 				       <div className="clr"></div>
@@ -116,7 +116,7 @@ class Gamecontent extends Component {
 				     
 				     <div className="ratesection-bottom">
 				       <div className="ratesection-bottom01">
-				         <h5><a onClick={this.clickBack.bind(this)}>Back to Games</a></h5>
+				         <h5><a onClick={this.clickBack.bind(this)}>{this.props.config.back}</a></h5>
 				       </div>
 				       <div className="ratesection-bottom02">
 				         <h6><a href="http://dtml.org/Home/Edubot"><img src={imageurl+"images/goto-pic.png"} alt="Edubot" /></a></h6>
