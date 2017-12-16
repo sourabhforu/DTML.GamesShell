@@ -1,8 +1,6 @@
-import React, { Component } from 'react';
-import detectBrowserLanguage from 'detect-browser-language'
 
+import React, { Component } from 'react';
 const imageurl="http://blog.dtml.org/games/";
-var url = 'https://dtml.org/api/ConfigurationService/GetGamesList?mkt=es&ll=';
 var listcontent=[];
 
 class Gamelist extends Component {

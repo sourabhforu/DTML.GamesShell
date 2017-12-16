@@ -8,11 +8,11 @@ import './css/style.css';
 import './css/font-awesome.min.css';
 import './css/responsive.css';
 import ReactGA from 'react-ga';
-import detectBrowserLanguage from 'detect-browser-language'
+import ReactPixel from 'react-facebook-pixel';
 
 ReactGA.initialize('UA-80531313-1'); 
 const imageurl="http://blog.dtml.org/games/";
-const url = 'https://dtml.org/api/ConfigurationService/GetGamesList?mkt=es&ll';
+const url = 'https://dtml.org/api/ConfigurationService/GetGamesList?mkt=';
 
 class App extends Component {
 	constructor(){
@@ -23,13 +23,15 @@ class App extends Component {
 	    }
 		
 		ReactGA.pageview(window.location.hash);
+		ReactPixel.init('1648707511827840');
 	}
 	
 	componentWillMount(){
 	document.title = "Distance Teaching and Mobile Learning - Educational Games";
-    this.setState({ userLanguage: detectBrowserLanguage() })
+	var userLang = navigator.language || navigator.userLanguage;
+    this.setState({ userLanguage: userLang })
      var that = this;
-	   fetch(url+detectBrowserLanguage())
+	   fetch(url+userLang)
 	   .then(function(response) {
 		if (response.status >= 400) {
 		  throw new Error("Bad response from server");
