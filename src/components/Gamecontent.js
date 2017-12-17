@@ -4,7 +4,7 @@ import Rater from 'react-rater'
 import ReactGA from 'react-ga';
 
 const imageurl="http://blog.dtml.org/games/";
-var rankingURL = 'https://dtml.org/api/RatingService/Rank?key=';
+var rankingURL = 'https://dtml.org/api/RatingService/Rank';
 
 class Gamecontent extends Component {
   constructor(props){
@@ -19,7 +19,7 @@ class Gamecontent extends Component {
       ReactGA.pageview(window.location.hash);	
 	  document.location.hash=this.props.gameContent.title;
 	  var that = this;
-	  var url = rankingURL + this.props.gameContent.title;
+	  var url = rankingURL + "/?key="+this.props.gameContent.title;
 	  fetch(url)
 	  .then(function(response) {
 		if (response.status >= 400) {
@@ -50,7 +50,7 @@ class Gamecontent extends Component {
          method: 'post',
          headers: {'Content-Type':'application/json'},
          body: JSON.stringify({
-         "key": this.props.gameContent.title,
+         "key": encodeURIComponent(this.props.gameContent.title),
  	     "rank": rating
          })
          });
