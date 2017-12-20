@@ -46,13 +46,10 @@ class Gamecontent extends Component {
   
   handleRate({ rating, type }) {
   if (type === 'click') {
-       fetch(rankingURL, {
+	   var url = rankingURL + "/?key="+this.props.gameContent.title+"&rank="+rating
+       fetch(url, {
          method: 'post',
-         headers: {'Content-Type':'application/json'},
-         body: JSON.stringify({
-         "key": encodeURIComponent(this.props.gameContent.title),
- 	     "rank": rating
-         })
+         headers: {'Content-Type':'application/json', 'Accept': 'application/json, text/plain, */*'},
          });
         }
     }
