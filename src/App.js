@@ -13,7 +13,7 @@ import ReactPixel from 'react-facebook-pixel';
 ReactGA.initialize('UA-80531313-1'); 
 ReactPixel.init('1648707511827840');
 	
-const imageurl="http://blog.dtml.org/games/";
+const imageurl="https://blog.dtml.org/games/";
 const url = 'https://dtml.org/api/ConfigurationService/GetGamesList?mkt=';
 
 class App extends Component {

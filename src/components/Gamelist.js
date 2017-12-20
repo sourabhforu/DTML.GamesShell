@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-const imageurl="http://blog.dtml.org/games/";
+const imageurl="https://blog.dtml.org/games/";
 var listcontent=[];
 
 class Gamelist extends Component {

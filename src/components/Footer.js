@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../css/font-awesome.min.css';
 import '../css/responsive.css';
 
-const imageurl="http://blog.dtml.org/games/";
+const imageurl="https://blog.dtml.org/games/";
 class Footer extends Component {
 		constructor(props){
 		super(props)

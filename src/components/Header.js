@@ -1,11 +1,42 @@
 import React, { Component } from 'react';
 import '../css/style.css';
 
-const imageurl="http://blog.dtml.org/games/";
+const imageurl="https://blog.dtml.org/games/";
+var loginURL = "https://dtml.org/Activity/GetUserName";
+
 class Header extends Component {
+	  constructor(props){
+  	super(props)
+  	this.state={
+  		loggedin:false,
+		username:""
+  	}
+  }
+	componentDidMount() {  
+	  var that = this;
+	  var url = loginURL
+	  fetch(url, { credentials: 'include' })
+	  .then(function(response) {
+		if (response.status >= 400) {
+		  console.log("Bad response from server");
+		  that.setState({ loggedin: false });
+		}
+		return response.json();
+	  })
+	  .then(function(data) {
+		  that.setState({ username: data });
+		  if (data !== "")
+		  {
+	      that.setState({ loggedin: true });
+		  }
+	  });
+	}
+	
   render() {
  
-    return (
+	if (!this.state.loggedin)
+	{
+		    return (
       <div>
 		 <div className="logosection">
 		   <div className="logosection-main">
@@ -13,9 +44,9 @@ class Header extends Component {
 		     <div className="logosection-main-right">
 		      <div className="logosection-main-right01">
 		        <ul>
-		            <li><a href="http://dtml.org">{this.props.config.home}</a></li>            
-		            <li><a href="http://blog.dtml.org/games/index.html">GAMES</a></li>            
-		            <li><a href="http://blog.dtml.org">{this.props.config.blog}</a></li>
+		            <li><a href="https://dtml.org">{this.props.config.home}</a></li>            
+		            <li><a href="https://blog.dtml.org/games/index.html">{this.props.config.contribute}</a></li>            
+		            <li><a href="https://blog.dtml.org">{this.props.config.blog}</a></li>
 		        </ul>
 		        <div className="clr"></div>
 		      </div>
@@ -26,7 +57,33 @@ class Header extends Component {
 		   </div>
 		 </div>
       </div>
-    );
+	  )
+	} else
+	{
+		return
+		(
+		      <div>
+		 <div className="logosection">
+		   <div className="logosection-main">
+		     <div className="logosection-main-left"><a href="#"><img src={imageurl + 'images/logo-main.jpg'} alt="" /></a></div>
+		     <div className="logosection-main-right">
+		      <div className="logosection-main-right01">
+		        <ul>
+		            <li><a href="https://dtml.org">{this.props.config.home}</a></li>            
+		            <li><a href="https://blog.dtml.org/games/index.html">{this.props.config.contribute}</a></li>            
+		            <li><a href="https://blog.dtml.org">{this.props.config.blog}</a></li>
+		        </ul>
+		        <div className="clr"></div>
+		      </div>
+		      <div className="logosection-main-right02">Welcome, {this.state.username}</div>
+		      <div className="clr"></div>
+		     </div>
+		     <div className="clr"></div>
+		   </div>
+		 </div>
+      </div>);
+		
+	}
   }
 }
 

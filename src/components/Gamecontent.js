@@ -3,7 +3,7 @@ import Social from '../social.js';
 import Rater from 'react-rater'
 import ReactGA from 'react-ga';
 
-const imageurl="http://blog.dtml.org/games/";
+const imageurl="https://blog.dtml.org/games/";
 var rankingURL = 'https://dtml.org/api/RatingService/Rank';
 
 class Gamecontent extends Component {
@@ -24,7 +24,7 @@ class Gamecontent extends Component {
 	  .then(function(response) {
 		if (response.status >= 400) {
 		  console.log("Bad response from server");
-		  that.setState({ rating: 3 });
+		  that.setState({ rating: 0 });
 		}
 		return response.json();
 	  })
