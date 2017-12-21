@@ -34,7 +34,7 @@ class Header extends Component {
 	
   render() {
  
-	if (this.state.loggedin === false)
+	if (this.state.loggedin === true)
 	{
 	 return (
       <div>
@@ -68,10 +68,9 @@ class Header extends Component {
 		     <div className="logosection-main-right">
 		      <div className="logosection-main-right01">
 		        <ul>
-				    <li>Hello, {this.state.username}</li>   
+				    <li> <a href="https://dtml.org/Student/PersonalProfile">Hello, {this.state.username}</a></li>   
 		            <li><a href="https://dtml.org/Student/PersonalProfile">PROFILE</a></li>            
 		            <li><a href="https://dtml.org/LearnPath/PublishedLearnPaths">E-LEARNING</a></li>            
-		            <li><a href="https://blog.dtml.org">{this.props.config.blog}</a></li>
 		        </ul>
 		      </div>
 		     </div>

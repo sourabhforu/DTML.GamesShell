@@ -69,6 +69,10 @@ a:hover{  text-decoration:none; }
   clear: both;
 }
 
+.welcome
+{
+	padding-top:10px;
+}
 
 .container{ position:relative; width:1170px; margin:0px auto }
 

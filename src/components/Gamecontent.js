@@ -9,11 +9,11 @@ var rankingURL = 'https://dtml.org/api/RatingService/Rank';
 class Gamecontent extends Component {
   constructor(props){
   	super(props)
-  	this.state={
+  	this.state={  
   		rating:0,
   		frameText: "",
 		startTime: new Date().getTime()
-  	}
+  	} 
   }
   
   componentWillUnmount() {
