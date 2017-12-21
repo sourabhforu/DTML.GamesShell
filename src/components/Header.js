@@ -34,9 +34,9 @@ class Header extends Component {
 	
   render() {
  
-	if (!this.state.loggedin)
+	if (this.state.loggedin === false)
 	{
-		    return (
+	 return (
       <div>
 		 <div className="logosection">
 		   <div className="logosection-main">
@@ -45,7 +45,7 @@ class Header extends Component {
 		      <div className="logosection-main-right01">
 		        <ul>
 		            <li><a href="https://dtml.org">{this.props.config.home}</a></li>            
-		            <li><a href="https://blog.dtml.org/games/index.html">{this.props.config.contribute}</a></li>            
+		            <li><a href="https://blog.dtml.org/games/index.html">{this.props.config.game}</a></li>            
 		            <li><a href="https://blog.dtml.org">{this.props.config.blog}</a></li>
 		        </ul>
 		        <div className="clr"></div>
@@ -60,8 +60,7 @@ class Header extends Component {
 	  )
 	} else
 	{
-		return
-		(
+		return (
 		      <div>
 		 <div className="logosection">
 		   <div className="logosection-main">
@@ -69,20 +68,16 @@ class Header extends Component {
 		     <div className="logosection-main-right">
 		      <div className="logosection-main-right01">
 		        <ul>
-		            <li><a href="https://dtml.org">{this.props.config.home}</a></li>            
-		            <li><a href="https://blog.dtml.org/games/index.html">{this.props.config.contribute}</a></li>            
+				    <li>Hello, {this.state.username}</li>   
+		            <li><a href="https://dtml.org/Student/PersonalProfile">PROFILE</a></li>            
+		            <li><a href="https://dtml.org/LearnPath/PublishedLearnPaths">E-LEARNING</a></li>            
 		            <li><a href="https://blog.dtml.org">{this.props.config.blog}</a></li>
 		        </ul>
-		        <div className="clr"></div>
 		      </div>
-		      <div className="logosection-main-right02">Welcome, {this.state.username}</div>
-		      <div className="clr"></div>
 		     </div>
-		     <div className="clr"></div>
-		   </div>
 		 </div>
-      </div>);
-		
+		 </div>
+      </div>);		
 	}
   }
 }

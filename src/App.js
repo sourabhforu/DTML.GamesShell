@@ -22,10 +22,8 @@ class App extends Component {
 	    this.state={
 	      done: true,
 	      gameContent: [],
-	    }
-		
+	    }		
 		ReactGA.pageview(window.location.hash);
-	
 	}
 	
 	componentWillMount(){

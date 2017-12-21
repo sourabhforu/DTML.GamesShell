@@ -10,10 +10,24 @@ class Gamecontent extends Component {
   constructor(props){
   	super(props)
   	this.state={
-  		rating:3,
-  		frameText: ""
+  		rating:0,
+  		frameText: "",
+		startTime: new Date().getTime()
   	}
   }
+  
+  componentWillUnmount() {
+         var timeSpentMilliseconds = new Date().getTime() - this.state.startTime;
+            var t = timeSpentMilliseconds / 1000 / 60;
+            var data = { "envelop": null, "page" : this.props.gameContent.title, "time" : t, "eventType" : "", "eventData" : 0 }
+			var url = "https://dtml.org/Activity/Record";
+		   fetch(url, {
+			 method: 'POST',
+			 headers: {'Content-Type':'application/json', 'Accept': 'application/json, text/plain, */*'},
+			 body:JSON.stringify(data)
+			 });
+			 }
+
 
   	componentDidMount() {  
       ReactGA.pageview(window.location.hash);	
@@ -31,7 +45,7 @@ class Gamecontent extends Component {
 	  .then(function(data) {
 	      that.setState({ rating: data });
 	  });
-	}
+	  }
 	
   clickBack(){
   	this.props.Back(true)
@@ -39,7 +53,7 @@ class Gamecontent extends Component {
   
   toggleCode(){
     var domNode = this.refs.framecontainer;
-    var frameCode = domNode.innerHTML+"<div><a href='http://dtml.org'>Game provided by dtml.org</a></div>";
+    var frameCode = domNode.innerHTML+"<div><a href='https://dtml.org'>Game provided by dtml.org</a></div>";
     this.setState({displayCode: true});
     this.setState({frameText: frameCode});	
   }
@@ -49,7 +63,7 @@ class Gamecontent extends Component {
 	   var url = rankingURL + "/?key="+this.props.gameContent.title+"&rank="+rating
        fetch(url, {
          method: 'post',
-         headers: {'Content-Type':'application/json', 'Accept': 'application/json, text/plain, */*'},
+         headers: {'Content-Type':'application/json', 'Accept': 'application/json, text/plain, */*'}
          });
         }
     }
@@ -116,7 +130,7 @@ class Gamecontent extends Component {
 				         <h5><a onClick={this.clickBack.bind(this)}>{this.props.config.back}</a></h5>
 				       </div>
 				       <div className="ratesection-bottom02">
-				         <h6><a href="http://dtml.org/Home/Edubot"><img src={imageurl+"images/goto-pic.png"} alt="Edubot" /></a></h6>
+				         <h6><a href="https://dtml.org/Home/Edubot"><img src={imageurl+"images/goto-pic.png"} alt="Edubot" /></a></h6>
 				       </div>
 				       <div className="clr"></div>
 				     </div>				     			     
