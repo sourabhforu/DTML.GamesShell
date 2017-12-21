@@ -34,7 +34,7 @@ class Header extends Component {
 	
   render() {
  
-	if (this.state.loggedin === true)
+	if (this.state.loggedin === false)
 	{
 	 return (
       <div>
