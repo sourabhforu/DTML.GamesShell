@@ -19,7 +19,7 @@ class Gamecontent extends Component {
   componentWillUnmount() {
          var timeSpentMilliseconds = new Date().getTime() - this.state.startTime;
             var t = timeSpentMilliseconds / 1000 / 60;
-            var data = { "envelop": null, "page" : this.props.gameContent.title, "time" : t, "eventType" : "", "eventData" : 0 }
+            var data = { "envelop": null, "page" : this.props.gameContent.id, "time" : t, "eventType" : "", "eventData" : 0 }
 			var url = "https://dtml.org/Activity/Record";
 		   fetch(url, {
 			 method: 'POST',
@@ -31,9 +31,9 @@ class Gamecontent extends Component {
 
   	componentDidMount() {  
       ReactGA.pageview(window.location.hash);	
-	  document.location.hash=this.props.gameContent.title;
+	  document.location.hash=this.props.gameContent.id;
 	  var that = this;
-	  var url = rankingURL + "/?key="+this.props.gameContent.title;
+	  var url = rankingURL + "/?key="+this.props.gameContent.id;
 	  fetch(url)
 	  .then(function(response) {
 		if (response.status >= 400) {
@@ -53,14 +53,14 @@ class Gamecontent extends Component {
   
   toggleCode(){
     var domNode = this.refs.framecontainer;
-    var frameCode = domNode.innerHTML+"<div><a href='https://dtml.org'>Game provided by dtml.org</a></div>";
+    var frameCode = domNode.innerHTML+"<div><a href='https://dtml.org'>Game provided by https://dtml.org</a></div>";
     this.setState({displayCode: true});
     this.setState({frameText: frameCode});	
   }
   
   handleRate({ rating, type }) {
   if (type === 'click') {
-	   var url = rankingURL + "/?key="+this.props.gameContent.title+"&rank="+rating
+	   var url = rankingURL + "/?key="+this.props.gameContent.id+"&rank="+rating
        fetch(url, {
          method: 'post',
          headers: {'Content-Type':'application/json', 'Accept': 'application/json, text/plain, */*'}
