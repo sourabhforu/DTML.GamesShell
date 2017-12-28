@@ -9,28 +9,45 @@ var rankingURL = 'https://dtml.org/api/RatingService/Rank';
 class Gamecontent extends Component {
   constructor(props){
   	super(props)
+	this.componentGracefulUnmount = this.componentGracefulUnmount.bind(this)
   	this.state={  
   		rating:0,
+		mounted: false,
   		frameText: "",
 		startTime: new Date().getTime()
   	} 
   }
   
-  componentWillUnmount() {
-         var timeSpentMilliseconds = new Date().getTime() - this.state.startTime;
+   componentGracefulUnmount(){
+            this.setState({mounted: false});
+            window.removeEventListener('beforeunload', this.componentGracefulUnmount);
+			
+			var timeSpentMilliseconds = new Date().getTime() - this.state.startTime;
             var t = timeSpentMilliseconds / 1000 / 60;
             var data = { "envelop": null, "page" : this.props.gameContent.id, "time" : t, "eventType" : "", "eventData" : 0 }
 			var url = "https://dtml.org/Activity/Record";
-		   fetch(url, {
+		    fetch(url, {
 			 method: 'POST',
 			 headers: {'Content-Type':'application/json', 'Accept': 'application/json, text/plain, */*'},
 			 body:JSON.stringify(data)
 			 });
-			 }
+        }
+  
+  componentWillUnmount() {
+	    this.componentGracefulUnmount()
+       		 }
 
-
+ componentWillMount(){
+            this.setState({mounted: true})
+        }
+		
   	componentDidMount() {  
       ReactGA.pageview(window.location.hash);	
+	  ReactGA.event({
+            category: 'Games',
+            action: 'Game__'+this.props.gameContent.id
+        });
+	  window.addEventListener('beforeunload', this.componentGracefulUnmount);
 	  document.location.hash=this.props.gameContent.id;
 	  var that = this;
 	  var url = rankingURL + "/?key="+this.props.gameContent.id;
@@ -49,6 +66,10 @@ class Gamecontent extends Component {
 	
   clickBack(){
   	this.props.Back(true)
+		  ReactGA.event({
+            category: 'Games',
+            action: 'Back Button'
+        });
   }
   
   toggleCode(){
@@ -84,10 +105,8 @@ class Gamecontent extends Component {
 				 
 				  <div className="gamesection">
 				    <div className="gamesection01">
-				      <h2>{this.props.gameContent.title}</h2>
 				      <p>{this.props.gameContent.description}</p>
-				    
-				      <Social />
+			    
 				      <div className="clr"></div>
 				    </div>
 				    

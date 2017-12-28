@@ -1,5 +1,5 @@
-
 import React, { Component } from 'react';
+import arrayShuffle from 'array-shuffle'
 const imageurl="https://blog.dtml.org/games/";
 var listcontent=[];
 
@@ -33,7 +33,7 @@ class Gamelist extends Component {
 		{
 		var counter=0;
         var that = this;		
-		  listcontent= this.state.config.games.map((listItem, i) => {
+		  listcontent= arrayShuffle(this.state.config.games).map((listItem, i) => {
 			counter++;
 			if(counter<=that.state.listcounter){
 				if((listItem.title.indexOf(that.state.searchstring)!=-1) || (listItem.description.indexOf(that.state.searchstring)!=-1)){

@@ -50,7 +50,7 @@ class Header extends Component {
 		        </ul>
 		        <div className="clr"></div>
 		      </div>
-		      <div className="logosection-main-right02"><h6><a href="https://dtml.org/Account/Login">{this.props.config.login}</a></h6></div>
+		      <div className="logosection-main-right02"><h6><a href="https://dtml.org/Account/Login??ReturnUrl=https%3A%2F%2Fblog.dtml.org%2Fgames%2Findex.html">{this.props.config.login}</a></h6></div>
 		      <div className="clr"></div>
 		     </div>
 		     <div className="clr"></div>
