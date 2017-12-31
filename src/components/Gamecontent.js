@@ -19,9 +19,8 @@ class Gamecontent extends Component {
   }
   
    componentGracefulUnmount(){
-            this.setState({mounted: false});
-            window.removeEventListener('beforeunload', this.componentGracefulUnmount);
-			
+	        this.setState({mounted: false});
+            window.removeEventListener('beforeunload', this.componentGracefulUnmount);			
 			var timeSpentMilliseconds = new Date().getTime() - this.state.startTime;
             var t = timeSpentMilliseconds / 1000 / 60;
             var data = { "envelop": null, "page" : this.props.gameContent.id, "time" : t, "eventType" : "", "eventData" : 0 }
@@ -41,7 +40,7 @@ class Gamecontent extends Component {
             this.setState({mounted: true})
         }
 		
-  	componentDidMount() {  
+  componentDidMount() {  
       ReactGA.pageview(window.location.hash);	
 	  ReactGA.event({
             category: 'Games',
@@ -113,7 +112,7 @@ class Gamecontent extends Component {
 				    <div className="gamesection01-top">
 				     
 					  <div id="framecontainer" ref="framecontainer">
-					  	<iframe className='gameframe' allowtransparency='true' title={this.props.gameContent.title} src={this.props.gameContent.url} width='100%' height="600" frameBorder='0'></iframe>
+					  	<iframe className='gameframe' allowtransparency='true' title={this.props.gameContent.title} scrolling='no' src={this.props.gameContent.url} frameBorder='0'></iframe>
 					  </div>
 				    </div>
 
@@ -129,16 +128,16 @@ class Gamecontent extends Component {
 				       <div className="clr"></div>
 				        </div>
 				       
+					   
 				       <div className="ratesection-top-right">
 				        <h6><a className="embed-link" onClick={this.toggleCode.bind(this)}> &lt;/&gt; {this.props.config.embed}</a></h6>
 
 				
-				        <h6><a href="https://github.com/seattleuser/DTML.GamesShell ">{this.props.config.contribute}</a></h6>
+				        
 				        <div className="clr"></div>
 				       </div>
 				       <div className="clr"></div>
-						{this.state.displayCode ? 
-							
+						{this.state.displayCode ? 							
 							<textarea id='codeArea' className='codearea'>{this.state.frameText}</textarea>		
 							: null
 						}
@@ -147,6 +146,7 @@ class Gamecontent extends Component {
 				     <div className="ratesection-bottom">
 				       <div className="ratesection-bottom01">
 				         <h5><a onClick={this.clickBack.bind(this)}>{this.props.config.back}</a></h5>
+						 <h6><a target="blank" href={this.props.gameContent.url}>Full Screen</a></h6>
 				       </div>
 				       <div className="ratesection-bottom02">
 				         <h6><a href="https://dtml.org/Home/Edubot"><img src={imageurl+"images/goto-pic.png"} alt="Edubot" /></a></h6>
