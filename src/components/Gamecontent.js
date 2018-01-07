@@ -15,9 +15,9 @@ class Gamecontent extends Component {
 		mounted: false,
   		frameText: "",
 		startTime: new Date().getTime()
-  	} 
+  	}  
   }
-  
+   
    componentGracefulUnmount(){
 	        this.setState({mounted: false});
             window.removeEventListener('beforeunload', this.componentGracefulUnmount);			
@@ -30,7 +30,7 @@ class Gamecontent extends Component {
 			 headers: {'Content-Type':'application/json', 'Accept': 'application/json, text/plain, */*'},
 			 body:JSON.stringify(data)
 			 });
-        }
+        } 
   
   componentWillUnmount() {
 	    this.componentGracefulUnmount()

@@ -366,3 +366,19 @@ font-family:'Open Sans', sans-serif;}
 .react-rater-star.is-disabled {
     cursor: default; 
 }
+
+@media screen and (max-width: 900px) and (min-width: 420px) {
+
+.logosection-main-left {
+display:none;
+}
+
+}
+
+@media screen and (max-width: 310px) {
+
+.logosection {
+display:none;
+}
+
+}
