@@ -46,15 +46,14 @@ class Header extends Component {
 		        <ul>
 				   <li><a href="https://blog.dtml.org">{this.props.config.blog}</a></li>
 					<li><a href="https://dtml.org/Home/Shopforgood">SHOP</a></li>
-		            <li><a href="https://dtml.org/Home/Donate">DONATE</a></li>            
-		            <li><a href="https://blog.dtml.org/games/index.html">{this.props.config.game}</a></li>            
-		  
+		            <li><a href="https://dtml.org/Home/Donate">DONATE</a></li>		  
 		        </ul>
 		        <div className="clr"></div>
 		      </div>
 		      <div className="logosection-main-right02"><h6><a href="https://dtml.org/Account/Login??ReturnUrl=https%3A%2F%2Fblog.dtml.org%2Fgames%2Findex.html">{this.props.config.login}</a></h6></div>
 		      <div className="clr"></div>
 		     </div>
+			<div className="clr"></div>
 		   </div>
 		 </div>
       </div>
