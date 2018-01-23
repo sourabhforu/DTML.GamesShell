@@ -68,7 +68,7 @@ class App extends Component {
 			return (
 
 			  <div>
-					<ScrollToTop showUnder={160} easing="linear">
+					<ScrollToTop showUnder={160} easing="linear" style={{zIndex: 9999}}>
 					  <img src={ imageurl+ 'images/backto-top.png'} alt="Back to top" className="back-top fa" />
 					</ScrollToTop>
 				  <Header config={this.state.config} />
