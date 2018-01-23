@@ -24,10 +24,10 @@ class Footer extends Component {
 				  <div className="footersecion-main"> 
 				    <div className="footersecion-main-left">
 				      <ul>
-			          <li><a href="https://www.facebook.com/distantteaching/"><i className="fa fa-facebook" aria-hidden="true"></i></a></li>
-			          <li><a href="https://twitter.com/DistantTeaching"><i className="fa fa-twitter" aria-hidden="true"></i></a></li>
-			          <li><a href="https://www.linkedin.com/company/distant-teaching-and-mobile-learning"><i className="fa fa-linkedin" aria-hidden="true"></i></a></li>
-			          <li><a href="https://www.youtube.com/channel/UCwF13kloyxnifaNCHQUL2rQ/featured"><i className="fa fa-youtube" aria-hidden="true"></i></a></li>
+			          <li><a href="https://www.facebook.com/distantteaching/"><i className="fa fa-facebook"></i></a></li>
+			          <li><a href="https://twitter.com/DistantTeaching"><i className="fa fa-twitter"></i></a></li>
+			          <li><a href="https://www.linkedin.com/company/distant-teaching-and-mobile-learning"><i className="fa fa-linkedin"></i></a></li>
+			          <li><a href="https://www.youtube.com/channel/UCwF13kloyxnifaNCHQUL2rQ/featured"><i className="fa fa-youtube"></i></a></li>
 				      </ul>
 				      <div className="clr"></div>
 				    </div>

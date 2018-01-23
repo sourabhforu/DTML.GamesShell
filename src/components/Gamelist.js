@@ -33,21 +33,22 @@ class Gamelist extends Component {
 		{
 			var counter=0;
       var that = this;		
-		  listcontent= arrayShuffle(this.state.config.games).map((listItem, i) => {
+		  listcontent = arrayShuffle(this.state.config.games).map((listItem, i) => {
 				counter++;
-				if(counter<=that.state.listcounter) {
-					if((listItem.title.indexOf(that.state.searchstring)!=-1) || (listItem.description.indexOf(that.state.searchstring)!=-1)) {
-						return(
-			        <div className="contentsection-main-middle-box" key={i}>
-			          <div className="imgsec">
-			          	<img src={imageurl + listItem.image} alt={this.state.config.playgame} />
-			          </div>
-			          <h3>{listItem.title}</h3>
-			          <p>{listItem.description}</p>
-			          <h6><a onClick={that.gameSelected.bind(that, listItem)}>{this.state.config.playgame}</a></h6>
-			        </div>
-						)
-					}
+				if((counter<=that.state.listcounter)&&((listItem.title.indexOf(that.state.searchstring)!==-1) || (listItem.description.indexOf(that.state.searchstring)!==-1))) {
+					return(
+		        <div className="contentsection-main-middle-box" key={i}>
+		          <div className="imgsec">
+		          	<img src={imageurl + listItem.image} alt={this.state.config.playgame} />
+		          </div>
+		          <h3>{listItem.title}</h3>
+		          <p>{listItem.description}</p>
+		          <h6><a onClick={that.gameSelected.bind(that, listItem)}>{this.state.config.playgame}</a></h6>
+		        </div>
+					)
+				}
+				else{
+					return null
 				}
 			})
 			return (

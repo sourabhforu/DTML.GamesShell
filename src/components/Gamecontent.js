@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import Rater from 'react-rater'
 import ReactGA from 'react-ga'
 
-import Social from '../social.js'
-
 const imageurl="https://blog.dtml.org/games/";
 var rankingURL = 'https://dtml.org/api/RatingService/Rank';
 
