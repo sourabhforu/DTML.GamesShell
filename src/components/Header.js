@@ -36,55 +36,44 @@ class Header extends Component {
 	}
 	
   render() {
- 
-		if (this.state.loggedin === false) {
-		  return (
-	      <div>
-					<div className="logosection">
-					  <div className="logosection-main">
-					    <div className="logosection-main-left"><a href="https://dtml.org"><img src={imageurl + 'images/logo-main.jpg'} alt="DTML Logo" /></a>
-					    </div>
-					    <div className="logosection-main-right">
-					      <div className="logosection-main-right01">
-					        <ul>
-								    <li><a href="https://blog.dtml.org">{this.props.config.blog}</a></li>
-										<li><a href="https://dtml.org/Home/Shopforgood">SHOP</a></li>
-					          <li><a href="https://dtml.org/Home/Donate">DONATE</a></li>		  
-					        </ul>
-					        <div className="clr"></div>
-					      </div>
-					      <div className="logosection-main-right02"><h6><a href="https://dtml.org/Account/Login?ReturnUrl=https://blog.dtml.org/games/index.html">{this.props.config.login}</a></h6>
-					      </div>
-					      <div className="clr"></div>
-					    </div>
-							<div className="clr"></div>
-					  </div>
-					</div>
-	      </div>
-		  )
-		} 
-		else {
-			return (
-			  <div>
-					<div className="logosection">
-					  <div className="logosection-main">
-					    <div className="logosection-main-left"><a href="https://dtml.org"><img src={imageurl + 'images/logo-main.jpg'} alt="DTML Logo" /></a>
-					    </div>
-					    <div className="logosection-main-right">
-					      <div className="logosection-main-right01">
-					        <ul>
-							    	<li> <a href="https://dtml.org/Student/PersonalProfile">Hello, {this.state.username}</a></li>   
-					          <li><a href="https://dtml.org/Student/PersonalProfile">PROFILE</a></li>            
-					          <li><a href="https://dtml.org/LearnPath/PublishedLearnPaths">E-LEARNING</a></li>     
-					          <li><a href="https://dtml.org/Account/LogOffExternal">LOG OFF</a></li>    					
-					        </ul>
-					      </div>
-					    </div>
-					  </div>
-					</div>
-	      </div>
-	    );		
-		}
+	  return (
+      <div>
+				<div className="logosection">
+				  <div className="logosection-main">
+				    <div className="logosection-main-left"><a href="https://dtml.org"><img src={imageurl + 'images/logo-main.jpg'} alt="DTML Logo" /></a>
+				    </div>
+
+				    {
+				    	!this.state.loggedin ?
+						    <div className="logosection-main-right">
+						      <div className="logosection-main-right01">
+						        <ul>
+									    <li><a href="https://blog.dtml.org">{this.props.config.blog}</a></li>
+											<li><a href="https://dtml.org/Home/Shopforgood">SHOP</a></li>
+						          <li><a href="https://dtml.org/Home/Donate">DONATE</a></li>		  
+						        </ul>
+						        <div className="clr"></div>
+						      </div>
+						      <div className="logosection-main-right02"><h6><a href="https://dtml.org/Account/Login?ReturnUrl=https://blog.dtml.org/games/index.html">{this.props.config.login}</a></h6>
+						      </div>
+						    </div>
+						  :
+						    <div className="logosection-main-right">
+						      <div className="logosection-main-right01">
+						        <ul>
+								    	<li> <a href="https://dtml.org/Student/PersonalProfile">Hello, {this.state.username}</a></li>   
+						          <li><a href="https://dtml.org/Student/PersonalProfile">PROFILE</a></li>            
+						          <li><a href="https://dtml.org/LearnPath/PublishedLearnPaths">E-LEARNING</a></li>     
+						          <li><a href="https://dtml.org/Account/LogOffExternal">LOG OFF</a></li>    					
+						        </ul>
+						      </div>
+						    </div>
+				    }
+
+				  </div>
+				</div>
+      </div>
+	  )	
   }
 }
 

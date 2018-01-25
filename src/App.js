@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+} from 'react-router-dom';
 import ScrollToTop from 'react-scroll-up';
 import ReactGA from 'react-ga';
 import ReactPixel from 'react-facebook-pixel';
@@ -66,18 +70,17 @@ class App extends Component {
 		if (this.state.config != null)
 		{
 			return (
-
-			  <div>
-					<ScrollToTop showUnder={160} easing="linear" style={{zIndex: 9999}}>
-					  <img src={ imageurl+ 'images/backto-top.png'} alt="Back to top" className="back-top fa" />
-					</ScrollToTop>
-				  <Header config={this.state.config} />
-						{ condif ?
-							<Gamelist Selected={this.onSelectedGame.bind(this)} config={this.state.config}/> :
-							<Gamecontent Back={this.onBack.bind(this)} gameContent={this.state.gameContent} config={this.state.config}/>
-						}
-				  <Footer config={this.state.config} />
-			  </div>
+				<Router>
+				  <div>
+						<ScrollToTop showUnder={160} easing="linear" style={{zIndex: 9999}}>
+						  <img src={ imageurl+ 'images/backto-top.png'} alt="Back to top" className="back-top fa" />
+						</ScrollToTop>
+					  <Header config={this.state.config} />
+					  <Route path='/' component={() => <Gamelist config={this.state.config} Selected={this.onSelectedGame.bind(this)} />} />
+					  <Route exact path='/:gameId' component={() => <Gamecontent Back={this.onBack.bind(this)} gameContent={this.state.gameContent} config={this.state.config} />} />
+					  <Footer config={this.state.config} />
+				  </div>
+				 </Router>
 			);
 		}
 		else
