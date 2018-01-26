@@ -44,7 +44,7 @@ class Gamelist extends Component {
 		          </div>
 		          <h3>{listItem.title}</h3>
 		          <p>{listItem.description}</p>
-		          <h6><Link to='/'>{this.state.config.playgame}</Link></h6>
+		          <h6><Link onClick={that.gameSelected.bind(that, listItem)} to={`/${listItem.id}`} >{this.state.config.playgame}</Link></h6>
 		        </div>
 					)
 				}

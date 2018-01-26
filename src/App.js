@@ -59,16 +59,9 @@ class App extends Component {
     });
 	}
 
-	onBack(newdone) {
-		this.setState({done: newdone})
-		window.scrollTo(0,0)
-	}
-
 	render() {
 
-		var condif = this.state.done
-		if (this.state.config != null)
-		{
+		if (this.state.config != null) {
 			return (
 				<Router>
 				  <div>
@@ -76,8 +69,8 @@ class App extends Component {
 						  <img src={ imageurl+ 'images/backto-top.png'} alt="Back to top" className="back-top fa" />
 						</ScrollToTop>
 					  <Header config={this.state.config} />
-					  <Route path='/' component={() => <Gamelist config={this.state.config} Selected={this.onSelectedGame.bind(this)} />} />
-					  <Route exact path='/:gameId' component={() => <Gamecontent Back={this.onBack.bind(this)} gameContent={this.state.gameContent} config={this.state.config} />} />
+					  <Route exact path='/' component={() => <Gamelist config={this.state.config} Selected={this.onSelectedGame.bind(this)} />} />
+					  <Route exact path='/:gameId' component={() => <Gamecontent gameContent={this.state.gameContent} config={this.state.config} />} />
 					  <Footer config={this.state.config} />
 				  </div>
 				 </Router>
