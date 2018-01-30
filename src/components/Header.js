@@ -32,7 +32,10 @@ class Header extends Component {
 			  {
 		      that.setState({ loggedin: true });
 			  }
-		  });
+		  })
+		  .catch(function(error) {
+		  	console.log("Request failed")
+		  })
 	}
 	
   render() {
