@@ -63,7 +63,7 @@ class App extends Component {
 
 		if (this.state.config != null) {
 			return (
-				<Router>
+				<Router basename="/games">
 				  <div>
 						<ScrollToTop showUnder={160} easing="linear" style={{zIndex: 9999}}>
 						  <img src={ imageurl+ 'images/backto-top.png'} alt="Back to top" className="back-top fa" />
