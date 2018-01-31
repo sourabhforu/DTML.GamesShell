@@ -126,23 +126,16 @@ class Gamecontent extends Component {
 					       
 						   
 					       <div className="ratesection-top-right">
-					        <h6><a className="embed-link" onClick={this.toggleCode.bind(this)}> &lt;/&gt; {this.props.config.embed}</a></h6>
-
-					
+					          <h6><a target="blank" href={this.state.gameContent.url}> <i class="fa fa-arrows-alt" aria-hidden="true"></i> Full Screen</a></h6>					
 					        
 					        <div className="clr"></div>
 					       </div>
 					       <div className="clr"></div>
-									{this.state.displayCode ? 							
-										<textarea id='codeArea' className='codearea'>{this.state.frameText}</textarea>		
-										: null
-									}
 					      </div>				      
 					     
 					      <div className="ratesection-bottom">
 					        <div className="ratesection-bottom01">
 					          <h5><Link to='/'>{this.props.config.back}</Link></h5>
-							 		  <h6><a target="blank" href={this.state.gameContent.url}>Full Screen</a></h6>
 					        </div>
 					        <div className="ratesection-bottom02">
 					         	<h6><a href="https://dtml.org/Home/Edubot"><img src={imageurl+"images/goto-pic.png"} alt="Edubot" /></a></h6>
@@ -159,3 +152,4 @@ class Gamecontent extends Component {
 }
 
 export default Gamecontent;
+

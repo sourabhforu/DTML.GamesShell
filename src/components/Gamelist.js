@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import arrayShuffle from 'array-shuffle'
 import { isEmpty } from 'lodash'
+import Social from '../social.js';
 import { Link } from 'react-router-dom';
 
 const imageurl="https://blog.dtml.org/games/";
@@ -79,7 +80,7 @@ class Gamelist extends Component {
 			    		<div className="clr"></div>
 					  </div>
 					  <div className="sponsors-setion">
-					 	  <h6><a href="https://dtml.org/Home/CorporateSponsor">{this.state.config.sponsors}</a></h6>
+					 	    <Social />
 					  </div>
 					</div>
 				</div>

@@ -255,7 +255,7 @@ border:none;}
 .ratesection-top{ width:100%; border-bottom:1px solid #dbdbdb; padding:0px 0px 19px 0px; margin:0px auto;}
 .ratesection-top-left{ width:40%; float:left; height:auto; padding:0px; margin:0px;}
 
-.ratesection-top-right{ width:auto; float:right; height:auto; padding:0px; margin:0px; text-align:center; display:none}
+.ratesection-top-right{ width:auto; float:right; height:auto; padding:0px; margin:0px; text-align:center;}
 .ratesection-top-right h6{ float:left; padding:0px; margin:0px 12px 0px 0px;}
 .ratesection-top-right h6 a{ background:url(https://blog.dtml.org/games/images/embated-btn.png) no-repeat 0 0; color:#FFF; font-size:17px; line-height:50px;; font-weight:500; text-transform:uppercase; padding:0px; display:inline-block; width:177px; height:50px; text-align:center;}
 .ratesection-top-right h6 a:hover{  background:url(https://blog.dtml.org/games/images/embated-btn-hover.png) no-repeat 0 0;}

@@ -1,6 +1,6 @@
 {
   "name": "dtml-games",
-  "homepage": "http://blog.dtml.org/games",
+  "homepage": "http://blog.dtml.org/games/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
