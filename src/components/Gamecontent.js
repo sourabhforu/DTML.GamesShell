@@ -66,14 +66,7 @@ class Gamecontent extends Component {
 		      that.setState({ rating: data });
 		  });
   }
-	
-  toggleCode() {
-    var domNode = this.refs.framecontainer;
-    var frameCode = domNode.innerHTML+"<div><a href='https://dtml.org'>Game provided by https://dtml.org</a></div>";
-    this.setState({displayCode: true});
-    this.setState({frameText: frameCode});	
-  }
-  
+	  
   handleRate({ rating, type }) {
 	  if (type === 'click') {
 		  var url = rankingURL + "/?key="+this.state.gameContent.id+"&rank="+rating
@@ -135,7 +128,6 @@ class Gamecontent extends Component {
 					     
 					      <div className="ratesection-bottom">
 					        <div className="ratesection-bottom01">
-					          <h5><Link to='/'>{this.props.config.back}</Link></h5>
 					        </div>
 					        <div className="ratesection-bottom02">
 					         	<h6><a href="https://dtml.org/Home/Edubot"><img src={imageurl+"images/goto-pic.png"} alt="Edubot" /></a></h6>
