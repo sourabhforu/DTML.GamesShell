@@ -39,7 +39,7 @@ class Gamecontent extends Component {
 
   componentWillMount() {
   	if(isEmpty(this.state.gameContent)) {
-  		var gameID = window.location.pathname.substring(1)
+  		var gameID = window.location.pathname.substring(1).replace('games/','')
   		var gameContent = this.props.config.games.find( (game) => {return game.id === gameID} )
   		this.setState({ gameContent: gameContent})
   	}
