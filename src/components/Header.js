@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { isEmpty, keys } from 'lodash'
 
 import '../css/style.css';
 
@@ -39,23 +40,44 @@ class Header extends Component {
 	}
 	
   render() {
+  	var custom=[]
+  	var logoImageUrl = imageurl + 'images/logo-main.jpg'
+  	var menuColor=''
+  	if(!isEmpty(this.props.config.customization)) {
+  		custom = this.props.config.customization
+  		logoImageUrl = custom.logo
+  		menuColor = custom.menue_color
+  	}
+
 	  return (
       <div>
-				<div className="logosection">
+				<div className="logosection" style={!isEmpty(menuColor)?{background: menuColor}:null}>
 				  <div className="logosection-main">
-				    <div className="logosection-main-left"><a href="https://dtml.org"><img src={imageurl + 'images/logo-main.jpg'} alt="DTML Logo" /></a>
+				    <div className="logosection-main-left"><a href="https://dtml.org"><img src={logoImageUrl} alt="DTML Logo" style={{height: '37px'}} /></a>
 				    </div>
 
 				    {
 				    	!this.state.loggedin ?
 						    <div className="logosection-main-right">
 						      <div className="logosection-main-right01">
-						        <ul>
-									    <li><a href="https://blog.dtml.org">{this.props.config.blog}</a></li>
-											<li><a href="https://dtml.org/Home/Shopforgood">SHOP</a></li>
-						          <li><a href="https://dtml.org/Home/Donate">DONATE</a></li>		  
-						        </ul>
-						        <div className="clr"></div>
+					        	{
+					        		!this.props.config.customization ?
+					        		<ul>
+										    <li><a href="https://blog.dtml.org">{this.props.config.blog}</a></li>
+												<li><a href="https://dtml.org/Home/Shopforgood">SHOP</a></li>
+							          <li><a href="https://dtml.org/Home/Donate">DONATE</a></li>	
+						          </ul>
+						          :
+						          	<ul> 
+						          		{
+						          			keys(custom.menu).map((key) => {
+						          				return (
+						          					<li><a href={custom.menu[key]}>{key}</a></li>
+						          				)}
+						          			)
+						          		}
+						          	</ul>
+					        	}						       
 						      </div>
 						      <div className="logosection-main-right02"><h6><a href="https://dtml.org/Account/Login?ReturnUrl=https://blog.dtml.org/games/index.html">{this.props.config.login}</a></h6>
 						      </div>

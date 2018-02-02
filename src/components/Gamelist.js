@@ -31,7 +31,12 @@ class Gamelist extends Component {
 	}
 
 	render() {
+	 	var bannerImageUrl = imageurl + 'images/banner01.jpg'
 
+		if(!isEmpty(this.state.config.customization)) {
+			var custom = this.state.config.customization
+			bannerImageUrl = custom.banner
+		}
 		if(!isEmpty(this.state.config)){
 			var counter=0;
       var that = this;		
@@ -58,7 +63,7 @@ class Gamelist extends Component {
 		return (
 		  <div>
 				<div className="bannersection">
-				  <img src={imageurl + 'images/banner01.jpg'} alt="Banner" />
+				  <img src={bannerImageUrl} alt="Banner" />
 				</div>
 				<div className="contentsection">
 					<div className="contentsection-main">

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Rater from 'react-rater'
 import ReactGA from 'react-ga'
 import { isEmpty } from 'lodash'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 const imageurl="https://blog.dtml.org/games/";
 var rankingURL = 'https://dtml.org/api/RatingService/Rank';
