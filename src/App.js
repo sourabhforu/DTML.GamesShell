@@ -60,7 +60,6 @@ class App extends Component {
 	}
 
 	render() {
-
 		if (this.state.config != null) {
 			return (
 				<Router basename="/games">

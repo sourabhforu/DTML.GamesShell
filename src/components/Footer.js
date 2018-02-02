@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { isEmpty } from 'lodash'
 
 import '../css/font-awesome.min.css';
 import '../css/responsive.css';
@@ -15,10 +16,14 @@ class Footer extends Component {
 	}
 
   render() {
+  	var footerImageUrl = imageurl + 'images/footerbg-01.png'
+  	if(!isEmpty(this.props.config.customization)) {
+  		footerImageUrl = this.props.config.customization.footer
+  	}
     return (
       <div>
       	<div className="footertop-section">
-      		<img src={imageurl + 'images/footerbg-01.png'} alt="" />
+      		<img src={footerImageUrl} alt="" />
       	</div>
 			  <div className="footersecion">
 				  <div className="footersecion-main"> 
