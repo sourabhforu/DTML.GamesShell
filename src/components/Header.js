@@ -63,9 +63,9 @@ class Header extends Component {
 					        	{
 					        		!this.props.config.customization ?
 					        		<ul>
+									 <li><a href="https://dtml.org">HOME</a></li>
 										    <li><a href="https://blog.dtml.org">{this.props.config.blog}</a></li>
-												<li><a href="https://dtml.org/Home/Shopforgood">SHOP</a></li>
-							          <li><a href="https://dtml.org/Home/Donate">DONATE</a></li>	
+											<li><a href="https://blog.dtml.org/games">GAMES</a></li>
 						          </ul>
 						          :
 						          	<ul> 
@@ -86,9 +86,9 @@ class Header extends Component {
 						    <div className="logosection-main-right">
 						      <div className="logosection-main-right01">
 						        <ul>
-								    	<li> <a href="https://dtml.org/Student/PersonalProfile">Hello, {this.state.username}</a></li>   
+								  <li> <a href="https://dtml.org/Student/PersonalProfile">Hello, {this.state.username}</a></li>   
 						          <li><a href="https://dtml.org/Student/PersonalProfile">PROFILE</a></li>            
-						          <li><a href="https://dtml.org/LearnPath/PublishedLearnPaths">E-LEARNING</a></li>     
+						          <li><a href="https://blog.dtml.org/games">GAMES</a></li>   
 						          <li><a href="https://dtml.org/Account/LogOffExternal">LOG OFF</a></li>    					
 						        </ul>
 						      </div>

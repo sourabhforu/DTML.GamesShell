@@ -40,6 +40,10 @@ class Gamecontent extends Component {
   	if(isEmpty(this.state.gameContent)) {
   		var subGameUrl = window.location.pathname.substring(1)
   		var gameID = subGameUrl.substr(subGameUrl.lastIndexOf('/')+1)
+		if (isEmpty(this.props.config.games))
+		{
+			window.location.href = "https://blog.dtml.org/games";
+		}
   		var gameContent = this.props.config.games.find( (game) => {return game.id === gameID} )
   		this.setState({ gameContent: gameContent})
   	}

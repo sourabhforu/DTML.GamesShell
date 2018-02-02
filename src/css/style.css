@@ -375,6 +375,11 @@ font-family:'Open Sans', sans-serif;}
 
 @media screen and (max-width: 900px) and (min-width: 420px) {
 
+.hideable
+{
+display:none;	
+}
+
 .logosection-main-left {
 display:none;
 }
@@ -387,4 +392,8 @@ display:none;
 display:none;
 }
 
+.hideable
+{
+display:none;	
+}
 }
