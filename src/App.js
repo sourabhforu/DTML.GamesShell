@@ -20,6 +20,7 @@ ReactPixel.init('1648707511827840');
 	
 const imageurl="https://blog.dtml.org/games/";
 const url = 'https://dtml.org/api/ConfigurationService/GetGamesList?mkt=';
+const queryString = require('query-string');
 
 class App extends Component {
 
@@ -37,7 +38,10 @@ class App extends Component {
 		var userLang = navigator.language || navigator.userLanguage;
     this.setState({ userLanguage: userLang })
     var that = this;
-	  fetch(url+userLang)
+	const parsed = queryString.parse(window.location.search);
+	var fullURL =url+userLang + '&orgid=' + parsed.school;
+	
+	  fetch(fullURL)
 	    .then(function(response) {
 				if (response.status >= 400) {
 				  throw new Error("Bad response from server");
