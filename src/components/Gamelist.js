@@ -62,7 +62,7 @@ class Gamelist extends Component {
 
 		return (
 		  <div>
-				<div className="bannersection">
+				<div className="bannersection_list">
 				  <img src={bannerImageUrl} alt="Banner" />
 				</div>
 				<div className="contentsection">

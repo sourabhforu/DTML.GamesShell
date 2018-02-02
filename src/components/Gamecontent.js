@@ -81,13 +81,13 @@ class Gamecontent extends Component {
   render() {
 	
     let instruction = null;
-	if (this.state.gameContent.instruction != null)
-						  {
-					      instruction = <div>
-				          <div class="howtoplay">{this.props.config.howtoplay}</div>
-						  <p>{this.state.gameContent.instruction}</p>
-						   </div>;
-						  }	  
+		if (this.state.gameContent.instruction != null)
+	  {
+      instruction = <div>
+							        <div class="howtoplay">{this.props.config.howtoplay}</div>
+								  		<p>{this.state.gameContent.instruction}</p>
+	   								</div>;
+	  }	  
     return (
     	<div>
 				<div className="bannersection">
@@ -128,7 +128,7 @@ class Gamecontent extends Component {
 					       
 						   
 					       <div className="ratesection-top-right">
-					          <h6><a target="blank" href={this.state.gameContent.url}> <i class="fa fa-arrows-alt" aria-hidden="true"></i><span class="fullscreen">{this.props.config.fullscreen}</span></a></h6>					
+					          <h6><a target="blank" href={this.state.gameContent.url}> <i className="fa fa-arrows-alt" aria-hidden="true"></i><span className="fullscreen">{this.props.config.fullscreen}</span></a></h6>					
 					        
 					        <div className="clr"></div>
 					       </div>
