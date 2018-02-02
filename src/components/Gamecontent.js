@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import Rater from 'react-rater'
 import ReactGA from 'react-ga'
 import { isEmpty } from 'lodash'
-import { Link } from 'react-router-dom'
 
 const imageurl="https://blog.dtml.org/games/";
 var rankingURL = 'https://dtml.org/api/RatingService/Rank';
@@ -39,7 +38,8 @@ class Gamecontent extends Component {
 
   componentWillMount() {
   	if(isEmpty(this.state.gameContent)) {
-  		var gameID = window.location.pathname.substring(1).replace('games/','')
+  		var subGameUrl = window.location.pathname.substring(1)
+  		var gameID = subGameUrl.substr(subGameUrl.lastIndexOf('/')+1)
   		var gameContent = this.props.config.games.find( (game) => {return game.id === gameID} )
   		this.setState({ gameContent: gameContent})
   	}
@@ -84,7 +84,7 @@ class Gamecontent extends Component {
 		if (this.state.gameContent.instruction != null)
 	  {
       instruction = <div>
-							        <div class="howtoplay">{this.props.config.howtoplay}</div>
+							        <div className="howtoplay">{this.props.config.howtoplay}</div>
 								  		<p>{this.state.gameContent.instruction}</p>
 	   								</div>;
 	  }	  
