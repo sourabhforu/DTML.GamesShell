@@ -95,7 +95,7 @@ class Gamecontent extends Component {
     return (
     	<div>
 				<div className="bannersection">
-					<img src={imageurl+"images/game-banner.png"} alt="{this.state.gameContent.title}" />
+					<img src={imageurl+"images/game-banner.jpg"} alt="{this.state.gameContent.title}" />
 					<div className="bannersection01">
 						<h2>{this.state.gameContent.title}</h2>
 					</div>  
