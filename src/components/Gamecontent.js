@@ -125,15 +125,16 @@ class Gamecontent extends Component {
 							  <div>
 							      <Rater total={5} rating={this.state.rating} onRate={this.handleRate.bind(this)} />
 							  </div>
-
-
+							
+						
+ 
 					       <div className="clr"></div>
 					        </div>
 					       
 						   
 					       <div className="ratesection-top-right">
 					          <h6><a target="blank" href={this.state.gameContent.url}> <i className="fa fa-arrows-alt" aria-hidden="true"></i><span className="fullscreen">{this.props.config.fullscreen}</span></a></h6>					
-					        
+					        	<h6><a target="blank" href='/'>{this.props.config.back}</a></h6>
 					        <div className="clr"></div>
 					       </div>
 					       <div className="clr"></div>
