@@ -45,15 +45,16 @@ class Header extends Component {
   	var menuColor=''
   	if(!isEmpty(this.props.config.customization)) {
   		custom = this.props.config.customization
-  		logoImageUrl = custom.logo
-  		menuColor = custom.menue_color
+  		logoImageUrl = custom.logoURL == "" ?  imageurl + 'images/logo-main.jpg' : custom.logoURL
+  		menuColor = custom.MenueColor
   	}
 
 	  return (
       <div>
 				<div className="logosection" style={!isEmpty(menuColor)?{background: menuColor}:null}>
 				  <div className="logosection-main">
-				    <div className="logosection-main-left"><a href="https://dtml.org"><img src={logoImageUrl} alt="DTML Logo" style={{height: '37px'}} /></a>
+				    <div className="logosection-main-left">
+					<a href="https://dtml.org"><img src={logoImageUrl} alt="DTML Logo" style={{height: '37px'}} /></a>
 				    </div>
 
 				    {
@@ -63,16 +64,16 @@ class Header extends Component {
 					        	{
 					        		!this.props.config.customization ?
 					        		<ul>
-									 <li><a href="https://dtml.org">HOME</a></li>
+									 <li><a href="https://dtml.org">{this.props.config.home}</a></li>
 										    <li><a href="https://blog.dtml.org">{this.props.config.blog}</a></li>
-											<li><a href="https://blog.dtml.org/games">GAMES</a></li>
+											<li><a href="https://blog.dtml.org/games">{this.props.config.game}</a></li>
 						          </ul>
 						          :
 						          	<ul> 
 						          		{
-						          			keys(custom.menu).map((key) => {
+						          			keys(custom.Menue).map((key) => {
 						          				return (
-						          					<li><a href={custom.menu[key]}>{key}</a></li>
+						          					<li><a href={custom.Menue[key].Value}>{custom.Menue[key].Key}</a></li>
 						          				)}
 						          			)
 						          		}
@@ -86,10 +87,10 @@ class Header extends Component {
 						    <div className="logosection-main-right">
 						      <div className="logosection-main-right01">
 						        <ul>
-								  <li> <a href="https://dtml.org/Student/PersonalProfile">Hello, {this.state.username}</a></li>   
-						          <li><a href="https://dtml.org/Student/PersonalProfile">PROFILE</a></li>            
-						          <li><a href="https://blog.dtml.org/games">GAMES</a></li>   
-						          <li><a href="https://dtml.org/Account/LogOffExternal">LOG OFF</a></li>    					
+								  <li> <a href="https://dtml.org/Student/PersonalProfile">{this.state.welcome}, {this.state.username}</a></li>   
+						          <li><a href="https://dtml.org/Student/PersonalProfile">{this.props.config.profile}</a></li>            
+						          <li><a href="https://blog.dtml.org/games">{this.props.config.game}</a></li>   
+						          <li><a href="https://dtml.org/Account/LogOffExternal">{this.props.config.logoff}</a></li>    					
 						        </ul>
 						      </div>
 						    </div>

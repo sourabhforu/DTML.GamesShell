@@ -35,7 +35,7 @@ class Gamelist extends Component {
 
 		if(!isEmpty(this.state.config.customization)) {
 			var custom = this.state.config.customization
-			bannerImageUrl = custom.banner
+			bannerImageUrl = custom.BannerURL
 		}
 		if(!isEmpty(this.state.config)){
 			var counter=0;

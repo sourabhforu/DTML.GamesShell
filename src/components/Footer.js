@@ -17,9 +17,9 @@ class Footer extends Component {
 
   render() {
   	var footerImageUrl = imageurl + 'images/footerbg-01.png'
-  	if(!isEmpty(this.props.config.customization)) {
-  		footerImageUrl = this.props.config.customization.footer
-  	}
+  	if(!isEmpty(this.props.config.customization)) {                
+  		footerImageUrl = this.props.config.customization.FooterURL
+  	}        
     return (
       <div>
       	<div className="footertop-section">
