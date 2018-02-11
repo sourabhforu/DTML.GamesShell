@@ -41,20 +41,26 @@ class Header extends Component {
 	
   render() {
   	var custom=[]
+	var Logo
   	var logoImageUrl = imageurl + 'images/logo-main.jpg'
   	var menuColor=''
   	if(!isEmpty(this.props.config.customization)) {
   		custom = this.props.config.customization
-  		logoImageUrl = custom.logoURL == "" ?  imageurl + 'images/logo-main.jpg' : custom.logoURL
+  		logoImageUrl = custom.logoURL
   		menuColor = custom.MenueColor
   	}
+	
+	if (logoImageUrl !=="")
+	{
+		Logo = <a href="https://dtml.org"><img src={logoImageUrl} alt="DTML Logo" style={{height: '37px'}} /></a>
+	}
 
 	  return (
       <div>
 				<div className="logosection" style={!isEmpty(menuColor)?{background: menuColor}:null}>
 				  <div className="logosection-main">
 				    <div className="logosection-main-left">
-					<a href="https://dtml.org"><img src={logoImageUrl} alt="DTML Logo" style={{height: '37px'}} /></a>
+					{Logo}
 				    </div>
 
 				    {

@@ -21,6 +21,22 @@ class Gamelist extends Component {
 	gameSelected(listItem) {
 		this.props.Selected(false, listItem)
 	}
+	
+	getFirstLine(str){
+    var p1 = str.indexOf('.');
+	var p2 = str.indexOf('…');
+	var breakIndex = p1 > 0 ? p2 > 0 ? Math.min(p1,p2) : p1 : p2 > 0 ? p2 : -1;
+	
+    if (breakIndex === -1){
+		breakIndex = str.indexOf('!');
+		alert(breakIndex);
+		if (breakIndex === -1){
+        return str;
+		}
+    }
+    return str.substr(0, breakIndex+1);
+	}
+
 
 	searchChange(e) {
 		this.setState({searchstring: e.target.value,})
@@ -49,7 +65,7 @@ class Gamelist extends Component {
 		          	<img src={imageurl + listItem.image} alt={this.state.config.playgame} />
 		          </div>
 		          <h3>{listItem.title}</h3>
-		          <p>{listItem.description}</p>
+		          <p>{this.getFirstLine(listItem.description)}</p>
 		          <h6><Link onClick={that.gameSelected.bind(that, listItem)} to={`/${listItem.id}`} >{this.state.config.playgame}</Link></h6>
 		        </div>
 					)

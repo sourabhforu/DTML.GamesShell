@@ -40,10 +40,11 @@ class Gamecontent extends Component {
   	if(isEmpty(this.state.gameContent)) {
   		var subGameUrl = window.location.pathname.substring(1)
   		var gameID = subGameUrl.substr(subGameUrl.lastIndexOf('/')+1)
-		if (isEmpty(this.props.config.games))
+		if (isEmpty(this.props.config) || isEmpty(this.props.config.games) || (gameID === ""))
 		{
 			window.location.href = "https://blog.dtml.org/games";
 		}
+
   		var gameContent = this.props.config.games.find( (game) => {return game.id === gameID} )
   		this.setState({ gameContent: gameContent})
   	}
@@ -134,7 +135,7 @@ class Gamecontent extends Component {
 						   
 					       <div className="ratesection-top-right">
 					          <h6><a target="blank" href={this.state.gameContent.url}> <i className="fa fa-arrows-alt" aria-hidden="true"></i><span className="fullscreen">{this.props.config.fullscreen}</span></a></h6>					
-					        	<h6><a target="blank" href='/'>{this.props.config.back}</a></h6>
+					        	<h6><a target="blank" href='/games/'>{this.props.config.back}</a></h6>
 					        <div className="clr"></div>
 					       </div>
 					       <div className="clr"></div>
