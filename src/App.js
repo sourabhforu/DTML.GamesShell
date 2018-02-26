@@ -34,8 +34,8 @@ class App extends Component {
 	}
 	
 	componentWillMount() {
-		document.title = "Distance Teaching and Mobile Learning - Educational Games";
-		var userLang = navigator.language || navigator.userLanguage;
+	document.title = "Distance Teaching and Mobile Learning - Educational Games";
+	var userLang = navigator.language || navigator.userLanguage;
     this.setState({ userLanguage: userLang })
     var that = this;
 	const parsed = queryString.parse(window.location.search);
