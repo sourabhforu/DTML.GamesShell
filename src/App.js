@@ -30,7 +30,7 @@ class App extends Component {
       done: true,
       gameContent: [],
     }		
-		ReactGA.pageview(window.location.hash);
+		ReactGA.pageview(window.location);
 	}
 	
 	componentWillMount() {
