@@ -38,9 +38,9 @@ class Gamecontent extends Component {
 
   componentWillMount() {
   	if(isEmpty(this.state.gameContent)) {
-  		var subGameUrl = window.location.pathname.substring(1)
+  		var subGameUrl = window.location.pathname;
   		var gameID = subGameUrl.substr(subGameUrl.lastIndexOf('/')+1)
-		if (isEmpty(this.props.config) || isEmpty(this.props.config.games) || (gameID === ""))
+		if (isEmpty(this.props.config) || isEmpty(this.props.config.games) || typeof gameID === 'undefined')
 		{
 			window.location.href = "https://blog.dtml.org/games";
 		}
