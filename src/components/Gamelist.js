@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+﻿import React, { Component } from 'react'
 import arrayShuffle from 'array-shuffle'
 import { isEmpty } from 'lodash'
 import Social from '../social.js';
@@ -23,7 +23,8 @@ class Gamelist extends Component {
 	}
 	
 	getFirstLine(str){
-    var p1 = str.indexOf('.');
+        if (str == null || typeof(str) === "undefined") return ""; 
+        var p1 = str.indexOf('.');
 	var p2 = str.indexOf('…');
 	var breakIndex = p1 > 0 ? p2 > 0 ? Math.min(p1,p2) : p1 : p2 > 0 ? p2 : -1;
 	

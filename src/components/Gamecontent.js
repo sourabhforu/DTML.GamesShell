@@ -3,7 +3,7 @@ import Rater from 'react-rater'
 import ReactGA from 'react-ga'
 import { isEmpty } from 'lodash'
 
-const imageurl="https://blog.dtml.org/games/";
+const imageurl="https://games.dtml.org/games/";
 var rankingURL = 'https://dtml.org/api/RatingService/Rank';
 
 class Gamecontent extends Component {
@@ -38,11 +38,12 @@ class Gamecontent extends Component {
 
   componentWillMount() {
   	if(isEmpty(this.state.gameContent)) {
-  		var subGameUrl = window.location.pathname;
-  		var gameID = subGameUrl.substr(subGameUrl.lastIndexOf('/')+1)
-		if (isEmpty(this.props.config) || isEmpty(this.props.config.games) || typeof gameID === 'undefined')
+  		var urlpath = window.location.pathname;
+  		var gameID = urlpath.substr(urlpath.lastIndexOf('/')+1)
+		if (isEmpty(this.props.config) || isEmpty(this.props.config.games) || typeof gameID === "undefined")
 		{
-			window.location.href = "https://blog.dtml.org/games";
+			window.location.href = "https://games.dtml.org/games";
+                        return;
 		}
 
   		var gameContent = this.props.config.games.find( (game) => {return game.id === gameID} )
@@ -52,7 +53,7 @@ class Gamecontent extends Component {
 		
   componentDidMount() {  
     ReactGA.pageview(window.location.hash);	
-	  ReactGA.event({
+    ReactGA.event({
       category: 'Games',
       action: 'Game__'+this.state.gameContent.id
     });
