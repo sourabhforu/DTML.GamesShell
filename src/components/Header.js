@@ -93,7 +93,7 @@ class Header extends Component {
 						    <div className="logosection-main-right">
 						      <div className="logosection-main-right01">
 						        <ul>
-							  <li> <a href="https://dtml.org/Student/PersonalProfile">{this.state.welcome}, {this.state.username}</a></li>   
+							  <li> <a href="https://dtml.org/Student/PersonalProfile">{this.props.config.hello}, {this.state.username}</a></li>   
 						          <li><a href="https://dtml.org/Student/PersonalProfile">{this.props.config.profile}</a></li>            
 						          <li><a href="https://games.dtml.org/games">{this.props.config.game}</a></li>   
 						          <li><a href="https://dtml.org/Account/LogOffExternal">{this.props.config.logoff}</a></li>    					
