@@ -45,7 +45,7 @@ const EmailIcon = generateShareIcon('email');
 
 class Social extends Component {
   render() {
-    const shareUrl = 'https://blog.dtml.org/games/index.html';
+    const shareUrl = 'https://games.dtml.org/games/';
     const title = 'Distance Teaching and Mobile Learning: Free ESL Games - Play for free now';
 
     return (

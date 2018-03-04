@@ -18,7 +18,7 @@ import './css/responsive.css';
 ReactGA.initialize('UA-80531313-1'); 
 ReactPixel.init('1648707511827840');
 	
-const imageurl="https://blog.dtml.org/games/";
+const imageurl="https://games.dtml.org/games/";
 const url = 'https://dtml.org/api/ConfigurationService/GetGamesList?mkt=';
 const queryString = require('query-string');
 

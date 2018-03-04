@@ -3,7 +3,7 @@ import { isEmpty, keys } from 'lodash'
 
 import '../css/style.css';
 
-const imageurl="https://blog.dtml.org/games/";
+const imageurl="https://games.dtml.org/games/";
 var loginURL = "https://dtml.org/Activity/GetUserName";
 
 class Header extends Component {
@@ -71,8 +71,8 @@ class Header extends Component {
 					        		!this.props.config.customization ?
 					        		<ul>
 									 <li><a href="https://dtml.org">{this.props.config.home}</a></li>
-										    <li><a href="https://blog.dtml.org">{this.props.config.blog}</a></li>
-											<li><a href="https://blog.dtml.org/games">{this.props.config.game}</a></li>
+										    <li><a href="https://games.dtml.org">{this.props.config.blog}</a></li>
+											<li><a href="https://games.dtml.org/games">{this.props.config.game}</a></li>
 						          </ul>
 						          :
 						          	<ul> 
@@ -86,16 +86,16 @@ class Header extends Component {
 						          	</ul>
 					        	}						       
 						      </div>
-						      <div className="logosection-main-right02"><h6><a href="https://dtml.org/Account/Login?ReturnUrl=https://blog.dtml.org/games/index.html">{this.props.config.login}</a></h6>
+						      <div className="logosection-main-right02"><h6><a href="https://dtml.org/Account/Login?ReturnUrl=https://games.dtml.org/games/index.html">{this.props.config.login}</a></h6>
 						      </div>
 						    </div>
 						  :
 						    <div className="logosection-main-right">
 						      <div className="logosection-main-right01">
 						        <ul>
-								  <li> <a href="https://dtml.org/Student/PersonalProfile">{this.state.welcome}, {this.state.username}</a></li>   
+							  <li> <a href="https://dtml.org/Student/PersonalProfile">{this.state.welcome}, {this.state.username}</a></li>   
 						          <li><a href="https://dtml.org/Student/PersonalProfile">{this.props.config.profile}</a></li>            
-						          <li><a href="https://blog.dtml.org/games">{this.props.config.game}</a></li>   
+						          <li><a href="https://games.dtml.org/games">{this.props.config.game}</a></li>   
 						          <li><a href="https://dtml.org/Account/LogOffExternal">{this.props.config.logoff}</a></li>    					
 						        </ul>
 						      </div>

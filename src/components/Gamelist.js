@@ -4,7 +4,7 @@ import { isEmpty } from 'lodash'
 import Social from '../social.js';
 import { Link } from 'react-router-dom';
 
-const imageurl="https://blog.dtml.org/games/";
+const imageurl="https://games.dtml.org/games/";
 var listcontent=[];
 
 class Gamelist extends Component {
