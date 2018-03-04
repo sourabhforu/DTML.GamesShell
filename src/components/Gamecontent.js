@@ -19,17 +19,7 @@ class Gamecontent extends Component {
   	this.componentGracefulUnmount = this.componentGracefulUnmount.bind(this)
   }
    
-  componentGracefulUnmount() {
-    window.removeEventListener('beforeunload', this.componentGracefulUnmount);			
-		var timeSpentMilliseconds = new Date().getTime() - this.state.startTime;
-    var t = timeSpentMilliseconds / 1000 / 60;
-    var data = { "envelop": null, "page" : this.state.gameContent.id, "time" : t, "eventType" : "", "eventData" : 0 }
-		var url = "https://dtml.org/Activity/Record";
-    fetch(url, {
-		  method: 'POST',
-			headers: {'Content-Type':'application/json', 'Accept': 'application/json, text/plain, */*'},
-			body:JSON.stringify(data)
-			});
+  componentGracefulUnmount() {    
     } 
   
   componentWillUnmount() {
@@ -60,17 +50,7 @@ class Gamecontent extends Component {
 	  window.addEventListener('beforeunload', this.componentGracefulUnmount);
 	  var that = this;
 	  var url = rankingURL + "/?key="+this.state.gameContent.id;
-	  fetch(url)
-	  	.then(function(response) {
-				if (response.status >= 400) {
-				  console.log("Bad response from server");
-				  that.setState({ rating: 0 });
-				}
-				return response.json();
-		  })
-		  .then(function(data) {
-		      that.setState({ rating: data });
-		  });
+	  that.setState({ rating: this.state.gameContent.rating });
   }
 	  
   handleRate({ rating, type }) {
