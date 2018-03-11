@@ -51,6 +51,7 @@ class Gamecontent extends Component {
 	  var that = this;
 	  var url = rankingURL + "/?key="+this.state.gameContent.id;
 	  that.setState({ rating: this.state.gameContent.rating });
+	  document.title = "DTML.org Educational Games | " + this.state.gameContent.title;
   }
 	  
   handleRate({ rating, type }) {
