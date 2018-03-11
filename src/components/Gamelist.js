@@ -12,7 +12,7 @@ class Gamelist extends Component {
 		super(props)
 		this.state= {
 			searchstring: '',
-			listcounter: 10,
+			listcounter: 12,
 			config : props.config
 		}
 	}
@@ -29,9 +29,8 @@ class Gamelist extends Component {
 	
     if (breakIndex === -1){
 		breakIndex = str.indexOf('!');
-		alert(breakIndex);
 		if (breakIndex === -1){
-        return str;
+                      return str;
 		}
     }
     return str.substr(0, breakIndex+1);
