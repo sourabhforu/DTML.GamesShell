@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "array-shuffle": "^1.0.1",
+    "babel-polyfill": "^6.26.0",
     "chai": "^4.1.2",
     "lodash": "^4.17.4",
     "node-fetch": "^1.7.3",
