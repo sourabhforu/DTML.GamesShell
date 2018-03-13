@@ -12,7 +12,7 @@ class Header extends Component {
   	super(props)
   	this.state={
   		loggedin:false,
-			username:""
+		username:""
   	}
   }
 
@@ -86,7 +86,7 @@ class Header extends Component {
 						          	</ul>
 					        	}						       
 						      </div>
-						      <div className="logosection-main-right02"><h6><a href="https://dtml.org/Account/Login?ReturnUrl=https://games.dtml.org/games/index.html">{this.props.config.login}</a></h6>
+						      <div className="logosection-main-right02"><h6><a href="https://dtml.org/Account/Login?ReturnUrl=https://games.dtml.org/games/">{this.props.config.login}</a></h6>
 						      </div>
 						    </div>
 						  :
