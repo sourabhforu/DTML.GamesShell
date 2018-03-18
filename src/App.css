@@ -10,25 +10,21 @@
   height: 80px;
 }
 
-.activeClass
-{
-	color:#00ff;
+.activeClass {
+  color: #00ff;
 }
 
-.notactiveClass
-{
-	color:#ef7117;
+.notactiveClass {
+  color: #ef7117;
 }
 
 .arrow-right {
-  width: 0; 
-  height: 0; 
+  width: 0;
+  height: 0;
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
   border-left: 10px solid green;
 }
-
-
 
 .App-header {
   background-color: #222;
@@ -45,55 +41,48 @@
   font-size: large;
 }
 
-.getcode
-{
-	margin-top:20px;
-	padding-top:10px;
-	margin-bottom:10px;
-	margin-right:10px;
-	
-}
-.codearea
-{
-	width:100%;	
-	max-width:800px;
-	margin-top:20px;
-	min-height:100px;
-	display:block;
+.getcode {
+  margin-top: 20px;
+  padding-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+
 }
 
-.gameframe
-{
-	max-width:800px;
-    min-width:300px;
+.codearea {
+  width: 100%;
+  max-width: 800px;
+  margin-top: 20px;
+  min-height: 100px;
+  display: block;
 }
 
-.bodyContainer
-{
-	margin-top:15px;
+.gameframe {
+  max-width: 800px;
+  min-width: 300px;
 }
 
-.main
-{
- padding-left:30px;	
+.bodyContainer {
+  margin-top: 15px;
 }
 
-.right
-{
-	padding-right:15px;
-	min-width:100px;
-	padding-left:15px;	
-	float:right;
+.main {
+  padding-left: 30px;
 }
 
-.right>img
-{
-	width:400px
+.right {
+  padding-right: 15px;
+  min-width: 100px;
+  padding-left: 15px;
+  float: right;
 }
 
-.nav
-{
-	min-width:200px;
-	border-right:1px solid #ddd;
-    padding-left:30px;	
+.right > img {
+  width: 400px
+}
+
+.nav {
+  min-width: 200px;
+  border-right: 1px solid #ddd;
+  padding-left: 30px;
 }
