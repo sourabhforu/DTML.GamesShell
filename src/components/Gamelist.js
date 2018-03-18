@@ -1,4 +1,5 @@
 ﻿import React, { Component } from 'react'
+import Rater from 'react-rater'
 import arrayShuffle from 'array-shuffle'
 import { isEmpty } from 'lodash'
 import { Link } from 'react-router-dom';
@@ -67,6 +68,10 @@ class Gamelist extends Component {
 								<h3>{listItem.title}</h3>
 								<p>{this.getFirstLine(listItem.description)}</p>
 							</div>
+
+						<div className="game-content-middle">
+              <Rater total={5} rating={listItem.rating} interactive={false} />
+						</div>
 
               <div className="game-content-bottom">
 								<h6><Link onClick={that.gameSelected.bind(that, listItem)} to={`/${listItem.id}`} >{this.state.config.playgame}</Link></h6>

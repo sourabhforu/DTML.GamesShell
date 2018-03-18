@@ -219,7 +219,8 @@ border:none;}
 /*===========contentsection end=================*/
 
 /*===========game-content start=================*/
-.game-content-top { min-height: 390px;}
+.game-content-top { min-height: 330px;}
+.game-content-middle { min-height: 60px;}
 .game-content-bottom { min-height: 60px; }
 /*===========game-content end=================*/
 
