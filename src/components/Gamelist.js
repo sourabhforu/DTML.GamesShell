@@ -22,14 +22,19 @@ const getFirstLine = str => {
   return str.substr(0, breakIndex + 1);
 };
 
+let gamesList = [];
+
 class Gamelist extends Component {
   constructor(props) {
     super(props);
     this.state = {
       searchstring: ``,
       listcounter: 12,
-      config: props.config
+      config: props.config,
+      sortProperty: `initial`
     };
+    gamesList = props.config.games;
+    this.sortGamesArray(`random`);
   }
 
   gameSelected(listItem) {
@@ -44,6 +49,24 @@ class Gamelist extends Component {
     this.setState({ listcounter: this.state.listcounter + 10 });
   }
 
+  sortChange(sortParameter) {
+    this.sortGamesArray(sortParameter);
+  }
+
+  sortGamesArray(sortParameter = `random`) {
+    if (sortParameter !== this.state.sortProperty) {
+      console.log(`sorting`, sortParameter);
+      this.setState({ sortProperty: sortParameter });
+      if (sortParameter === `rating`) {
+        gamesList.sort((a, b) => b.rating - a.rating);
+      } else if (sortParameter === `complexity`) {
+        gamesList.sort((a, b) => a.complexity - b.complexity);
+      } else {
+        gamesList = arrayShuffle(gamesList);
+      }
+    }
+  }
+
   render() {
     let bannerImageUrl = `${imageurl}images/banner01.jpg`;
 
@@ -54,7 +77,8 @@ class Gamelist extends Component {
     if (!isEmpty(this.state.config)) {
       let counter = 0;
       const that = this;
-      listcontent = arrayShuffle(this.state.config.games).map(listItem => {
+
+      listcontent = gamesList.map(listItem => {
         counter += 1;
         if (
           counter <= that.state.listcounter &&
@@ -121,6 +145,20 @@ class Gamelist extends Component {
                     />
                     <div className="clr" />
                   </div>
+                </div>
+                <div className="sort-buttons">
+                  <button
+                    className="sort-button"
+                    onClick={() => this.sortChange(`rating`)}
+                  >
+                    <i className="fa fa-star" /> Sort by Rating
+                  </button>
+                  <button
+                    className="sort-button"
+                    onClick={() => this.sortChange(`complexity`)}
+                  >
+                    <i className="fa fa-cogs" /> Sort by Complexity
+                  </button>
                 </div>
               </div>
             </div>
