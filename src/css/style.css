@@ -599,7 +599,7 @@ a:hover {
   color: #fef187;
 }
 
-.contentsection-main-middle h5 a {
+.contentsection-main-middle h5 button {
   background: url(https://games.dtml.org/games/images/moregame-btn.png) no-repeat;
   width: 199px;
   height: 56px;
@@ -613,6 +613,7 @@ a:hover {
   color: #000;
   padding-left: 24px;
   cursor: pointer;
+  border: 0;
 }
 
 .contentsection-main-middle h5 {
@@ -620,7 +621,7 @@ a:hover {
   margin-bottom: 10px;
 }
 
-.contentsection-main-middle h5 a:hover {
+.contentsection-main-middle h5 button:hover {
   background: url(https://games.dtml.org/games/images/moregame-btn-hover.png) no-repeat;
 }
 
