@@ -530,6 +530,23 @@ a:hover {
   background: #000;
 }
 
+.sort-buttons {
+  text-align: center;
+}
+
+.sort-button {
+  background: transparent;
+  font-weight: bold;
+  display: inline-block;
+  margin: 10px 10px;
+  border: 0;
+  padding: 5px 10px;
+}
+
+.sort-button.active {
+  color: #c03a2b;
+}
+
 .contentsection-main-middle {
   width: 100%;
   height: auto;
