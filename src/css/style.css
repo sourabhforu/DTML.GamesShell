@@ -530,6 +530,23 @@ a:hover {
   background: #000;
 }
 
+.sort-buttons {
+  text-align: center;
+}
+
+.sort-button {
+  background: transparent;
+  font-weight: bold;
+  display: inline-block;
+  margin: 10px 10px;
+  border: 0;
+  padding: 5px 10px;
+}
+
+.sort-button.active {
+  color: #c03a2b;
+}
+
 .contentsection-main-middle {
   width: 100%;
   height: auto;
@@ -628,6 +645,15 @@ a:hover {
 /*===========contentsection end=================*/
 
 /*===========game-content start=================*/
+.gamecontent .contentsection-main {
+  display: flex;
+}
+
+.gamesection {
+  width: 70%;
+  flex-grow: 7;
+}
+
 .game-content-top {
   min-height: 330px;
 }
@@ -638,6 +664,84 @@ a:hover {
 
 .game-content-bottom {
   min-height: 60px;
+}
+
+.game-sidebar {
+  margin-left: 5%;
+  width: 25%;
+  flex-grow: 2.5
+}
+
+.game-sidebar-box {
+  border: 1px solid rgba(0, 25, 128, 0.3);
+  border-radius: 6px;
+  box-shadow: 0 2px 3px rgba(0,0,0,0.3);
+  margin: 0 0 50px;
+  padding: 15px 20px;
+}
+
+.game-sidebar-box h3 {
+  margin: 0 0 8px;
+}
+
+.game-sidebar-box p {
+  line-height: 1.4em;
+}
+
+.game-sidebar .game-loginButton,
+.game-sidebar .game-registerButton {
+  background: #0078d7;
+  color: #fff;
+  text-align: center;
+  margin: 15px auto 5px;
+  font-size: 17px;
+  line-height: 1.4em;
+  font-weight: 400;
+  padding: 6px 10px;
+  display: block;
+  text-transform: uppercase;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+
+.game-sidebar .game-loginButton:hover,
+.game-sidebar .game-registerButton:hover {
+  background: #fff;
+  color: #0078d7;
+}
+
+.related-game {
+  padding: 5px 0 8px;
+}
+
+.related-game a {
+  color: #0078d7;
+}
+
+.related-game a:hover {
+  color: #000;
+}
+
+@media (max-width: 768px) {
+
+  .gamecontent .contentsection-main {
+    flex-wrap: wrap;
+  }
+
+  .gamesection {
+    width: 100%;
+    flex-grow: 1;
+  }
+
+  .game-sidebar {
+    margin-top: 50px;
+    margin-left: 0;
+    margin-bottom: 150px;
+    width: 100%;
+    clear: both;
+    flex-grow: 1;
+  }
 }
 
 /*===========game-content end=================*/
@@ -735,12 +839,6 @@ a:hover {
 /*===========footersecion end===================*/
 
 /*==========gamesection start===============*/
-.gamesection {
-  width: 100%;
-  height: auto;
-  padding: 0;
-  margin: 0 auto;
-}
 
 .gamesection01 {
   width: 100%;
