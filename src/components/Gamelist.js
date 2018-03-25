@@ -55,12 +55,13 @@ class Gamelist extends Component {
 
   sortGamesArray(sortParameter = `random`) {
     if (sortParameter !== this.state.sortProperty) {
-      console.log(`sorting`, sortParameter);
       this.setState({ sortProperty: sortParameter });
       if (sortParameter === `rating`) {
-        gamesList.sort((a, b) => b.rating - a.rating);
+        gamesList.sort((a, b) => b.rating - a.rating || b.title - a.title);
       } else if (sortParameter === `complexity`) {
-        gamesList.sort((a, b) => a.complexity - b.complexity);
+        gamesList.sort(
+          (a, b) => a.complexity - b.complexity || b.title - a.title
+        );
       } else {
         gamesList = arrayShuffle(gamesList);
       }
