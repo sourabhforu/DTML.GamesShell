@@ -20,6 +20,8 @@ const imageurl = `https://games.dtml.org/games/`;
 const url = `https://dtml.org/api/ConfigurationService/GetGamesList?mkt=`;
 const queryString = require(`query-string`);
 
+window.store = window.store || {};
+
 class App extends Component {
   constructor() {
     super();

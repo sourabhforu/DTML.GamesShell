@@ -163,7 +163,7 @@ class Gamecontent extends Component {
               </div>
             </div>
             <aside className="game-sidebar">
-              {!this.state.loggedin && (
+              {!window.store.loggedin && (
                 <div className="game-login game-sidebar-box">
                   <p className="game-loginExplainer">
                     Login to use the full power of our platform, earn badges,
@@ -182,19 +182,20 @@ class Gamecontent extends Component {
                 </div>
               )}
 
-              {this.state.gameContent.leaderboard && (
-                <div className="game-leaderboard game-sidebar-box">
-                  <h3>Top Scores:</h3>
-                  {this.state.gameContent.leaderboard.map((leader, i) => {
-                    const j = i + 1;
-                    return (
-                      <div key={`leader-${j}`} className="leader-score">
-                        {`${leader.UserName}: ${leader.Score}`}
-                      </div>
-                    );
-                  })}
-                </div>
-              )}
+              {this.state.gameContent.leaderboard &&
+                this.state.gameContent.leaderboard.lenght > 0 && (
+                  <div className="game-leaderboard game-sidebar-box">
+                    <h3>Top Scores:</h3>
+                    {this.state.gameContent.leaderboard.map((leader, i) => {
+                      const j = i + 1;
+                      return (
+                        <div key={`leader-${j}`} className="leader-score">
+                          {`${leader.UserName}: ${leader.Score}`}
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
 
               {this.props.config.games && (
                 <div className="game-relatedGames game-sidebar-box">
