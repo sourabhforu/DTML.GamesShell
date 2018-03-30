@@ -22,13 +22,16 @@ class Header extends Component {
         if (response.status >= 400) {
           console.log(`Bad response from server`);
           that.setState({ loggedin: false });
+          window.store.loggedin = false;
         }
         return response.json();
       })
       .then(data => {
         that.setState({ username: data });
+        window.store.username = data;
         if (data !== ``) {
           that.setState({ loggedin: true });
+          window.store.loggedin = true;
         }
       })
       .catch(error => {
