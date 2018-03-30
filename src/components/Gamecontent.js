@@ -166,8 +166,7 @@ class Gamecontent extends Component {
               {!window.store.loggedin && (
                 <div className="game-login game-sidebar-box">
                   <p className="game-loginExplainer">
-                    Login to use the full power of our platform, earn badges,
-                    and make games adapt to your learning style.
+                    {this.props.config.siderailLoginText}
                   </p>
                   <p>
                     <a
@@ -183,14 +182,20 @@ class Gamecontent extends Component {
               )}
 
               {this.state.gameContent.leaderboard &&
-                this.state.gameContent.leaderboard.lenght > 0 && (
+                this.state.gameContent.leaderboard.length > 0 && (
                   <div className="game-leaderboard game-sidebar-box">
-                    <h3>Top Scores:</h3>
+                    <h3>{this.props.config.topScore}</h3>
                     {this.state.gameContent.leaderboard.map((leader, i) => {
                       const j = i + 1;
                       return (
                         <div key={`leader-${j}`} className="leader-score">
-                          {`${leader.UserName}: ${leader.Score}`}
+                          <span className="leader-name">
+                            {`${leader.UserName}`}
+                          </span>
+                          <br />
+                          <span className="leader-points">
+                            {`${leader.Score}`}
+                          </span>
                         </div>
                       );
                     })}
@@ -199,7 +204,7 @@ class Gamecontent extends Component {
 
               {this.props.config.games && (
                 <div className="game-relatedGames game-sidebar-box">
-                  <h3>Related Games</h3>
+                  <h3>{this.props.config.more}</h3>
 
                   {// shuffle all games, remove our current game, trim to 3 games, then display them
                   arrayShuffle(this.props.config.games || [])
@@ -218,16 +223,14 @@ class Gamecontent extends Component {
 
               <div className="game-register game-sidebar-box">
                 <p className="game-registerExplainer">
-                  Are you a teacher or instructor? Register your school to
-                  leverage reporting and customization capabilities, monitor
-                  progress of your students, and more!
+                  {this.props.config.registerSchoolText}
                 </p>
                 <p>
                   <a
                     className="game-registerButton"
                     href="https://dtml.org/Registration/Organization"
                   >
-                    Register Your School
+                    {this.props.config.registerSchoolButton}
                   </a>
                 </p>
               </div>
