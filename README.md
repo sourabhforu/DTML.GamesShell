@@ -14,4 +14,4 @@ ReactJS Shell for educational games hosted on dtml.org.
 run > npm test
 
 # # Demo
-You can see shell running here: http://blog.dtml.org/games/
+You can see shell running here: http://games.dtml.org/games/

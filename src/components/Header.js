@@ -73,6 +73,9 @@ class Header extends Component {
                   {!this.props.config.customization ? (
                     <ul>
                       <li>
+                        <a href="https://dtml.org/Home/Shopforgood#!/men?q=D1">{this.props.config.shop}</a>
+                      </li>
+					 <li>
                         <a href="https://dtml.org">{this.props.config.home}</a>
                       </li>
                       <li>
