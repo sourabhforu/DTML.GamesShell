@@ -184,13 +184,13 @@ class Gamecontent extends Component {
               {this.state.gameContent.leaderboard &&
                 this.state.gameContent.leaderboard.length > 0 && (
                   <div className="game-leaderboard game-sidebar-box">
-					<h3>{this.props.config.topScore}:</h3>
-					<table className='leaderboard'>
+					<h3>{this.props.config.topScore}</h3>
+					<table cellPadding='10' className='leaderboard'>
                     {this.state.gameContent.leaderboard.map((leader, i) => {
                       const j = i + 1;
                       return (
                         <tr key={`leader-${j}`} className="leader-score">
-						<td>{leader.UserName}</td> <td>{leader.Score}</td>
+						<td>{leader.UserName}</td> <td>{leader.Score.toLocaleString(navigator.language, { minimumFractionDigits: 0 })}</td>
                         </tr>
                       );
                     })}
