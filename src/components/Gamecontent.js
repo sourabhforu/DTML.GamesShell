@@ -145,7 +145,7 @@ class Gamecontent extends Component {
 
                   <div className="ratesection-top-right">
                     <h6>
-                      <a target="blank" href={this.state.gameContent.url}>
+                      <a target="blank" href={this.state.gameContent.url + '?tic=' + date}>
                         {` `}
                         <i className="fa fa-arrows-alt" aria-hidden="true" />
                         <span className="fullscreen">
