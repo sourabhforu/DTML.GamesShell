@@ -1,4 +1,19 @@
-﻿import React, { Component } from "react";
+﻿/* The Distance Teaching and Mobile learning licenses this file
+to you under the Apache License, Version 2.0 (the "License"); 
+you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+*/
+
+import React, { Component } from "react";
 import Rater from "react-rater";
 import arrayShuffle from "array-shuffle";
 import { isEmpty } from "lodash";
@@ -31,7 +46,8 @@ class Gamelist extends Component {
       searchstring: ``,
       listcounter: 12,
       config: props.config,
-      sortProperty: `initial`
+      sortProperty: `initial`,
+      sortAsc: true
     };
     gamesList = props.config.games;
     this.sortGamesArray(`random`);
@@ -54,13 +70,21 @@ class Gamelist extends Component {
   }
 
   sortGamesArray(sortParameter = `random`) {
-    if (sortParameter !== this.state.sortProperty) {
-      console.log(`sorting`, sortParameter);
-      this.setState({ sortProperty: sortParameter });
-      if (sortParameter === `rating`) {
-        gamesList.sort((a, b) => b.rating - a.rating);
-      } else if (sortParameter === `complexity`) {
-        gamesList.sort((a, b) => a.complexity - b.complexity);
+    if (sortParameter !== `initial`) {
+      if (sortParameter === this.state.sortProperty) {
+        this.setState({ sortAsc: !this.state.sortAsc });
+      } else {
+        this.setState({ sortProperty: sortParameter });
+        this.setState({ sortAsc: false });
+      }
+      if (sortParameter !== `random`) {
+        gamesList.sort((a, b) => {
+          const multiplier = this.state.sortAsc ? 1 : -1;
+          return (
+            (a[sortParameter] - b[sortParameter]) * multiplier ||
+            a.id.localeCompare(b.id)
+          );
+        });
       } else {
         gamesList = arrayShuffle(gamesList);
       }
@@ -151,13 +175,17 @@ class Gamelist extends Component {
                     className="sort-button"
                     onClick={() => this.sortChange(`rating`)}
                   >
-                    <i className="fa fa-star" /> Sort by Rating
+                    <i className="fa fa-star" />
+                    {` `}
+                    {this.state.config.sortByRating}
                   </button>
                   <button
                     className="sort-button"
                     onClick={() => this.sortChange(`complexity`)}
                   >
-                    <i className="fa fa-cogs" /> Sort by Complexity
+                    <i className="fa fa-cogs" />
+                    {` `}
+                    {this.state.config.sortByComplexity}
                   </button>
                 </div>
               </div>
