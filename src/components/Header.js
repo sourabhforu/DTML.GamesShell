@@ -118,7 +118,11 @@ class Header extends Component {
                 </div>
                 <div className="logosection-main-right02">
                   <h6>
-                    <a href="https://dtml.org/Account/Login?ReturnUrl=https://games.dtml.org/games/">
+                    <a
+                      href={`https://dtml.org/Account/Login?ReturnUrl=${
+                        window.location.href
+                      }`}
+                    >
                       {this.props.config.login}
                     </a>
                   </h6>
