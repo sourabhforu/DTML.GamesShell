@@ -1,3 +1,18 @@
+/* The Distance Teaching and Mobile learning licenses this file
+to you under the Apache License, Version 2.0 (the "License"); 
+you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+*/
+
 import React, { Component } from "react";
 import Rater from "react-rater";
 import ReactGA from "react-ga";
@@ -70,6 +85,8 @@ class Gamecontent extends Component {
 
   render() {
     let instruction = null;
+	let today = new Date();
+	let date = today.getFullYear() +''+ today.getMonth() +''+ today.getDate();
     if (this.state.gameContent.instruction != null) {
       instruction = (
         <div>
@@ -106,7 +123,7 @@ class Gamecontent extends Component {
                     allowTransparency="true"
                     title={this.state.gameContent.title}
                     scrolling="no"
-                    src={this.state.gameContent.url}
+                    src={this.state.gameContent.url + '?tic=' + date}
                     frameBorder="0"
                   />
                 </div>
@@ -128,7 +145,7 @@ class Gamecontent extends Component {
 
                   <div className="ratesection-top-right">
                     <h6>
-                      <a target="blank" href={this.state.gameContent.url}>
+                      <a target="blank" href={this.state.gameContent.url + '?tic=' + date}>
                         {` `}
                         <i className="fa fa-arrows-alt" aria-hidden="true" />
                         <span className="fullscreen">
@@ -166,8 +183,7 @@ class Gamecontent extends Component {
               {!window.store.loggedin && (
                 <div className="game-login game-sidebar-box">
                   <p className="game-loginExplainer">
-                    Login to use the full power of our platform, earn badges,
-                    and make games adapt to your learning style.
+                     {this.props.config.siderailLoginText}
                   </p>
                   <p>
                     <a
@@ -181,19 +197,21 @@ class Gamecontent extends Component {
                   </p>
                 </div>
               )}
-
+			  
               {this.state.gameContent.leaderboard &&
-                this.state.gameContent.leaderboard.lenght > 0 && (
+                this.state.gameContent.leaderboard.length > 0 && (
                   <div className="game-leaderboard game-sidebar-box">
-                    <h3>Top Scores:</h3>
+					<h3>{this.props.config.topScore}</h3>
+					<table cellPadding='10' className='leaderboard'>
                     {this.state.gameContent.leaderboard.map((leader, i) => {
                       const j = i + 1;
                       return (
-                        <div key={`leader-${j}`} className="leader-score">
-                          {`${leader.UserName}: ${leader.Score}`}
-                        </div>
+                        <tr key={`leader-${j}`} className="leader-score">
+						<td>{leader.UserName}</td> <td>{leader.Score.toLocaleString(navigator.language, { minimumFractionDigits: 0 })}</td>
+                        </tr>
                       );
                     })}
+					</table>
                   </div>
                 )}
 
@@ -218,16 +236,14 @@ class Gamecontent extends Component {
 
               <div className="game-register game-sidebar-box">
                 <p className="game-registerExplainer">
-                  Are you a teacher or instructor? Register your school to
-                  leverage reporting and customization capabilities, monitor
-                  progress of your students, and more!
+				{this.props.config.registerSchoolText}
                 </p>
                 <p>
                   <a
                     className="game-registerButton"
                     href="https://dtml.org/Registration/Organization"
                   >
-                    Register Your School
+					{this.props.config.registerSchoolButton}
                   </a>
                 </p>
               </div>

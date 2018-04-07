@@ -673,6 +673,7 @@ a:hover {
 }
 
 .game-sidebar-box {
+  background: #fff;
   border: 1px solid rgba(0, 25, 128, 0.3);
   border-radius: 6px;
   box-shadow: 0 2px 3px rgba(0,0,0,0.3);
@@ -709,6 +710,22 @@ a:hover {
 .game-sidebar .game-registerButton:hover {
   background: #fff;
   color: #0078d7;
+}
+
+.leaderboard
+{
+	width:100%;
+
+}
+
+.leaderboard > tr 
+{
+	border-bottom: 1px solid #e7e7e7;
+	line-height: 26px;
+}
+
+.leaderboard > td
+{
 }
 
 .related-game {
@@ -754,6 +771,11 @@ a:hover {
   margin: 0 auto;
 }
 
+.leader-score
+{
+padding-top:5px;
+}
+
 .footertop-section img {
   width: 100%;
   height: auto;
@@ -780,7 +802,7 @@ a:hover {
   height: auto;
   padding: 63px 0 8px 0;
   margin: 0 auto;
-  color: #FFF;
+  color: #fcfcfce8
 }
 
 .footersecion-main-left {
