@@ -85,6 +85,8 @@ class Gamecontent extends Component {
 
   render() {
     let instruction = null;
+	let today = new Date();
+	let date = today.getFullYear() +''+ today.getMonth() +''+ today.getDate();
     if (this.state.gameContent.instruction != null) {
       instruction = (
         <div>
@@ -121,7 +123,7 @@ class Gamecontent extends Component {
                     allowTransparency="true"
                     title={this.state.gameContent.title}
                     scrolling="no"
-                    src={this.state.gameContent.url}
+                    src={this.state.gameContent.url + '?tic=' + date}
                     frameBorder="0"
                   />
                 </div>
