@@ -183,7 +183,7 @@ class Gamecontent extends Component {
               {!window.store.loggedin && (
                 <div className="game-login game-sidebar-box">
                   <p className="game-loginExplainer">
-                     {this.props.config.siderailLoginText}
+                    {this.props.config.siderailLoginText}
                   </p>
                   <p>
                     <a
@@ -201,23 +201,27 @@ class Gamecontent extends Component {
               {this.state.gameContent.leaderboard &&
                 this.state.gameContent.leaderboard.length > 0 && (
                   <div className="game-leaderboard game-sidebar-box">
-					<h3>{this.props.config.topScore}</h3>
-					<table cellPadding='10' className='leaderboard'>
+                    <h3>{this.props.config.topScore}</h3>
                     {this.state.gameContent.leaderboard.map((leader, i) => {
                       const j = i + 1;
                       return (
-                        <tr key={`leader-${j}`} className="leader-score">
-						<td>{leader.UserName}</td> <td>{leader.Score.toLocaleString(navigator.language, { minimumFractionDigits: 0 })}</td>
-                        </tr>
+                        <div key={`leader-${j}`} className="leader-score">
+                          <span className="leader-name">
+                            {`${leader.UserName}`}
+                          </span>
+                          <br />
+                          <span className="leader-points">
+                            {`${leader.Score}`}
+                          </span>
+                        </div>
                       );
                     })}
-					</table>
                   </div>
                 )}
 
               {this.props.config.games && (
                 <div className="game-relatedGames game-sidebar-box">
-                  <h3>Related Games</h3>
+                  <h3>{this.props.config.more}</h3>
 
                   {// shuffle all games, remove our current game, trim to 3 games, then display them
                   arrayShuffle(this.props.config.games || [])
@@ -236,14 +240,14 @@ class Gamecontent extends Component {
 
               <div className="game-register game-sidebar-box">
                 <p className="game-registerExplainer">
-				{this.props.config.registerSchoolText}
+                  {this.props.config.registerSchoolText}
                 </p>
                 <p>
                   <a
                     className="game-registerButton"
                     href="https://dtml.org/Registration/Organization"
                   >
-					{this.props.config.registerSchoolButton}
+                    {this.props.config.registerSchoolButton}
                   </a>
                 </p>
               </div>
