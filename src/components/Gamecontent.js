@@ -85,8 +85,8 @@ class Gamecontent extends Component {
 
   render() {
     let instruction = null;
-	let today = new Date();
-	let date = today.getFullYear() +''+ today.getMonth() +''+ today.getDate();
+    const today = new Date();
+    const date = `${today.getFullYear()}${today.getMonth()}${today.getDate()}`;
     if (this.state.gameContent.instruction != null) {
       instruction = (
         <div>
@@ -123,7 +123,7 @@ class Gamecontent extends Component {
                     allowTransparency="true"
                     title={this.state.gameContent.title}
                     scrolling="no"
-                    src={this.state.gameContent.url + '?tic=' + date}
+                    src={`${this.state.gameContent.url}?tic=${date}`}
                     frameBorder="0"
                   />
                 </div>
@@ -145,7 +145,10 @@ class Gamecontent extends Component {
 
                   <div className="ratesection-top-right">
                     <h6>
-                      <a target="blank" href={this.state.gameContent.url + '?tic=' + date}>
+                      <a
+                        target="blank"
+                        href={`${this.state.gameContent.url}?tic=${date}`}
+                      >
                         {` `}
                         <i className="fa fa-arrows-alt" aria-hidden="true" />
                         <span className="fullscreen">
@@ -180,24 +183,25 @@ class Gamecontent extends Component {
               </div>
             </div>
             <aside className="game-sidebar">
-              {!window.store.loggedin && (
-                <div className="game-login game-sidebar-box">
-                  <p className="game-loginExplainer">
-                    {this.props.config.siderailLoginText}
-                  </p>
-                  <p>
-                    <a
-                      className="game-loginButton"
-                      href={`https://dtml.org/Account/Login?ReturnUrl=${
-                        window.location.href
-                      }`}
-                    >
-                      {this.props.config.login}
-                    </a>
-                  </p>
-                </div>
-              )}
-			  
+              {!window.store.loggedin &&
+                !window.store.username && (
+                  <div className="game-login game-sidebar-box">
+                    <p className="game-loginExplainer">
+                      {this.props.config.siderailLoginText}
+                    </p>
+                    <p>
+                      <a
+                        className="game-loginButton"
+                        href={`https://dtml.org/Account/Login?ReturnUrl=${
+                          window.location.href
+                        }`}
+                      >
+                        {this.props.config.login}
+                      </a>
+                    </p>
+                  </div>
+                )}
+
               {this.state.gameContent.leaderboard &&
                 this.state.gameContent.leaderboard.length > 0 && (
                   <div className="game-leaderboard game-sidebar-box">
