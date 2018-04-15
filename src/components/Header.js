@@ -18,7 +18,7 @@ import { isEmpty, keys } from "lodash";
 
 import "../css/style.css";
 
-const imageurl = `https://games.dtml.org/games/`;
+const imageurl = `https://blog.dtml.org/games/`;
 const loginURL = `https://dtml.org/Activity/GetUserName`;
 
 class Header extends Component {

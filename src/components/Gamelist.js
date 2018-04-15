@@ -19,7 +19,7 @@ import arrayShuffle from "array-shuffle";
 import { isEmpty } from "lodash";
 import { Link } from "react-router-dom";
 
-const imageurl = `https://games.dtml.org/games/`;
+const imageurl = `https://blog.dtml.org/games/`;
 let listcontent = [];
 
 const getFirstLine = str => {

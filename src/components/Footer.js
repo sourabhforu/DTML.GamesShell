@@ -19,7 +19,7 @@ import { isEmpty } from "lodash";
 import "../css/font-awesome.min.css";
 import "../css/responsive.css";
 
-const imageurl = `https://games.dtml.org/games/`;
+const imageurl = `https://blog.dtml.org/games/`;
 
 class Footer extends Component {
   constructor(props) {
