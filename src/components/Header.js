@@ -94,7 +94,7 @@ class Header extends Component {
                         <a href="https://dtml.org">{this.props.config.home}</a>
                       </li>
                       <li>
-                        <a href="https://games.dtml.org">
+                        <a href="https://blog.dtml.org">
                           {this.props.config.blog}
                         </a>
                       </li>
