@@ -35,13 +35,15 @@ class Gamecontent extends Component {
   }
 
   componentWillMount() {
+
     if (isEmpty(this.state.gameContent)) {
       const urlpath = window.location.pathname;
       const gameID = urlpath.substr(urlpath.lastIndexOf(`/`) + 1);
       if (
         isEmpty(this.props.config) ||
         isEmpty(this.props.config.games) ||
-        typeof gameID === `undefined`
+        typeof gameID === `undefined` ||
+        gameID === ``
       ) {
         window.location.href = `https://games.dtml.org/games`;
         return;
@@ -50,7 +52,7 @@ class Gamecontent extends Component {
       const gameContent = this.props.config.games.find(
         game => game.id === gameID
       );
-      console.log(gameContent);
+
       this.setState({ gameContent });
     }
   }
