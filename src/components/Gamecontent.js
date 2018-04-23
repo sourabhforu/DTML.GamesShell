@@ -19,7 +19,7 @@ import ReactGA from "react-ga";
 import { isEmpty } from "lodash";
 import arrayShuffle from "array-shuffle";
 
-const imageurl = `https://blog.dtml.org/games/`;
+const imageurl = `https://games.dtml.org/games/`;
 const rankingURL = `https://dtml.org/api/RatingService/Rank`;
 
 class Gamecontent extends Component {
