@@ -18,8 +18,9 @@ import Rater from "react-rater";
 import ReactGA from "react-ga";
 import { isEmpty } from "lodash";
 import arrayShuffle from "array-shuffle";
+import Loading from "./Loading";
 
-const imageurl = `https://games.dtml.org/games/`;
+const imageurl = `https://blog.dtml.org/games/`;
 const rankingURL = `https://dtml.org/api/RatingService/Rank`;
 
 class Gamecontent extends Component {
@@ -35,16 +36,13 @@ class Gamecontent extends Component {
   }
 
   componentWillMount() {
-
     if (isEmpty(this.state.gameContent)) {
       const urlpath = window.location.pathname;
-      const gameID = urlpath.substr(urlpath.lastIndexOf(`/`) + 1);
+      const baseurl = urlpath.split("?")[0].split("#")[0];
+      const gameID = baseurl.substr(baseurl.lastIndexOf(`/`) + 1);
       if (
         isEmpty(this.props.config) ||
-        isEmpty(this.props.config.games) ||
-        typeof gameID === `undefined` ||
-        gameID === ``
-      ) {
+        isEmpty(this.props.config.games)) {
         window.location.href = `https://games.dtml.org/games`;
         return;
       }
@@ -53,7 +51,15 @@ class Gamecontent extends Component {
         game => game.id === gameID
       );
 
+     if ((typeof gameContent === `undefined`) || isEmpty(gameContent))
+     {
+        window.location.href = `https://games.dtml.org/games`;
+        return;
+     }
+     else
+      {
       this.setState({ gameContent });
+      }
     }
   }
 
@@ -89,14 +95,13 @@ class Gamecontent extends Component {
     let instruction = null;
     const today = new Date();
     const date = `${today.getFullYear()}${today.getMonth()}${today.getDate()}`;
-    if (this.state.gameContent.instruction != null) {
-      instruction = (
+    instruction = (
         <div>
           <div className="howtoplay">{this.props.config.howtoplay}</div>
           <p>{this.state.gameContent.instruction}</p>
         </div>
       );
-    }
+
     return (
       <div>
         <div className="bannersection">
@@ -262,7 +267,7 @@ class Gamecontent extends Component {
         </div>
       </div>
     );
-  }
+   }
 }
 
 export default Gamecontent;
