@@ -127,7 +127,7 @@ class Gamecontent extends Component {
                 <div id="framecontainer">
                   <iframe
                     className="gameframe"
-                    allowTransparency="true"
+                    allowtransparency="true"
                     title={this.state.gameContent.title}
                     scrolling="no"
                     src={`${this.state.gameContent.url}?tic=${date}`}

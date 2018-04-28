@@ -14,6 +14,12 @@ audio, canvas, video {
   *zoom: 1;
 }
 
+ .gameframe {
+    background-image: url("https://games.dtml.org/games/images/gameloading.gif");   
+    background-repeat: no-repeat;
+    background-position: center;
+   }
+
 audio:not([controls]) {
   display: none;
 }
