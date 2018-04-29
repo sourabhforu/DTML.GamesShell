@@ -26,7 +26,8 @@ class Header extends Component {
     super(props);
     this.state = {
       loggedin: false,
-      username: ``
+      username: ``,
+      showBanner: true
     };
   }
 
@@ -52,6 +53,24 @@ class Header extends Component {
       .catch(error => {
         console.log(`Request failed ${error}`);
       });
+
+    if (
+      localStorage.getItem(`showBanner`) &&
+      localStorage.getItem(`showBanner`) === `false`
+    ) {
+      this.setState({ showBanner: false });
+    } else {
+      fetch(`http://json.geoiplookup.io/`)
+        .then(response => response.json())
+        .then(data => {
+          window.store.countryCode = data.country_code;
+          const showBannerState = window.store.countryCode
+            ? window.store.countryCode === `US`
+            : true;
+
+          this.setState({ showBanner: showBannerState });
+        });
+    }
   }
 
   render() {
@@ -73,8 +92,53 @@ class Header extends Component {
       );
     }
 
+    const closeSupport = () => {
+      this.setState({ showBanner: false });
+      localStorage.setItem(`showBanner`, `false`);
+    };
+
     return (
-      <div>
+      <div className="header">
+        {this.state.showBanner && (
+          <div className="support-banner">
+            <p>
+              {`To all our visitors in the U.S., we need your help.
+              We provide our educational platform for free to school around the globe,
+              we don't run ads as we believe that would be inappropriate on a children's learning website.
+              We depend on donations averaging about $9.
+              Only a tiny portion of our visitors give and every donation counts.
+              If everyone reading this gave $5, we could keep our platform running for years to come.
+              The price of a cup of coffee is all we need.
+              We know that knowledge and education are the basics of economic opportunity.
+              Giving children access to basic education from a young age is critical for the success of any country.
+              Please help keep DTML.org free and growing. Thank you. `}
+            </p>
+            <form
+              id="paymentform"
+              action="/Payment/Charge?stripeAmount=500&amp;redirectURL="
+              method="POST"
+            >
+              <script
+                src="https://checkout.stripe.com/checkout.js"
+                className="stripe-button active"
+                button-text="Donate $5"
+                data-key="pk_live_9ubYWa9O86U8TAfY3c78JJwe"
+                data-amount="500"
+                data-name="$5 donation"
+                data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                data-locale="auto"
+                data-label="Donate $5"
+                data-zip-code="true"
+              />
+              <button type="submit" className="stripe-button-el">
+                <span>Donate $5</span>
+              </button>
+            </form>
+            <button className="close-support" onClick={() => closeSupport()}>
+              X
+            </button>
+          </div>
+        )}
         <div
           className="logosection"
           style={!isEmpty(menuColor) ? { background: menuColor } : null}
@@ -88,9 +152,11 @@ class Header extends Component {
                   {!this.props.config.customization ? (
                     <ul>
                       <li>
-                        <a href="https://dtml.org/Home/Shopforgood#!/men?q=D1">{this.props.config.shop}</a>
+                        <a href="https://dtml.org/Home/Shopforgood#!/men?q=D1">
+                          {this.props.config.shop}
+                        </a>
                       </li>
-					 <li>
+                      <li>
                         <a href="https://dtml.org">{this.props.config.home}</a>
                       </li>
                       <li>

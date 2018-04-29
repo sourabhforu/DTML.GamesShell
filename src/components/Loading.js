@@ -14,7 +14,6 @@ under the License.
 */
 
 import React, { Component } from "react";
-import { isEmpty } from "lodash";
 
 import "../css/font-awesome.min.css";
 import "../css/responsive.css";
@@ -30,11 +29,11 @@ class Loading extends Component {
   }
 
   render() {
-    let loadingImageUrl= `${imageurl}images/gameloading.gif`;
+    const loadingImageUrl = `${imageurl}images/gameloading.gif`;
     return (
-        <div className="loading">
-          <img src={loadingImageUrl} alt="Loading" />
-        </div>        
+      <div className="loading">
+        <img src={loadingImageUrl} alt="Loading" />
+      </div>
     );
   }
 }

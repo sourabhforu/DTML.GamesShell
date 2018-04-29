@@ -18,7 +18,6 @@ import Rater from "react-rater";
 import ReactGA from "react-ga";
 import { isEmpty } from "lodash";
 import arrayShuffle from "array-shuffle";
-import Loading from "./Loading";
 
 const imageurl = `https://blog.dtml.org/games/`;
 const rankingURL = `https://dtml.org/api/RatingService/Rank`;
@@ -38,11 +37,9 @@ class Gamecontent extends Component {
   componentWillMount() {
     if (isEmpty(this.state.gameContent)) {
       const urlpath = window.location.pathname;
-      const baseurl = urlpath.split("?")[0].split("#")[0];
+      const baseurl = urlpath.split(`?`)[0].split(`#`)[0];
       const gameID = baseurl.substr(baseurl.lastIndexOf(`/`) + 1);
-      if (
-        isEmpty(this.props.config) ||
-        isEmpty(this.props.config.games)) {
+      if (isEmpty(this.props.config) || isEmpty(this.props.config.games)) {
         window.location.href = `https://games.dtml.org/games`;
         return;
       }
@@ -51,15 +48,12 @@ class Gamecontent extends Component {
         game => game.id === gameID
       );
 
-     if ((typeof gameContent === `undefined`) || isEmpty(gameContent))
-     {
+      if (typeof gameContent === `undefined` || isEmpty(gameContent)) {
         window.location.href = `https://games.dtml.org/games`;
         return;
-     }
-     else
-      {
-      this.setState({ gameContent });
       }
+
+      this.setState({ gameContent });
     }
   }
 
@@ -96,11 +90,11 @@ class Gamecontent extends Component {
     const today = new Date();
     const date = `${today.getFullYear()}${today.getMonth()}${today.getDate()}`;
     instruction = (
-        <div>
-          <div className="howtoplay">{this.props.config.howtoplay}</div>
-          <p>{this.state.gameContent.instruction}</p>
-        </div>
-      );
+      <div>
+        <div className="howtoplay">{this.props.config.howtoplay}</div>
+        <p>{this.state.gameContent.instruction}</p>
+      </div>
+    );
 
     return (
       <div>
@@ -127,7 +121,7 @@ class Gamecontent extends Component {
                 <div id="framecontainer">
                   <iframe
                     className="gameframe"
-                    allowtransparency="true"
+                    allowTransparency="true"
                     title={this.state.gameContent.title}
                     scrolling="no"
                     src={`${this.state.gameContent.url}?tic=${date}`}
@@ -267,7 +261,7 @@ class Gamecontent extends Component {
         </div>
       </div>
     );
-   }
+  }
 }
 
 export default Gamecontent;
