@@ -299,6 +299,45 @@ a:hover {
   }
 }
 
+
+/*===========support-banner start=================*/
+
+.support-banner {
+ padding: 20px 125px 20px 25px;
+  background: #fc6;
+  font-size: 16px;
+  line-height: 1.35em;
+  color: #111;
+  position: relative;
+}
+
+.stripe-button-el {
+  padding: 10px 16px;
+  background: #c03a2b;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 4px;
+  text-transform: uppercase;
+  border: 0;
+  box-shadow: 1px 1px 2px rgba(0,0,0,.3);
+  display: block;
+  margin: 15px auto 10px;
+}
+
+.close-support {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  cursor: pointer;
+  background: transparent;
+  color: #666;
+  padding: 5px 8px;
+  border: 0;
+}
+
+/*===========support-banner end=================*/
+
 /*============logosection start================*/
 
 .logosection {
