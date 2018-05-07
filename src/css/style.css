@@ -302,6 +302,11 @@ a:hover {
 
 /*===========support-banner start=================*/
 
+.support-banner-icon {
+  padding: 5px;
+  color: #c03a2b;
+}
+
 .support-banner {
  padding: 20px 125px 20px 25px;
   background: #fc6;
@@ -316,7 +321,6 @@ a:hover {
   background: #c03a2b;
   color: #fff;
   font-size: 18px;
-  font-weight: bold;
   border-radius: 4px;
   text-transform: uppercase;
   border: 0;

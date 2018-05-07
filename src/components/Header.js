@@ -15,6 +15,7 @@ under the License.
 
 import React, { Component } from "react";
 import { isEmpty, keys } from "lodash";
+import ReactGA from "react-ga";
 
 import "../css/style.css";
 
@@ -95,47 +96,46 @@ class Header extends Component {
     const closeSupport = () => {
       this.setState({ showBanner: false });
       localStorage.setItem(`showBanner`, `false`);
+	   ReactGA.event({
+      category: `Donation`,
+      action: `Close`
+    });
+    };
+	
+	const viewSupport = () => {
+     ReactGA.event({
+      category: `Donation`,
+      action: `DonateButtonClick`
+    });
     };
 
     return (
       <div className="header">
         {this.state.showBanner && (
           <div className="support-banner">
-            <p>
-              {`To all our visitors in the U.S., we need your help.
-              We provide our educational platform for free to school around the globe,
-              we don't run ads as we believe that would be inappropriate on a children's learning website.
-              We depend on donations averaging about $9.
-              Only a tiny portion of our visitors give and every donation counts.
-              If everyone reading this gave $5, we could keep our platform running for years to come.
-              The price of a cup of coffee is all we need.
+             <p>
+			 		  <span className="support-banner-icon"><svg fill="currentColor" preserveAspectRatio="xMidYMid meet" height="20" width="20" viewBox="0 0 40 40"><g><path d="m25.9 30.7v-3.6q0-0.3-0.2-0.5t-0.6-0.2h-2.1v-11.4q0-0.3-0.2-0.5t-0.5-0.2h-7.2q-0.3 0-0.5 0.2t-0.2 0.5v3.6q0 0.3 0.2 0.5t0.5 0.2h2.2v7.1h-2.2q-0.3 0-0.5 0.2t-0.2 0.5v3.6q0 0.3 0.2 0.5t0.5 0.2h10q0.4 0 0.6-0.2t0.2-0.5z m-2.9-20v-3.6q0-0.3-0.2-0.5t-0.5-0.2h-4.3q-0.3 0-0.5 0.2t-0.2 0.5v3.6q0 0.3 0.2 0.5t0.5 0.2h4.3q0.3 0 0.5-0.2t0.2-0.5z m14.3 9.3q0 4.7-2.3 8.6t-6.3 6.2-8.6 2.3-8.6-2.3-6.2-6.2-2.3-8.6 2.3-8.6 6.2-6.2 8.6-2.3 8.6 2.3 6.3 6.2 2.3 8.6z"></path></g></svg></span>
+
+			 {`To all our visitors in the U.S., `}<br/> {` We need your help.
+              We provide our educational platform for free to schools, we don't charge schools and we don't run ads as we believe that would be inappropriate on a children's learning website.
+              We depend on donations averaging about $11. Only a tiny portion of our visitors give and every donation counts.
+              If everyone reading this gave $10, we could keep our platform running for years to come. The
+               `}<u> {` price of a cup of coffee`}</u> {`is all we need.
               We know that knowledge and education are the basics of economic opportunity.
               Giving children access to basic education from a young age is critical for the success of any country.
               Please help keep DTML.org free and growing. Thank you. `}
             </p>
             <form
               id="paymentform"
-              action="/Payment/Charge?stripeAmount=500&amp;redirectURL="
-              method="POST"
-            >
-              <script
-                src="https://checkout.stripe.com/checkout.js"
-                className="stripe-button active"
-                button-text="Donate $5"
-                data-key="pk_live_9ubYWa9O86U8TAfY3c78JJwe"
-                data-amount="500"
-                data-name="$5 donation"
-                data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-                data-locale="auto"
-                data-label="Donate $5"
-                data-zip-code="true"
-              />
-              <button type="submit" className="stripe-button-el">
-                <span>Donate $5</span>
+              action="https://dtml.org/Home/Donate"
+              method="GET"
+            >              
+              <button type="submit" className="stripe-button-el" onClick={() => viewSupport()}>
+                <span>Donate</span>
               </button>
             </form>
             <button className="close-support" onClick={() => closeSupport()}>
-              X
+             close X
             </button>
           </div>
         )}
@@ -151,11 +151,6 @@ class Header extends Component {
                 <div className="logosection-main-right01">
                   {!this.props.config.customization ? (
                     <ul>
-                      <li>
-                        <a href="https://dtml.org/Home/Shopforgood#!/men?q=D1">
-                          {this.props.config.shop}
-                        </a>
-                      </li>
                       <li>
                         <a href="https://dtml.org">{this.props.config.home}</a>
                       </li>
