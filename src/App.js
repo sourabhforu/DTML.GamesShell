@@ -19,6 +19,8 @@ import ScrollToTop from "react-scroll-up";
 import ReactGA from "react-ga";
 import ReactPixel from "react-facebook-pixel";
 import "babel-polyfill";
+import 'core-js/es6/map';
+import 'core-js/es6/set';
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
