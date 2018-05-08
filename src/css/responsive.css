@@ -8,6 +8,10 @@
     height: auto;
   }
 
+  .logosection-main-right01 ul li {
+    max-width: 100px;
+  }
+
   .logosection-main {
     width: 98%;
     margin: 0 auto;
@@ -77,6 +81,10 @@
     float: none;
     margin: 0 auto;
     padding: 14px 0;
+  }
+
+  .logosection-main-right01 ul li {
+    max-width: 100px;
   }
 
   .contentsection-main {
@@ -218,6 +226,7 @@
     float: none;
     display: inline-block;
     margin: 0 4px;
+    max-width: 100px;
   }
 
   .logosection-main-right02 {
