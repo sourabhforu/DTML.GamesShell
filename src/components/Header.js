@@ -59,7 +59,7 @@ class Header extends Component {
       localStorage.getItem(`showBanner`) &&
       localStorage.getItem(`showBanner`) === `false`
     ) {
-      this.setState({ showBanner: false });
+      that.setState({ showBanner: false });
     } else {
       fetch(`http://json.geoiplookup.io/`)
         .then(response => response.json())
@@ -96,31 +96,48 @@ class Header extends Component {
     const closeSupport = () => {
       this.setState({ showBanner: false });
       localStorage.setItem(`showBanner`, `false`);
-	   ReactGA.event({
-      category: `Donation`,
-      action: `Close`
-    });
+      ReactGA.event({
+        category: `Donation`,
+        action: `Close`
+      });
     };
-	
-	const viewSupport = () => {
-     ReactGA.event({
-      category: `Donation`,
-      action: `DonateButtonClick`
-    });
+
+    const viewSupport = () => {
+      ReactGA.event({
+        category: `Donation`,
+        action: `DonateButtonClick`
+      });
     };
 
     return (
       <div className="header">
         {this.state.showBanner && (
           <div className="support-banner">
-             <p>
-			 		  <span className="support-banner-icon"><svg fill="currentColor" preserveAspectRatio="xMidYMid meet" height="20" width="20" viewBox="0 0 40 40"><g><path d="m25.9 30.7v-3.6q0-0.3-0.2-0.5t-0.6-0.2h-2.1v-11.4q0-0.3-0.2-0.5t-0.5-0.2h-7.2q-0.3 0-0.5 0.2t-0.2 0.5v3.6q0 0.3 0.2 0.5t0.5 0.2h2.2v7.1h-2.2q-0.3 0-0.5 0.2t-0.2 0.5v3.6q0 0.3 0.2 0.5t0.5 0.2h10q0.4 0 0.6-0.2t0.2-0.5z m-2.9-20v-3.6q0-0.3-0.2-0.5t-0.5-0.2h-4.3q-0.3 0-0.5 0.2t-0.2 0.5v3.6q0 0.3 0.2 0.5t0.5 0.2h4.3q0.3 0 0.5-0.2t0.2-0.5z m14.3 9.3q0 4.7-2.3 8.6t-6.3 6.2-8.6 2.3-8.6-2.3-6.2-6.2-2.3-8.6 2.3-8.6 6.2-6.2 8.6-2.3 8.6 2.3 6.3 6.2 2.3 8.6z"></path></g></svg></span>
-
-			 {`To all our visitors in the U.S., `}<br/> {` We need your help.
+            <p>
+              <span className="support-banner-icon">
+                <svg
+                  fill="currentColor"
+                  preserveAspectRatio="xMidYMid meet"
+                  height="20"
+                  width="20"
+                  viewBox="0 0 40 40"
+                >
+                  <g>
+                    <path d="m25.9 30.7v-3.6q0-0.3-0.2-0.5t-0.6-0.2h-2.1v-11.4q0-0.3-0.2-0.5t-0.5-0.2h-7.2q-0.3 0-0.5 0.2t-0.2 0.5v3.6q0 0.3 0.2 0.5t0.5 0.2h2.2v7.1h-2.2q-0.3 0-0.5 0.2t-0.2 0.5v3.6q0 0.3 0.2 0.5t0.5 0.2h10q0.4 0 0.6-0.2t0.2-0.5z m-2.9-20v-3.6q0-0.3-0.2-0.5t-0.5-0.2h-4.3q-0.3 0-0.5 0.2t-0.2 0.5v3.6q0 0.3 0.2 0.5t0.5 0.2h4.3q0.3 0 0.5-0.2t0.2-0.5z m14.3 9.3q0 4.7-2.3 8.6t-6.3 6.2-8.6 2.3-8.6-2.3-6.2-6.2-2.3-8.6 2.3-8.6 6.2-6.2 8.6-2.3 8.6 2.3 6.3 6.2 2.3 8.6z" />
+                  </g>
+                </svg>
+              </span>
+              {`To all our visitors in the U.S., `}
+              <br />
+              {` `}
+              {` We need your help.
               We provide our educational platform for free to schools, we don't charge schools and we don't run ads as we believe that would be inappropriate on a children's learning website.
               We depend on donations averaging about $11. Only a tiny portion of our visitors give and every donation counts.
               If everyone reading this gave $10, we could keep our platform running for years to come. The
-               `}<u> {` price of a cup of coffee`}</u> {`is all we need.
+               `}
+              <u> {` price of a cup of coffee`}</u>
+              {` `}
+              {`is all we need.
               We know that knowledge and education are the basics of economic opportunity.
               Giving children access to basic education from a young age is critical for the success of any country.
               Please help keep DTML.org free and growing. Thank you. `}
@@ -129,13 +146,17 @@ class Header extends Component {
               id="paymentform"
               action="https://dtml.org/Home/Donate"
               method="GET"
-            >              
-              <button type="submit" className="stripe-button-el" onClick={() => viewSupport()}>
+            >
+              <button
+                type="submit"
+                className="stripe-button-el"
+                onClick={() => viewSupport()}
+              >
                 <span>Donate</span>
               </button>
             </form>
             <button className="close-support" onClick={() => closeSupport()}>
-             close X
+              close X
             </button>
           </div>
         )}
@@ -195,7 +216,12 @@ class Header extends Component {
                   <ul>
                     <li>
                       {` `}
-                      <a href="https://dtml.org/Student/PersonalProfile">
+                      <a
+                        href="https://dtml.org/Student/PersonalProfile"
+                        title={`${this.props.config.hello}, ${
+                          this.state.username
+                        }`}
+                      >
                         {this.props.config.hello}, {this.state.username}
                       </a>
                     </li>

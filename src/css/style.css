@@ -14,12 +14,6 @@ audio, canvas, video {
   *zoom: 1;
 }
 
- .gameframe {
-    background-image: url("https://games.dtml.org/games/images/gameloading.gif");   
-    background-repeat: no-repeat;
-    background-position: center;
-   }
-
 audio:not([controls]) {
   display: none;
 }
@@ -369,7 +363,7 @@ a:hover {
 }
 
 .logosection-main-right {
-  width: 600px;
+  width: 660px;
   float: right;
   height: auto;
   padding: 14px 0 0 0;
@@ -395,6 +389,10 @@ a:hover {
   float: left;
   padding: 0;
   margin: 0 9px;
+  max-width: 200px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .logosection-main-right01 ul li a {
@@ -1176,6 +1174,9 @@ a:hover {
   /* stylelint-disable */
   *width: 100%;
   /* stylelint-enable */
+  background-image: url("https://games.dtml.org/games/images/gameloading.gif");
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 /*============ratesection end====================*/
