@@ -28,7 +28,7 @@ class Header extends Component {
     this.state = {
       loggedin: false,
       username: ``,
-      showBanner: true
+      showBanner: false
     };
   }
 
@@ -68,6 +68,11 @@ class Header extends Component {
           const showBannerState = window.store.countryCode
             ? window.store.countryCode === `US`
             : true;
+
+    		ReactGA.event({
+      		  category: `Donation`,
+       		  action: `BannerImpression`
+     		 });
 
           this.setState({ showBanner: showBannerState });
         });
