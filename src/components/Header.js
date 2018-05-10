@@ -65,14 +65,18 @@ class Header extends Component {
         .then(response => response.json())
         .then(data => {
           window.store.countryCode = data.country_code;
+	  window.store.countryName = data.country_name;
           const showBannerState = window.store.countryCode
             ? window.store.countryCode === `US`
             : true;
 
+	    if (showBannerState)
+	     {	
     		ReactGA.event({
       		  category: `Donation`,
        		  action: `BannerImpression`
      		 });
+	     }
 
           this.setState({ showBanner: showBannerState });
         });
@@ -136,7 +140,7 @@ class Header extends Component {
               <br />
               {` `}
               {` We need your help.
-              We provide our educational platform for free to schools, we don't charge schools and we don't run ads as we believe that would be inappropriate on a children's learning website.
+              We provide our educational platform for free to schools and we don't run ads as we believe that would be inappropriate on a children's learning website.
               We depend on donations averaging about $11. Only a tiny portion of our visitors give and every donation counts.
               If everyone reading this gave $10, we could keep our platform running for years to come. The
                `}
