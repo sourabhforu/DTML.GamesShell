@@ -61,7 +61,7 @@ class Header extends Component {
     ) {
       that.setState({ showBanner: false });
     } else {
-      fetch(`http://json.geoiplookup.io/`)
+      fetch(`https://json.geoiplookup.io/`)
         .then(response => response.json())
         .then(data => {
           window.store.countryCode = data.country_code;
