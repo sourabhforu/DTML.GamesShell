@@ -144,7 +144,7 @@ class Header extends Component {
               {` We need your help.
               We provide our educational platform for free to schools and we don't run ads as we believe that would be inappropriate on a children's learning website.
               We depend on donations averaging about $11. Only a tiny portion of our visitors give and every donation counts.
-              If everyone reading this gave $10, we could keep our platform running for years to come. The
+              If everyone reading this gave $6, we could keep our platform running for years to come. The
                `}
               <u> {` price of a cup of coffee`}</u>
               {` `}
@@ -163,7 +163,7 @@ class Header extends Component {
                 className="stripe-button-el"
                 onClick={() => viewSupport()}
               >
-                <span>Donate</span>
+                <u> Donate </u>
               </button>
             </form>
             <button className="close-support" onClick={() => closeSupport()}>
