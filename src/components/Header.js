@@ -138,7 +138,7 @@ class Header extends Component {
                   </g>
                 </svg>
               </span>
-              {`To all our visitors in `} {window.store.countryName}  {`, `}
+              {`To all our visitors in `} {window.store.countryName}{`, `}
               <br />
               {` `}
               {` We need your help.
