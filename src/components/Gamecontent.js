@@ -19,7 +19,7 @@ import ReactGA from "react-ga";
 import { isEmpty } from "lodash";
 import arrayShuffle from "array-shuffle";
 
-const imageurl = `https://blog.dtml.org/games/`;
+const imageurl = `https://games.dtml.org/games/`;
 const rankingURL = `https://dtml.org/api/RatingService/Rank`;
 
 class Gamecontent extends Component {
@@ -54,6 +54,9 @@ class Gamecontent extends Component {
       }
 
       this.setState({ gameContent });
+      const userLang = navigator.language || navigator.userLanguage;
+      this.setState({ userLanguage: userLang });
+
     }
   }
 
@@ -67,7 +70,7 @@ class Gamecontent extends Component {
     that.setState({ rating: this.state.gameContent.rating });
     document.title = `${
       this.state.gameContent.title
-    }| DTML.org Educational Game`;
+    }| DTML.org Educational Games`;
   }
 
   handleRate({ rating, type }) {
@@ -124,7 +127,7 @@ class Gamecontent extends Component {
                     allowTransparency="true"
                     title={this.state.gameContent.title}
                     scrolling="no"
-                    src={`${this.state.gameContent.url}?tic=${date}`}
+                    src={`${this.state.gameContent.url}?tic=${date}&mkt={this.state.userLanguage}`}
                     frameBorder="0"
                   />
                 </div>
@@ -148,7 +151,7 @@ class Gamecontent extends Component {
                     <h6>
                       <a
                         target="blank"
-                        href={`${this.state.gameContent.url}?tic=${date}`}
+                        href={`${this.state.gameContent.url}?tic=${date}&mkt={this.state.userLanguage}`}
                       >
                         {` `}
                         <i className="fa fa-arrows-alt" aria-hidden="true" />
