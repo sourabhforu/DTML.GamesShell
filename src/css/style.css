@@ -1309,6 +1309,9 @@ a:hover {
   .logosection-main-left {
     display: none;
   }
+  .logosection-main .logosection-main-right {
+    width: 98%;
+  }
 
 }
 
