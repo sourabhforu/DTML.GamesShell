@@ -127,7 +127,7 @@ class Gamecontent extends Component {
                     allowTransparency="true"
                     title={this.state.gameContent.title}
                     scrolling="no"
-                    src={`${this.state.gameContent.url}?tic=${date}&mkt={this.state.userLanguage}`}
+                    src={`${this.state.gameContent.url}?tic=${date}&mkt=${this.state.userLanguage}`}
                     frameBorder="0"
                   />
                 </div>
