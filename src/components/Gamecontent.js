@@ -151,7 +151,7 @@ class Gamecontent extends Component {
                     <h6>
                       <a
                         target="blank"
-                        href={`${this.state.gameContent.url}?tic=${date}&mkt={this.state.userLanguage}`}
+                        href={`${this.state.gameContent.url}?tic=${date}&mkt=${this.state.userLanguage}`}
                       >
                         {` `}
                         <i className="fa fa-arrows-alt" aria-hidden="true" />
