@@ -165,7 +165,7 @@ class Header extends Component {
                 className="stripe-button-el"
                 onClick={() => viewSupport()}
               >
-                <u> Please Donate </u>
+                Please Donate
               </button>
             </form>
             <button className="close-support" onClick={() => closeSupport()}>
@@ -191,6 +191,11 @@ class Header extends Component {
                       <li>
                         <a href="https://blog.dtml.org">
                           {this.props.config.blog}
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://dtml.org/Home/Donate/?source=games">
+                          {this.props.config.donate}
                         </a>
                       </li>
                       <li>
