@@ -162,7 +162,7 @@ class Header extends Component {
                 className="stripe-button-el"
                 onClick={() => viewSupport()}
               >
-                <u> Donate </u>
+                <u> Please Donate </u>
               </button>
             </form>
             <button className="close-support" onClick={() => closeSupport()}>
