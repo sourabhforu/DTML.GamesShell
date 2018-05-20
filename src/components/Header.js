@@ -68,14 +68,15 @@ class Header extends Component {
 	  window.store.continentCode = data.continent_code;
 	  window.store.countryName = data.country_name.includes("United") ? `the `+ data.country_name : data.country_name;
           const showBannerState = window.store.continentCode
-            ? (window.store.continentCode === `NA`)
+            ? (window.store.continentCode === `NA` || window.store.continentCode === `EU`)
             :false;
 
 	    if (showBannerState)
 	     {	
     		ReactGA.event({
       		  category: `Donation`,
-       		  action: `BannerImpression`
+       		  action: `BannerImpression`,
+		  label:window.store.countryName
      		 });
 	     }
 
@@ -108,14 +109,16 @@ class Header extends Component {
       localStorage.setItem(`showBanner`, `false`);
       ReactGA.event({
         category: `Donation`,
-        action: `Close`
+        action: `Close`, 
+	label:window.store.countryName
       });
     };
 
     const viewSupport = () => {
       ReactGA.event({
         category: `Donation`,
-        action: `DonateButtonClick: ` + window.store.countryName
+        action: `DonateButtonClick`,
+	label:window.store.countryName
       });
     };
 
