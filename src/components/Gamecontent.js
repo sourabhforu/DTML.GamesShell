@@ -18,6 +18,7 @@ import Rater from "react-rater";
 import ReactGA from "react-ga";
 import { isEmpty } from "lodash";
 import arrayShuffle from "array-shuffle";
+import "babel-polyfill";
 
 const imageurl = `https://games.dtml.org/games/`;
 const rankingURL = `https://dtml.org/api/RatingService/Rank`;
@@ -70,7 +71,7 @@ class Gamecontent extends Component {
     that.setState({ rating: this.state.gameContent.rating });
     document.title = `${
       this.state.gameContent.title
-    }| DTML.org Educational Games`;
+    } | DTML.org Educational Games`;
   }
 
   handleRate({ rating, type }) {

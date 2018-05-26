@@ -16,7 +16,7 @@ under the License.
 import React, { Component } from "react";
 import { isEmpty, keys } from "lodash";
 import ReactGA from "react-ga";
-
+import "babel-polyfill";
 import "../css/style.css";
 
 const imageurl = `https://games.dtml.org/games/`;
@@ -65,10 +65,10 @@ class Header extends Component {
         .then(response => response.json())
         .then(data => {
           window.store.countryCode = data.country_code;
-	  window.store.continentCode = data.continent_code;
-	  window.store.countryName = data.country_name.includes("United") ? `the `+ data.country_name : data.country_name;
+	      window.store.continentCode = data.continent_code;
+	      window.store.countryName = data.country_name.includes("United") ? `the `+ data.country_name : data.country_name;
           const showBannerState = window.store.continentCode
-            ? (window.store.continentCode === `NA` || window.store.continentCode === `EU`)
+            ? (window.store.continentCode === `NA` || window.store.countryName === `India`)
             :false;
 
 	    if (showBannerState)
@@ -110,7 +110,7 @@ class Header extends Component {
       ReactGA.event({
         category: `Donation`,
         action: `Close`, 
-	label:window.store.countryName
+	    label:window.store.countryName
       });
     };
 

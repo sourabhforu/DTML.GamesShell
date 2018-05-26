@@ -13,16 +13,18 @@ specific language governing permissions and limitations
 under the License.
 */
 
+import "babel-polyfill";
+import 'core-js/es6/map';
+import 'core-js/es6/set';
+
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import ScrollToTop from "react-scroll-up";
 import ReactGA from "react-ga";
 import ReactPixel from "react-facebook-pixel";
-import "babel-polyfill";
-import 'core-js/es6/map';
-import 'core-js/es6/set';
 
 import Header from "./components/Header";
+import NotSupported from "./components/NotSupported";
 import Footer from "./components/Footer";
 import Gamelist from "./components/Gamelist";
 import Gamecontent from "./components/Gamecontent";
@@ -36,6 +38,8 @@ ReactPixel.init(`1648707511827840`);
 const imageurl = `https://games.dtml.org/games/`;
 const url = `https://dtml.org/api/ConfigurationService/GetGamesList?mkt=`;
 const queryString = require(`query-string`);
+
+const isNoSupported = (window.attachEvent && !window.addEventListener) || !window.atob;
 
 window.store = window.store || {};
 
@@ -80,6 +84,11 @@ class App extends Component {
   }
 
   render() {
+    if (this.state.config != null && isNoSupported)
+    { 
+		return(<NotSupported config={this.state.config} />)	
+	}
+    else
     if (this.state.config != null) {
       return (
         <Router basename="/games">

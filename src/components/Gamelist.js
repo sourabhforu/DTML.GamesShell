@@ -18,6 +18,7 @@ import Rater from "react-rater";
 import arrayShuffle from "array-shuffle";
 import { isEmpty } from "lodash";
 import { Link } from "react-router-dom";
+import "babel-polyfill";
 
 const imageurl = `https://games.dtml.org/games/`;
 let listcontent = [];

@@ -69,6 +69,7 @@ table {
   border-spacing: 0;
 }
 
+
 a, a:hover, a:active, a:focus {
   outline: none;
   outline-width: 0;
@@ -148,6 +149,19 @@ a {
 
 a:hover {
   text-decoration: none;
+}
+
+.notsupported-wrapper
+{
+padding:20px;
+text-align:center;
+padding-left:10%;
+padding-right:10%;
+}
+
+.notsupported-wrapper h2
+{
+ padding:10px;
 }
 
 .clearfix {
@@ -1299,6 +1313,61 @@ a:hover {
   color: black !important;
   text-transform: uppercase;
 }
+.notsupported-wrapper h2 {
+	font-size: 18px;
+	line-height: 36px;
+	font-weight: 600;
+	margin-bottom: 15px;
+}
+.notsupported-wrapper ol, ul {
+	list-style: none;
+}
+.supported-browsers-list {
+	background: #fff;
+	border: 1px solid #c5c5c5;
+	margin-top: 30px;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+}
+.supported-browsers-list-item {
+	padding: 30px 30px 30px 85px;
+	border-bottom: 1px solid #dcdcdc;
+}
+.browser-chrome {
+	background: url(https://games.dtml.org/games/images/chrome-logo.png) no-repeat 30px 50%;
+}
+.browser-firefox {
+	background: url(https://games.dtml.org/games/images/firefox-logo.png) no-repeat 30px 50%;
+}
+.browser-opera {
+	background: url(https://games.dtml.org/games/images/opera-logo.png) no-repeat 30px 50%;
+}
+.browser-safari {
+	background: url(https://games.dtml.org/games/images/safari-logo.png) no-repeat 30px 50%;
+}
+
+/* @media all and (min-width:500px) */
+.supported-browser-information {
+	float: left;
+}
+.supported-browser-information {
+	font-weight: 600;
+	font-size: 15px;
+}
+/* @media all and (min-width:500px) */
+.supported-browser-download {
+	text-align: right;
+	float: right;
+}
+.clearfix {
+	clear: both;
+}
+a {
+	color: #216ba5;
+	text-decoration: none;
+}
+
+
 
 @media screen and (max-width: 900px) and (min-width: 420px) {
 
