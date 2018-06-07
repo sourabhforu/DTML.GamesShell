@@ -337,6 +337,11 @@ padding-right:10%;
   margin: 15px auto 10px;
 }
 
+.stripe-button-el > a {
+  color: #fff;
+  font-size: 18px;
+}
+
 .close-support {
   position: absolute;
   top: 20px;

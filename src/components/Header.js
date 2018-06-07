@@ -67,20 +67,18 @@ class Header extends Component {
           window.store.countryCode = data.country_code;
 	      window.store.continentCode = data.continent_code;
 	      window.store.countryName = data.country_name.includes("United") ? `the `+ data.country_name : data.country_name;
-          const showBannerState = window.store.continentCode
-            ? (window.store.continentCode === `NA` || window.store.countryName === `India`)
-            :false;
-
-	    if (showBannerState)
+		  const showBannerState = true;
+		 
+		 if (showBannerState)
 	     {	
     		ReactGA.event({
-      		  category: `Donation`,
-       		  action: `BannerImpression`,
-		  label:window.store.countryName
+      		  category: `Share`,
+       		  action: `ShareBannerImpression`,
+		      label:window.store.countryName
      		 });
 	     }
 
-          this.setState({ showBanner: showBannerState });
+          this.setState({ showBanner: showBannerState});
         });
     }
   }
@@ -108,7 +106,7 @@ class Header extends Component {
       this.setState({ showBanner: false });
       localStorage.setItem(`showBanner`, `false`);
       ReactGA.event({
-        category: `Donation`,
+        category: `Share`,
         action: `Close`, 
 	    label:window.store.countryName
       });
@@ -116,9 +114,9 @@ class Header extends Component {
 
     const viewSupport = () => {
       ReactGA.event({
-        category: `Donation`,
-        action: `DonateButtonClick`,
-	label:window.store.countryName
+        category: `Share`,
+        action: `ShareButtonClick`,
+	    label:window.store.countryName
       });
     };
 
@@ -140,34 +138,14 @@ class Header extends Component {
                   </g>
                 </svg>
               </span>
-              {`To all our visitors in `} {window.store.countryName}{`, `}
+              {this.props.config.shareTitle}
               <br />
-              {` `}
-              {` We need your help.
-              We provide our educational platform for free to schools and we don't run ads as we believe that would be inappropriate on a children's learning website.
-              We depend on donations averaging about $11. Only a tiny portion of our visitors give and every donation counts.
-              If everyone reading this gave $6, we could keep our platform running for years to come. The
-               `}
-              <u> {` price of a cup of coffee`}</u>
-              {` `}
-              {`is all we need.
-              We know that knowledge and education are the basics of economic opportunity.
-              Giving children access to basic education from a young age is critical for the success of any country.
-              Please help keep DTML.org free and growing. Thank you. `}
+              {this.props.config.shareBody}
             </p>
-            <form
-              id="paymentform"
-              action="https://dtml.org/Home/Donate"
-              method="GET"
-            >
-              <button
-                type="submit"
-                className="stripe-button-el"
-                onClick={() => viewSupport()}
-              >
-                Please Donate
-              </button>
-            </form>
+			<button  className="stripe-button-el" data-href="https://games.dtml.org/games/" data-layout="button_count" data-size="large" data-mobile-iframe="true">
+			<a target="_blank" onClick={() => viewSupport()} href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fgames.dtml.org%2Fgames%2F&amp;src=sdkpreparse" className="fb-xfbml-parse-ignore">{this.props.config.shareButton}</a>
+			</button>
+			
             <button className="close-support" onClick={() => closeSupport()}>
               close X
             </button>
