@@ -34,10 +34,6 @@ class Header extends Component {
     };
   }
   
-    componentDidUpdate() {
-			FB.XFBML.parse();
-	}
-
   componentWillMount() {
     const that = this;
     fetch(loginURL, { credentials: `include` })
@@ -71,11 +67,11 @@ class Header extends Component {
         .then(response => response.json())
         .then(data => {
           window.store.countryCode = data.country_code;
-	      window.store.continentCode = data.continent_code;
-	      window.store.countryName = data.country_name.includes("United") ? `the `+ data.country_name : data.country_name;
-		  const showBannerState = true;
+	  window.store.continentCode = data.continent_code;
+	  window.store.countryName = data.country_name.includes("United") ? `the `+ data.country_name : data.country_name;
+	  const showBannerState = false;
 		 
-		 if (showBannerState)
+	  if (showBannerState)
 	     {	
     		ReactGA.event({
       		  category: `Share`,
