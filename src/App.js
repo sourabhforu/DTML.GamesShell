@@ -54,7 +54,7 @@ class App extends Component {
   }
 
   componentWillMount() {
-    document.title = `Distance Teaching and Mobile Learning - Educational Games`;
+    document.title = `Educational Games for Kids - DTML`;
     const userLang = navigator.language || navigator.userLanguage;
     this.setState({ userLanguage: userLang });
     const that = this;
