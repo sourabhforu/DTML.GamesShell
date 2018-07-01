@@ -84,10 +84,10 @@ class App extends Component {
   }
 
   render() {
-    if (this.state.config != null && isNoSupported)
+    if (isNoSupported)
     { 
-		return(<NotSupported config={this.state.config} />)	
-	}
+	return(<NotSupported />)	
+    }
     else
     if (this.state.config != null) {
       return (
