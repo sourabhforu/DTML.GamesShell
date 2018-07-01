@@ -99,13 +99,8 @@ class Gamelist extends Component {
     if (!isEmpty(this.state.config.customization)) {
       const custom = this.state.config.customization;
       bannerImageUrl = custom.BannerURL;
-      ReactGA.event({
-      category: `Customization`,
-      action: `PageLoad`.
-      label: custom.OrganizationName
-     });
+     }
 
-    }
     if (!isEmpty(this.state.config)) {
       let counter = 0;
       const that = this;

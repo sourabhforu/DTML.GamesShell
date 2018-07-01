@@ -76,7 +76,7 @@ class Header extends Component {
     		ReactGA.event({
       		  category: `Share`,
        		  action: `ShareBannerImpression`,
-		      label:window.store.countryName
+		  label:window.store.countryName
      		 });
 	     }
 
@@ -96,6 +96,11 @@ class Header extends Component {
       custom = this.props.config.customization;
       logoImageUrl = custom.logoURL;
       menuColor = custom.MenueColor;
+      ReactGA.event({
+      category: `Customization_PageLoad`,
+      action: window.store.loggedin,
+      label: custom.OrganizationName
+     })
     }
 
     if (logoImageUrl !== ``) {
