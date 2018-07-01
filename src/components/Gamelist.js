@@ -59,6 +59,14 @@ class Gamelist extends Component {
     this.props.Selected(false, listItem);
   }
 
+  recordSearch(e) {
+    ReactGA.event({
+      		  category: `WebAction`,
+       		  action: `Search`,
+		  label: e.target.value
+     		 });
+  }
+
   searchChange(e) {
     this.setState({ searchstring: e.target.value });
   }
@@ -163,6 +171,7 @@ class Gamelist extends Component {
                       name=""
                       type="text"
                       onKeyUp={this.searchChange.bind(this)}
+		      onBlur={this.recordSearch.bind(this)}
                       placeholder={this.state.config.findlesson}
                     />
                     <input
