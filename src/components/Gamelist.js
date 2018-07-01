@@ -15,6 +15,7 @@ under the License.
 
 import React, { Component } from "react";
 import Rater from "react-rater";
+import ReactGA from "react-ga";
 import arrayShuffle from "array-shuffle";
 import { isEmpty } from "lodash";
 import { Link } from "react-router-dom";
@@ -98,6 +99,12 @@ class Gamelist extends Component {
     if (!isEmpty(this.state.config.customization)) {
       const custom = this.state.config.customization;
       bannerImageUrl = custom.BannerURL;
+      ReactGA.event({
+      category: `Customization`,
+      action: `PageLoad`.
+      label: custom.OrganizationName
+     });
+
     }
     if (!isEmpty(this.state.config)) {
       let counter = 0;
