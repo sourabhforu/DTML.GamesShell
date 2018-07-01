@@ -36,21 +36,21 @@ class NotSupported extends Component {
   }
 
   componentDidMount() {
-				ReactGA.event({
+		    ReactGA.event({
       		    category: `NotSupported`,
        		    action: `PageShown`,
-		        label:window.store.countryName
+		    label:window.store.countryName
      		 }); 
    }
 
   render() {
     return (
     <div className='notsupported-wrapper'>
-    <h2>{this.state.config.notSupportedTitle}</h2>
-    <span>{this.props.config.notSupportedBody}</span>
+    <h2>We do not support the browser version you are using</h2>
+    <span>You are seeing this page because we detected an unsupported browser. Your browser does not support security features that we require. We highly recommend that you update your browser. If you believe you have arrived here in error, please contact us. Be sure to include your browser version.</span>
     <div className="browsers-container">
 
-        <h2 className="supported-intro">{this.props.config.notSupportedRecommended}</h2>
+        <h2 className="supported-intro">Browsers we recommend:</h2>
 
         <ul className="supported-browsers-list">
 
@@ -62,7 +62,7 @@ class NotSupported extends Component {
 
                 <div className="supported-browser-download">
                     <a href="https://www.google.com/intl/en/chrome/browser/" target="_blank" rel="noopener">
-                        {this.props.config.notSupportedDownload}
+                        Download latest
                     </a>
                 </div>
                 <div className="clearfix"></div>
@@ -73,7 +73,7 @@ class NotSupported extends Component {
                 </div>
                 <div className="supported-browser-download">
                     <a href="https://www.mozilla.org/firefox/all/" target="_blank" rel="noopener">
-                        {this.props.config.notSupportedDownload}
+                        Download latest
                     </a>
                 </div>
                 <div className="clearfix"></div>
@@ -84,7 +84,7 @@ class NotSupported extends Component {
                 </div>
                 <div className="supported-browser-download">
                     <a href="https://www.microsoft.com/en-us/download/details.aspx?id=48126" target="_blank" rel="noopener">
-                        {this.props.config.notSupportedDownload}
+                        Download latest
                     </a>
                 </div>
                 <div className="clearfix"></div>
@@ -95,7 +95,7 @@ class NotSupported extends Component {
                 </div>
                 <div className="supported-browser-download">
                     <a href="https://itunes.apple.com/us/app/os-x-yosemite/id915041082" target="_blank" rel="noopener">
-                        {this.props.config.notSupportedDownload}
+                        Download latest
                     </a>
                 </div>
                 <div className="clearfix"></div>
