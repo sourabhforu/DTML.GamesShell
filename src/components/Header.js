@@ -57,33 +57,7 @@ class Header extends Component {
         console.log(`Request failed ${error}`);
       });
 
-    if (
-      localStorage.getItem(`showBanner`) &&
-      localStorage.getItem(`showBanner`) === `false`
-    ) {
-      that.setState({ showBanner: false });
-    } else {
-      fetch(`https://json.geoiplookup.io/`)
-        .then(response => response.json())
-        .then(data => {
-          window.store.countryCode = data.country_code;
-	  window.store.continentCode = data.continent_code;
-	  window.store.countryName = data.country_name.includes("United") ? `the `+ data.country_name : data.country_name;
-	  const showBannerState = false;
-		 
-	  if (showBannerState)
-	     {	
-    		ReactGA.event({
-      		  category: `Share`,
-       		  action: `ShareBannerImpression`,
-		  label:window.store.countryName
-     		 });
-	     }
-
-          this.setState({ showBanner: showBannerState});
-        });
-	
-    }  
+	  that.setState({ showBanner: false });   
    
   }
 

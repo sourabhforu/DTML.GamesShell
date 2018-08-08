@@ -15,7 +15,7 @@ under the License.
 
 import React, { Component } from "react";
 import { isEmpty } from "lodash";
-
+import { css } from 'glamor';
 import "../css/font-awesome.min.css";
 import "../css/responsive.css";
 
@@ -31,15 +31,19 @@ class Footer extends Component {
 
   render() {
     let footerImageUrl = `${imageurl}images/footerbg-01.png`;
+	let customizedRules = css({});
     if (!isEmpty(this.props.config.customization)) {
       footerImageUrl = this.props.config.customization.FooterURL;
+	  customizedRules = css({
+						  background: this.props.config.customization.MenueColor,
+						});
     }
     return (
       <div>
         <div className="footertop-section">
-          <img src={footerImageUrl} alt="" />
+          <img src={footerImageUrl} alt="Footer image" />
         </div>
-        <div className="footersecion">
+        <div className="footersecion" {...customizedRules}>
           <div className="footersecion-main">
             <div className="footersecion-main-left">
               <ul>

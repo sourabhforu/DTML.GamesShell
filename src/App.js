@@ -22,6 +22,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import ScrollToTop from "react-scroll-up";
 import ReactGA from "react-ga";
 import ReactPixel from "react-facebook-pixel";
+import { isEmpty, keys } from "lodash";
 
 import Header from "./components/Header";
 import NotSupported from "./components/NotSupported";
@@ -84,6 +85,11 @@ class App extends Component {
   }
 
   render() {
+	
+	if (!isEmpty(this.state.gameContent)) {
+      document.body.style.backgroundColor = this.state.gameContent.customization.BackgroundColor;
+     }
+    	
     if (isNoSupported)
     { 
 	return(<NotSupported />)	
