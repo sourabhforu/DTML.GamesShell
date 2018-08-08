@@ -85,11 +85,7 @@ class App extends Component {
   }
 
   render() {
-	
-	if (!isEmpty(this.state.gameContent)) {
-      document.body.style.backgroundColor = this.state.gameContent.customization.BackgroundColor;
-     }
-    	
+   	
     if (isNoSupported)
     { 
 	return(<NotSupported />)	

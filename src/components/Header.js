@@ -69,6 +69,8 @@ class Header extends Component {
     if (!isEmpty(this.props.config.customization)) {
       custom = this.props.config.customization;
       logoImageUrl = custom.logoURL;
+      document.body.style.background = this.props.config.customization.BackgroundColor;
+	  document.body.style.backgroundURL ='';
       menuColor = custom.MenueColor;
       ReactGA.event({
       category: `Customization_PageLoad`,
