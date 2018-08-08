@@ -41,7 +41,7 @@ class Footer extends Component {
     return (
       <div>
         <div className="footertop-section">
-          <img src={footerImageUrl} alt="Footer image" />
+          <img src={footerImageUrl} alt="" />
         </div>
         <div className="footersecion" {...customizedRules}>
           <div className="footersecion-main">

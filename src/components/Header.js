@@ -13,8 +13,6 @@ specific language governing permissions and limitations
 under the License.
 */
 
-/*global FB*/
-
 import React, { Component } from "react";
 import { isEmpty, keys } from "lodash";
 import ReactGA from "react-ga";
@@ -97,14 +95,6 @@ class Header extends Component {
       });
     };
 
-    const viewSupport = () => {
-      ReactGA.event({
-        category: `Share`,
-        action: `ShareButtonClick`,
-	    label:window.store.countryName
-      });
-    };
-
     return (
       <div className="header">
         {this.state.showBanner && (
@@ -129,7 +119,7 @@ class Header extends Component {
             </p>
 			
 			<div className="stripe-button-el">
-		    <div className="fb-share-button" data-href="https://games.dtml.org/games/" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fgames.dtml.org%2Fgames%2F&amp;src=sdkpreparse" className="fb-xfbml-parse-ignore">{this.props.config.shareButton}</a></div>
+		    <div className="fb-share-button" data-href="https://games.dtml.org/games/" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a target="_blank"  rel="noopener noreferrer" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fgames.dtml.org%2Fgames%2F&amp;src=sdkpreparse" className="fb-xfbml-parse-ignore">{this.props.config.shareButton}</a></div>
 			</div>
 			
             <button className="close-support" onClick={() => closeSupport()}>
