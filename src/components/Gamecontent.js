@@ -38,10 +38,8 @@ class Gamecontent extends Component {
   }
 
   componentWillMount() {
-  }
-
-  componentDidMount() {
-	      if (isEmpty(this.state.gameContent)) {
+	
+	if (isEmpty(this.state.gameContent)) {
       const urlpath = window.location.pathname;
       const baseurl = urlpath.split(`?`)[0].split(`#`)[0];
       const gameID = baseurl.substr(baseurl.lastIndexOf(`/`) + 1);
@@ -62,6 +60,7 @@ class Gamecontent extends Component {
       this.setState({ gameContent });
       const userLang = navigator.language || navigator.userLanguage;
       this.setState({ userLanguage: userLang });
+	  this.setState({ customization: this.props.config.customization });
 
     }
 	
@@ -95,11 +94,9 @@ class Gamecontent extends Component {
   render() {
 	
 	let titleStyle = {};
-	
-	if (!isEmpty(this.state.config.customization)) {
-	  	
-	titleStyle = {color: utils.invertColor(this.state.config.customization.BackgroundColor)};
-     }
+	if (this.state.customization) {	  	
+	titleStyle = {color: utils.invertColor(this.state.customization.BackgroundColor)};
+    }
 	  
 
     let instruction = null;
@@ -107,8 +104,8 @@ class Gamecontent extends Component {
     const date = `${today.getFullYear()}${today.getMonth()}${today.getDate()}`;
     instruction = (
       <div>
-        <div className="howtoplay">{this.props.config.howtoplay}</div>
-        <p>{this.state.gameContent.instruction}</p>
+        <div className="howtoplay"><p  style={titleStyle}>{this.props.config.howtoplay}</p></div>
+        <p  style={titleStyle}>{this.state.gameContent.instruction}</p>
       </div>
     );
 
@@ -119,8 +116,8 @@ class Gamecontent extends Component {
             src={`${imageurl}images/game-banner.jpg`}
             alt="{this.state.gameContent.title}"
           />
-          <div className="bannersection01">
-            <h2 style={titleStyle}>{this.state.gameContent.title}</h2>
+          <div className="bannersection01" >
+            <h2>{this.state.gameContent.title}</h2>
           </div>
         </div>
 
@@ -128,7 +125,7 @@ class Gamecontent extends Component {
           <div className="contentsection-main">
             <div className="gamesection">
               <div className="gamesection01">
-                <p>{this.state.gameContent.description}</p>
+                <p style={titleStyle}>{this.state.gameContent.description}</p>
                 {instruction}
                 <div className="clr" />
               </div>

@@ -52,7 +52,7 @@ class App extends Component {
     };
     ReactGA.pageview(window.location.hash);
   }
-
+  
   componentWillMount() {
     document.title = `Educational Games for Kids - DTML`;
     const userLang = navigator.language || navigator.userLanguage;
@@ -69,8 +69,15 @@ class App extends Component {
         return response.json();
       })
       .then(data => {
-        that.setState({ config: data });
+		if (data && data.customization)
+		{
+		localStorage.setItem(`customization`,JSON.stringify(data.customization));
+		}
+		
+		data.customization = JSON.parse(localStorage.getItem(`customization`));
+		that.setState({ config: data });
       });
+	  
   }
 
   onSelectedGame(newdone, newContent) {
@@ -82,6 +89,8 @@ class App extends Component {
       action: `Game selected`
     });
   }
+  
+  
 
   render() {
    	
