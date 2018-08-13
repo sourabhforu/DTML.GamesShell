@@ -70,11 +70,14 @@ class Header extends Component {
       document.body.style.background = this.props.config.customization.BackgroundColor;
 	  document.body.style.backgroundURL ='';
       menuColor = custom.MenueColor;
+	   try
+	  {
       ReactGA.event({
       category: `Customization_PageLoad`,
-      action: window.store.loggedin,
       label: custom.OrganizationName
      })
+	 }
+	  catch(e) {}
     }
 
     if (logoImageUrl !== ``) {
@@ -88,11 +91,15 @@ class Header extends Component {
     const closeSupport = () => {
       this.setState({ showBanner: false });
       localStorage.setItem(`showBanner`, `false`);
+	  try
+	  {
       ReactGA.event({
         category: `Share`,
         action: `Close`, 
 	    label:window.store.countryName
       });
+	  }
+	  catch(e) {}
     };
 
     return (
