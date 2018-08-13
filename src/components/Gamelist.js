@@ -20,6 +20,7 @@ import arrayShuffle from "array-shuffle";
 import { isEmpty } from "lodash";
 import { Link } from "react-router-dom";
 import "babel-polyfill";
+import * as utils from './utils.js'; 
 
 const imageurl = `https://games.dtml.org/games/`;
 let listcontent = [];
@@ -63,22 +64,24 @@ class Gamelist extends Component {
     ReactGA.event({
       		  category: `WebAction`,
        		  action: `Search`,
-		  label: e.target.value
+	     	  label: e.target.value
      		 });
   }
 
   searchChange(e) {
     this.setState({ searchstring: e.target.value });
+	
   }
 
   showMore() {
     this.setState({ listcounter: this.state.listcounter + 10 });
+	this.setState({ hideMore: true });
   }
 
   sortChange(sortParameter) {
     this.sortGamesArray(sortParameter);
   }
-
+  
   sortGamesArray(sortParameter = `random`) {
     if (sortParameter !== `initial`) {
       if (sortParameter === this.state.sortProperty) {
@@ -103,10 +106,16 @@ class Gamelist extends Component {
 
   render() {
     let bannerImageUrl = `${imageurl}images/banner01.jpg`;
-
+	let searchStyle = {};
+	let titleStyle ={};
+	let hideMoreStyle = this.state.hideMore ? {display:'none'}: {};
+	
     if (!isEmpty(this.state.config.customization)) {
       const custom = this.state.config.customization;
       bannerImageUrl = custom.BannerURL;
+	  searchStyle = custom.HideSearch ? {display: 'none'} : {};
+
+	  titleStyle = {color: utils.invertColor(custom.BackgroundColor)};
      }
 
     if (!isEmpty(this.state.config)) {
@@ -163,9 +172,9 @@ class Gamelist extends Component {
         <div className="contentsection">
           <div className="contentsection-main">
             <div className="contentsection-main-top">
-              <h6>{this.state.config.title}</h6>
-              <div className="contentsection-main-top01">
-                <div className="contentsection-main-top01-main">
+              <h6 style={titleStyle}>{this.state.config.title}</h6>
+              <div className="contentsection-main-top01" style={searchStyle}>
+					<div className="contentsection-main-top01-main" >
                   <div className="contentsection-main-top01-mainin">
                     <input
                       name=""
@@ -205,7 +214,7 @@ class Gamelist extends Component {
             <div className="contentsection-main-middle">
               {listcontent}
               <h5>
-                <button onClick={this.showMore.bind(this)}>
+                <button onClick={this.showMore.bind(this)} style={hideMoreStyle}>
                   {this.state.config.more}
                 </button>
               </h5>

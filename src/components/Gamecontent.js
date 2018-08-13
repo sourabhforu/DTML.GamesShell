@@ -19,6 +19,7 @@ import ReactGA from "react-ga";
 import { isEmpty } from "lodash";
 import arrayShuffle from "array-shuffle";
 import "babel-polyfill";
+import * as utils from './utils.js'; 
 
 const imageurl = `https://games.dtml.org/games/`;
 const rankingURL = `https://dtml.org/api/RatingService/Rank`;
@@ -29,6 +30,7 @@ class Gamecontent extends Component {
     console.log(props);
     this.state = {
       rating: 0,
+	  config: props.config,
       gameContent: props.gameContent,
       frameText: ``,
       startTime: new Date().getTime()
@@ -36,7 +38,10 @@ class Gamecontent extends Component {
   }
 
   componentWillMount() {
-    if (isEmpty(this.state.gameContent)) {
+  }
+
+  componentDidMount() {
+	      if (isEmpty(this.state.gameContent)) {
       const urlpath = window.location.pathname;
       const baseurl = urlpath.split(`?`)[0].split(`#`)[0];
       const gameID = baseurl.substr(baseurl.lastIndexOf(`/`) + 1);
@@ -44,7 +49,7 @@ class Gamecontent extends Component {
         window.location.href = `https://games.dtml.org/games`;
         return;
       }
-
+ 
       const gameContent = this.props.config.games.find(
         game => game.id === gameID
       );
@@ -59,9 +64,7 @@ class Gamecontent extends Component {
       this.setState({ userLanguage: userLang });
 
     }
-  }
-
-  componentDidMount() {
+	
     ReactGA.pageview(window.location.hash);
     ReactGA.event({
       category: `Games`,
@@ -90,6 +93,15 @@ class Gamecontent extends Component {
   }
 
   render() {
+	
+	let titleStyle = {};
+	
+	if (!isEmpty(this.state.config.customization)) {
+	  	
+	titleStyle = {color: utils.invertColor(this.state.config.customization.BackgroundColor)};
+     }
+	  
+
     let instruction = null;
     const today = new Date();
     const date = `${today.getFullYear()}${today.getMonth()}${today.getDate()}`;
@@ -108,7 +120,7 @@ class Gamecontent extends Component {
             alt="{this.state.gameContent.title}"
           />
           <div className="bannersection01">
-            <h2>{this.state.gameContent.title}</h2>
+            <h2 style={titleStyle}>{this.state.gameContent.title}</h2>
           </div>
         </div>
 
