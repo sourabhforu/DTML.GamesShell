@@ -69,12 +69,16 @@ class App extends Component {
         return response.json();
       })
       .then(data => {
-		if (data && data.customization)
+		if (data && data.customization && parsed.school)
 		{
 		localStorage.setItem(`customization`,JSON.stringify(data.customization));
 		}
 		
+		if (!parsed.school && !data.customization)
+		{
 		data.customization = JSON.parse(localStorage.getItem(`customization`));
+		}
+		
 		that.setState({ config: data });
       });
 	  
