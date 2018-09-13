@@ -38,10 +38,12 @@ class Footer extends Component {
 						  background: this.props.config.customization.MenueColor,
 						});
     }
-    return (
+	
+	return (
       <div>
         <div className="footertop-section">
-          <img src={footerImageUrl} alt="	" />
+		
+		{this.footerImageUrl && this.footerImageUrl !=`` && (<img src={footerImageUrl} alt="Footer image" />)}
         </div>
         <div className="footersecion" {...customizedRules}>
           <div className="footersecion-main">

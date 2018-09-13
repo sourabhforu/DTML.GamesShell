@@ -167,7 +167,7 @@ class Gamelist extends Component {
     return (
       <div>
         <div className="bannersection_list">
-          <img src={bannerImageUrl} alt="Banner" />
+		{bannerImageUrl && bannerImageUrl !='' && (<img src={bannerImageUrl} alt="Banner" />)}
         </div>
         <div className="contentsection">
           <div className="contentsection-main">

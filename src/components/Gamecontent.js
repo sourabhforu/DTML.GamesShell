@@ -81,7 +81,7 @@ class Gamecontent extends Component {
       const url = `${rankingURL}/?key=${
         this.state.gameContent.id
       }&rank=${rating}`;
-      fetch(url, {
+       fetch(url, {
         method: `post`,
         headers: {
           "Content-Type": `application/json`,
