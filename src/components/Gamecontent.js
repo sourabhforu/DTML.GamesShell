@@ -83,6 +83,7 @@ class Gamecontent extends Component {
       }&rank=${rating}`;
        fetch(url, {
         method: `post`,
+	credentials: `same-origin`,
         headers: {
           "Content-Type": `application/json`,
           Accept: `application/json, text/plain, */*`
