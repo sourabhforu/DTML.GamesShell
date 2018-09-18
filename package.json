@@ -10,7 +10,7 @@
     "glamor": "^2.20.40",
     "lodash": "^4.17.10",
     "node-fetch": "^1.7.3",
-    "npm": "^6.4.0",
+    "npm": "^6.4.1",
     "prop-types": "^15.6.0",
     "react": "^16.1.1",
     "react-addons-test-utils": "^15.6.2",

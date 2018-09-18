@@ -37,8 +37,17 @@ class Gamecontent extends Component {
     };
   }
 
+  componentDidMount() {
+    document.title = `${this.state.gameContent.title} | DTML.org Educational Games`;
+    document.getElementsByTagName('meta')["description"].content =`${this.state.gameContent.instruction}`;
+    ReactGA.event({
+      category: `Games`,
+      action: `Game__${this.state.gameContent.id}`
+    });
+    ReactGA.pageview(window.location.hash);
+   }
+
   componentWillMount() {
-	
 	if (isEmpty(this.state.gameContent)) {
       const urlpath = window.location.pathname;
       const baseurl = urlpath.split(`?`)[0].split(`#`)[0];
@@ -60,21 +69,12 @@ class Gamecontent extends Component {
       this.setState({ gameContent });
       const userLang = navigator.language || navigator.userLanguage;
       this.setState({ userLanguage: userLang });
-	  this.setState({ customization: this.props.config.customization });
+      this.setState({ customization: this.props.config.customization });
 
     }
-	
-    ReactGA.pageview(window.location.hash);
-    ReactGA.event({
-      category: `Games`,
-      action: `Game__${this.state.gameContent.id}`
-    });
     const that = this;
     that.setState({ rating: this.state.gameContent.rating });
-    document.title = `${
-      this.state.gameContent.title
-    } | DTML.org Educational Games`;
-  }
+   }
 
   handleRate({ rating, type }) {
     if (type === `click`) {
@@ -97,8 +97,7 @@ class Gamecontent extends Component {
 	let titleStyle = {};
 	if (this.state.customization) {	  	
 	titleStyle = {color: utils.invertColor(this.state.customization.BackgroundColor)};
-    }
-	  
+    }	  
 
     let instruction = null;
     const today = new Date();
@@ -112,20 +111,11 @@ class Gamecontent extends Component {
 
     return (
       <div>
-        <div className="bannersection">
-          <img
-            src={`${imageurl}images/game-banner.jpg`}
-            alt="{this.state.gameContent.title}"
-          />
-          <div className="bannersection01" >
-            <h2>{this.state.gameContent.title}</h2>
-          </div>
-        </div>
-
         <div className="contentsection gamecontent">
           <div className="contentsection-main">
             <div className="gamesection">
               <div className="gamesection01">
+		<h1 style={titleStyle} className="gameTitle">{this.state.gameContent.title}</h1>
                 <p style={titleStyle}>{this.state.gameContent.description}</p>
                 {instruction}
                 <div className="clr" />

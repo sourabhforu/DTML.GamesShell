@@ -114,7 +114,7 @@ body {
   padding: 0 0 0 0;
   font-family: 'Open Sans', sans-serif;
   color: #6c6d70;
-  background: url(https://games.dtml.org/games/images/body-bg.jpg) repeat;
+  background-color:#f1f1f1;
   font-size: 14px;
 }
 
@@ -170,13 +170,18 @@ padding-right:10%;
 
 .clearfix:before,
 .clearfix:after {
-  display: table;
+  display: table;   
   line-height: 0;
   content: "";
 }
 
 .clearfix:after {
   clear: both;
+}
+
+.gameTitle
+{
+font-size:26px;
 }
 
 .welcome {
@@ -866,7 +871,6 @@ padding-right:10%;
 .footertop-section.gamefooter img {
   width: 100%;
   height: auto;
-  margin-top: -150px;
 }
 
 /*============footertop-section end=================*/
