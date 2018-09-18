@@ -105,7 +105,7 @@ class Gamelist extends Component {
   }
 
   render() {
-    let bannerImageUrl = `${imageurl}images/banner01.jpg`;
+    let bannerImageUrl = `${imageurl}images/banner01.png`;
 	let searchStyle = {};
 	let titleStyle ={};
 	let hideMoreStyle = this.state.hideMore ? {display:'none'}: {};
