@@ -501,6 +501,7 @@ font-size:26px;
 }
 
 .contentsection-main {
+  max-width: 90%;
   height: auto;
   padding: 45px 0 0 0;
   margin: 0 auto;
@@ -726,6 +727,7 @@ font-size:26px;
 }
 
 .game-sidebar {
+  max-width:600px;
   margin-left: 5%;
   width: 25%;
   flex-grow: 2.5;
