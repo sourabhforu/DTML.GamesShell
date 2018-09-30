@@ -21,7 +21,6 @@ import arrayShuffle from "array-shuffle";
 import "babel-polyfill";
 import * as utils from './utils.js'; 
 
-const imageurl = `https://games.dtml.org/games/`;
 const rankingURL = `https://dtml.org/api/RatingService/Rank`;
 
 class Gamecontent extends Component {
@@ -173,16 +172,6 @@ class Gamecontent extends Component {
 
                 <div className="ratesection-bottom">
                   <div className="ratesection-bottom01" />
-                  <div className="ratesection-bottom02">
-                    <h6>
-                      <a href="https://dtml.org/Home/Edubot">
-                        <img
-                          src={`${imageurl}images/goto-pic.png`}
-                          alt="Edubot"
-                        />
-                      </a>
-                    </h6>
-                  </div>
                   <div className="clr" />
                 </div>
               </div>

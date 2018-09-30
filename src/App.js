@@ -19,7 +19,6 @@ import 'core-js/es6/set';
 
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import ScrollToTop from "react-scroll-up";
 import ReactGA from "react-ga";
 import ReactPixel from "react-facebook-pixel";
 
@@ -52,8 +51,28 @@ class App extends Component {
     };
     ReactGA.pageview(window.location.hash);
   }
+
+startErrorLog()
+{
+    window.onerror = (message,file,line,column,errorObject) =>
+    {
+        column = column || (window.event && window.event.errorCharacter);
+        var stack = errorObject ? errorObject.stack : null;
+        var data = {
+            message:message,
+            file:file,
+            line:line,
+            column:column,
+            errorStack:stack,
+        };
+
+	console.log(data);
+        return false;
+    }
+}
   
   componentWillMount() {
+    this.startErrorLog();
     document.title = `Educational Games for Kids - DTML`;
     const userLang = navigator.language || navigator.userLanguage;
     this.setState({ userLanguage: userLang });
@@ -107,17 +126,6 @@ class App extends Component {
       return (
         <Router basename="/games">
           <div>
-            <ScrollToTop
-              showUnder={160}
-              easing="linear"
-              style={{ zIndex: 9999 }}
-            >
-              <img
-                src={`${imageurl}images/backto-top.png`}
-                alt="Back to top"
-                className="back-top fa"
-              />
-            </ScrollToTop>
             <Header config={this.state.config} />
             <Route
               exact

@@ -18,14 +18,11 @@ import 'core-js/es6/map';
 import 'core-js/es6/set';
 
 import React, { Component } from "react";
-import { isEmpty } from "lodash";
 import ReactGA from "react-ga";
 
 
 import "../css/font-awesome.min.css";
 import "../css/responsive.css";
-
-const imageurl = `https://games.dtml.org/games/`;
 
 class NotSupported extends Component {
   constructor(props) {
@@ -61,7 +58,7 @@ class NotSupported extends Component {
                 </div>
 
                 <div className="supported-browser-download">
-                    <a href="https://www.google.com/intl/en/chrome/browser/" target="_blank" rel="noopener">
+                    <a href="https://www.google.com/intl/en/chrome/browser/" target="_blank" rel="noopener noreferrer">
                         Download latest
                     </a>
                 </div>
@@ -72,7 +69,7 @@ class NotSupported extends Component {
                     Mozilla Firefox
                 </div>
                 <div className="supported-browser-download">
-                    <a href="https://www.mozilla.org/firefox/all/" target="_blank" rel="noopener">
+                    <a href="https://www.mozilla.org/firefox/all/" target="_blank" rel="noopener noreferrer">
                         Download latest
                     </a>
                 </div>
@@ -83,7 +80,7 @@ class NotSupported extends Component {
                     Microsoft Edge
                 </div>
                 <div className="supported-browser-download">
-                    <a href="https://www.microsoft.com/en-us/download/details.aspx?id=48126" target="_blank" rel="noopener">
+                    <a href="https://www.microsoft.com/en-us/download/details.aspx?id=48126" target="_blank" rel="noopener noreferrer">
                         Download latest
                     </a>
                 </div>
@@ -94,7 +91,7 @@ class NotSupported extends Component {
                     Apple Safari
                 </div>
                 <div className="supported-browser-download">
-                    <a href="https://itunes.apple.com/us/app/os-x-yosemite/id915041082" target="_blank" rel="noopener">
+                    <a href="https://itunes.apple.com/us/app/os-x-yosemite/id915041082" target="_blank" rel="noopener noreferrer">
                         Download latest
                     </a>
                 </div>

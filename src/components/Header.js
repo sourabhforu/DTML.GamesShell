@@ -80,7 +80,7 @@ class Header extends Component {
 	  catch(e) {}
     }
 
-    if (logoImageUrl && logoImageUrl != ``) {
+    if (logoImageUrl && logoImageUrl !== ``) {
       Logo = (
         <a href="https://dtml.org">
           <img src={logoImageUrl} alt="DTML Logo" style={{ height: `37px` }} />
