@@ -20,6 +20,7 @@ import { isEmpty } from "lodash";
 import arrayShuffle from "array-shuffle";
 import "babel-polyfill";
 import * as utils from './utils.js'; 
+import MyBugReporter from "./BugReporter.js";
 
 const rankingURL = `https://dtml.org/api/RatingService/Rank`;
 
@@ -123,13 +124,15 @@ class Gamecontent extends Component {
               <div className="gamesection01-top">
                 <div id="framecontainer">
                   <iframe
+                    id="sourabhiframe"
                     className="gameframe"
                     allowtransparency="true"
                     title={this.state.gameContent.title}
                     scrolling="no"
-                    src={`${this.state.gameContent.url}?tic=${date}&mkt=${this.state.userLanguage}`}
+                    src="http://localhost:3001/"
                     frameBorder="0"
-                  />
+                  >
+                  </iframe>
                 </div>
               </div>
 
