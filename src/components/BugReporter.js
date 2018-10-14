@@ -31,7 +31,7 @@ constructor () {
     render () {
         return (
             <div>
-            {!this.state.isHidden && <BugReporter />}
+            {!this.state.isHidden && <BugReporter serverURL="https://dtml.org/api/UserService/RecordUserActivity"/>}
             </div>
         )
     }
@@ -69,16 +69,20 @@ class BugReporter extends React.Component {
 
     try {
      
-      await axios.post(this.props.serverURL, {
-        clientName: this.props.name,
-        message
+      await axios.get(this.props.serverURL, {
+        params:{
+            "eventType":"UserFeedbackSubmited",
+            "EventData":{
+                "feedback":message
+            }
+        }
       });
 
-      alert(this.translate('report_sent'));
+      alert('report_sent');
 
     } catch (err) {
       console.error(err);
-      alert(this.translate('error_sending'));
+      alert('error_sending');
     }
 
     this.setState({
