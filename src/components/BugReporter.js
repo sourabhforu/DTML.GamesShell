@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import axios from 'axios';
 import '../css/BugReporter.css';
 import postal from 'postal';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -67,22 +66,17 @@ class BugReporter extends React.Component {
       loading: true
     });
 
-    try {
-     
-      await axios.get(this.props.serverURL, {
-        params:{
-            "eventType":"UserFeedbackSubmited",
-            "EventData":{
-                "feedback":message
-            }
-        }
-      });
-
-      alert('report_sent');
+    try {     
+      var url = new URL(this.props.serverURL);
+      var params = {
+        "eventType":"UserFeedbackSubmited",
+        "EventData":JSON.stringify({"feedback":message})
+      };
+      url.search = new URLSearchParams(params);
+      await fetch(url);
 
     } catch (err) {
       console.error(err);
-      alert('error_sending');
     }
 
     this.setState({
