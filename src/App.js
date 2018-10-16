@@ -148,7 +148,7 @@ startErrorLog()
                 />
               )}
             />
-            <BugReporterContainer></BugReporterContainer>
+            <BugReporterContainer config={this.state.config}/>
             <Footer config={this.state.config} />
           </div>
         </Router>

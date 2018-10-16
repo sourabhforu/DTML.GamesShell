@@ -6,10 +6,11 @@ import postal from 'postal';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 class BugReporterContainer extends React.Component{
-constructor () {
-        super()
+constructor (props) {
+        super(props)
         this.state = {
-            isHidden: true
+            isHidden: true,
+            config: props.config
         }
         this.channel = postal.channel('BugReporterVisibility');
         this.toggleHidden = this.toggleHidden.bind(this);
@@ -30,7 +31,7 @@ constructor () {
     render () {
         return (
             <div>
-            {!this.state.isHidden && <BugReporter serverURL="https://dtml.org/api/UserService/RecordUserActivity"/>}
+            {!this.state.isHidden && <BugReporter serverURL="https://dtml.org/api/UserService/RecordUserActivity" config = {this.state.config}/>}
             </div>
         )
     }
@@ -44,7 +45,8 @@ class BugReporter extends React.Component {
     this.state = {
       message: '',
       loading: false,
-      visible: false
+      visible: false,
+      config: props.config
     };
 
     this.onMessageChange = this.onMessageChange.bind(this);
@@ -60,7 +62,7 @@ class BugReporter extends React.Component {
   }
 
   async submit() {
-    const { message, loading, visible} = this.state;
+    const message = this.state.message;
 
     this.setState({
       loading: true
@@ -119,7 +121,7 @@ class BugReporter extends React.Component {
               disabled={this.state.message === ''}
               onClick={this.submit} class="btn btn-info"
             >
-            Send
+            {this.state.config.submit}
             </button>
           </div>
 
@@ -128,7 +130,7 @@ class BugReporter extends React.Component {
               type="button"
               onClick={this.cancel} class = "btn btn-info"
             >
-              Cancel
+              {this.state.config.cancel}
             </button>
           </div>
         </div>
