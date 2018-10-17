@@ -99,11 +99,10 @@ class BugReporter extends React.Component {
     return (
       <div id="bug-reporter" className={classNames({ 'bug-reporter-loader': this.state.loading })}>
         <div className="title" class="label label-default">
-          Bug reporter
+        {this.state.config.bugreport}
         </div>
 
         <div className="field-group message-input">
-          <label htmlFor="message" class="label label-default" >Message</label>
           <textarea
             type="text"
             id="message"
